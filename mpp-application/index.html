@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MPP 2.0 — Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500&family=Google+Sans+Display&family=Google+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Ron · UX Portfolio</a>
+  <div class="nav-links">
+    <a href="#">Work</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Case Study · Federal Web Application</div>
+  <h1 class="hero-title">Modernizing FEMA's Mitigation Planning Portal</h1>
+  <p class="hero-desc">MPP 2.0 consolidates two outdated systems into a user-centered platform — giving federal planners a clearer, faster way to manage hazard mitigation plans across all ten FEMA regions.</p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <div class="meta-label">Role</div>
+      <div class="meta-val">Solo UX Designer</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Client</div>
+      <div class="meta-val">FEMA (Federal)</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Timeline</div>
+      <div class="meta-val">4 months active</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Platform</div>
+      <div class="meta-val">Web Application</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="hero-img">
+  <div class="hero-dash">
+      <img src="/img/Plan Detail.png">
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="tldr-label">TL;DR</div>
+    <div class="tldr-text">Five stakeholder-identified pain points. Two major design solutions. One solo UX designer navigating competing client priorities — and a two-month naming debate over a single button. The delivered system gives federal planners a cleaner dashboard, a persistent plan queue, and an alert system that doesn't interrupt their workflow.</div>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="section">
+    <h2>background</h2>
+    <p>The Mitigation Planning Portal (MPP) is a web application developed by FEMA to track and report hazard mitigation plans and related data elements across all 10 regions. Users can create mitigation plans, manage compliance, and oversee funding across a national network of states and local jurisdictions.  </p>
+    <blockquote>
+      <p>"System of record for mitigation plan status."</p>
+      <cite>— Stakeholder workshop, FEMA</cite>
+    </blockquote>
+  </div>
+
+  <!-- USERS -->
+  <div class="section">
+    <h2>Understanding the Users</h2>
+    <p>MPP comprises a wide range of FEMA users, each with varying levels of administrative access. Users are organized into three primary groups: Federal, Regional, and State, each with a unique set of access.
+    <br>
+    <br>
+      To cover the complexity and design process in greater depth, this case study focuses on federal users.  </p>
+    <div class="user-grid">
+      <div class="user-card primary">
+        <div class="user-badge primary">Primary Focus</div>
+        <div class="user-title">Federal</div>
+        <div class="user-desc">Full edit access across all 10 regions. The most demanding user — highest data scope, highest stakes for accuracy.</div>
+      </div>
+      <div class="user-card">
+        <div class="user-badge secondary"></div>
+        <div class="user-title">Regional</div>
+        <div class="user-desc">Data quality oversight across all regions. Responsible for enforcing entry standards.</div>
+      </div>
+      <div class="user-card">
+        <div class="user-badge secondary"></div>
+        <div class="user-title">State</div>
+        <div class="user-desc">Scoped to assigned region or state. Mirror the Federal permission tiers within their geographic boundary.</div>
+      </div>
+    </div>
+    <p>The design work centered on the Federal Read &amp; Write user — the role with the broadest scope and the most friction in the existing system. Meet Sandra:</p>
+    <div class="img-placeholder short">
+      <div class="img-ph-icon">👤</div>
+      <div class="img-ph-label">User Persona — Sandra M.<br>HQ Mitigation Planner · Federal Read &amp; Write</div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div class="section">
+    <h2>Pain Points</h2>
+    <p>I learned from the stakeholder workshops that several user pain points were overlooked during the transition from the Legacy version to MPP 1.0, and the updates were completed without resolving many of the problems in the legacy version.</p>
+    <div class="pain-points">
+      <div class="pain-card">
+        <div class="pain-num">1</div>
+        <div class="pain-body">
+          <div class="pain-title">Broken User Flow</div>
+          <p class="pain-desc">The status dashboard provided a high-level view of plan status, but did not offer a direct path to the plans they were working on. Users had to navigate via search to resume their work. </p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">2</div>
+        <div class="pain-body">
+          <div class="pain-title">Confusing review and comments workflow</div>
+          <p class="pain-desc">The plan needs to track the reviewer’s information, and the reviewer should be able to leave their comments about the plan. The current design lacks a reliable way to log their activity or leave comments tied to the plan they are working on.  </p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">3</div>
+        <div class="pain-body">
+          <div class="pain-title">Missing Alert Preference Setting</div>
+          <p class="pain-desc">Users can either receive all notifications for a plan or none at all. For planners managing a small number of plans, this is a minor issue; for those working with 100 or more, it becomes overwhelming, making it nearly impossible to prioritize.</p>
+        </div>
+      </div>
+    </div>
+    <blockquote>
+      <p>"Manually entering Tribal and entering can be tedious."</p>
+      <cite>— Stakeholder workshop, FEMA</cite>
+    </blockquote>
+  </div>
+
+  <hr>
+
+  <!-- DESIGN DECISIONS -->
+  <div class="section">
+    <h2>Design Decisions</h2>
+    <p>The biggest challenge was the limits on how many improvements we can make. It’s quite common when working on a modernization project like this. I got a sense that the client didn’t want to deviate too much from the original design layout. However, I didn’t want this to be a “make it look pretty” type of work, so I pushed for a bigger challenge and explained how the new design proposal can benefit users’ experience. 
+    <br>
+    <br>
+    Although some were accepted, the number of design updates was rejected due to time constraints and conflicts with existing user's expectation. For this case study, I am sharing the design I initially proposed.</p>
+
+      <!--
+    <div class="decision-box">
+      <div class="decision-label">Design rationale</div>
+      <p class="decision-text">I advocated for a bookmark icon paired with "Add to My Plans" — the bookmark for its association with structured reference rather than preference, and the label for its literal, unambiguous clarity. The team landed on "Flag Plans," driven by client preference. The outcome wasn't the solution I'd have chosen — but moving a two-month deadlock to a decision was itself the design work.</p>
+    </div>
+      -->
+  </div>
+
+  <!-- SOLUTION 6A -->
+  <div class="section">
+    <h3>Status Dashboard and Navigation</h3>
+    <p>Introduced a Flag Plans feature that lets users mark any plans and return to them directly from the dashboard. </p>
+    <p>Separated the Jurisdiction Status table into its own tab, giving the data room to help users process information faster and reducing the chance of making errors.</p>
+    
+    <h3>What changed</h3>
+    <p>Two targeted interventions addressed the navigation problem directly:</p>
+    <p><strong>Flag Plans</strong> — Introduced a feature that lets users mark any plan and return to it directly from the dashboard. Accessible from a dedicated My Plans tab, the saved plan list eliminates the need to reconstruct a search for work already in progress.</p>
+    <div>
+      <div class="legacy-img">
+        <img src="/img/MPP-legacy-dashboard.png">
+        <div class="img-ph-label"><strong>Status Dashboard</strong> & Plan Detail - before state<br>All plan data visible, no path to resume active work</div>
+      </div>
+    </div>
+    <hr class="inner-section-hr">
+    <p><strong>Jurisdiction Status tab</strong> — Separated the Jurisdiction Status table into its own dedicated tab, giving the data room to breathe. Framed to the client around cognitive load: sectioning content helps users process information faster and reduces the likelihood of input errors.</p>
+    <div>
+      <div class="legacy-img">
+        <img src="/img/MPP-legacy-plan detail.png">
+        <div class="img-ph-label"><strong>Status Dashboard</strong> before state<br>All plan data visible, no path to resume active work</div>
+      </div>
+    </div>
+    <hr class="inner-section-hr">
+    <div class="img-placeholder tall">
+      <div class="img-ph-icon">🖥</div>
+      <div class="img-ph-label">Status Dashboard — MPP 2.0<br>My Plans tab + Flag Plans feature</div>
+    </div>
+  </div>
+
+  <!-- SOLUTION 6B -->
+  <div class="section">
+    <div class="solution-label">6B</div>
+    <div class="eyebrow">Design Solutions</div>
+    <h2>Alert Preferences</h2>
+    <p>The client-approved alert system used a modal popup triggered by a bell icon inside a dense data table. Every time a planner wanted to configure alerts for a plan, they lost their place in the list — the modal disrupted context rather than extending it.</p>
+    <p>In a government application, modals carry specific associations: errors, confirmations, warnings. Using a modal for a settings task sends the wrong signal. It implies urgency when the user is simply trying to configure a preference.</p>
+    <div class="img-placeholder short">
+      <div class="img-ph-icon">⚠️</div>
+      <div class="img-ph-label">Client-approved version — modal popup triggered by bell icon<br>Context lost on every alert configuration</div>
+    </div>
+    <h3>The split-panel approach</h3>
+    <p>The redesigned Alert Preferences page uses a split-panel layout: a card list of saved plans on the left, an inline settings panel on the right. Selecting a plan opens its alert configuration without navigating away or interrupting the list view.</p>
+    <p>Each plan card shows a summary of currently active alerts — status change, expiration window, review activity — so planners can see at a glance which plans have alerts configured and which don't. Plans with no alerts set are visually dimmed.</p>
+    <div class="img-placeholder tall">
+      <div class="img-ph-icon">🖥</div>
+      <div class="img-ph-label">Alert Preferences — MPP 2.0<br>Split panel: plan list + inline settings</div>
+    </div>
+    <div class="decision-box">
+      <div class="decision-label">Input type rationale</div>
+      <p class="decision-text">Expiration alerts use radio buttons — selecting a time window is a mutually exclusive choice, and presenting options as a card-style group makes that logic visible. Status and comment alerts use toggles — they are independent, binary, and the toggle communicates that directly.</p>
+    </div>
+    <div class="img-placeholder short">
+      <div class="img-ph-icon">🖥</div>
+      <div class="img-ph-label">Alert settings panel — detail view<br>Three sections: status / expiration / review activity</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- OUTCOME -->
+  <div class="section">
+    <div class="eyebrow">Outcome</div>
+    <h2>What Success Looked Like Without Metrics</h2>
+    <p>This project did not include a formal usability study or post-launch analytics access. That is the reality of government UX work: baseline data rarely exists, and access to usage analytics is limited. Success was measured by other means.</p>
+    <div class="outcome-row">
+      <div class="outcome-card">
+        <div class="outcome-num">5/5</div>
+        <div class="outcome-label">Pain points identified in stakeholder workshops addressed in the final design</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">2→1</div>
+        <div class="outcome-label">Steps to resume an active plan from the dashboard, down from an open-ended search flow</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">✓</div>
+        <div class="outcome-label">Client sign-off from FEMA after a stakeholder review process spanning multiple feedback cycles</div>
+      </div>
+    </div>
+    <blockquote>
+      <p>"Because this project lacked baseline analytics, design decisions were grounded in direct stakeholder workshop findings and validated through client review cycles."</p>
+    </blockquote>
+  </div>
+
+  <!-- REFLECTION -->
+  <div class="section">
+    <div class="eyebrow">Reflection</div>
+    <h2>What I'd Do Differently</h2>
+    <div class="reflection-grid">
+      <div class="ref-card do">
+        <div class="ref-card-label">Would do again</div>
+        <div class="ref-item">Anchor every design decision to a specific stakeholder quote or workshop finding</div>
+        <div class="ref-item">Use the persona as a decision-making tool, not just a deliverable</div>
+        <div class="ref-item">Document the facilitation work — it is design work</div>
+        <div class="ref-item">Advocate for my rationale even when the final decision goes another way</div>
+      </div>
+      <div class="ref-card dont">
+        <div class="ref-card-label">Would do differently</div>
+        <div class="ref-item">Establish a baseline usability benchmark earlier, even informally</div>
+        <div class="ref-item">Push harder to resolve stakeholder conflicts before they affect delivery</div>
+        <div class="ref-item">Get alignment on visual direction in week one, not month two</div>
+        <div class="ref-item">Involve a second designer for peer review on key decision points</div>
+      </div>
+    </div>
+    <p style="margin-top:32px;">This project reinforced something I keep relearning: in enterprise and government UX, the hardest design problems aren't on the screen. They're in the room — in competing stakeholder priorities, unclear mandates, and decisions that take months because no one owns them. Knowing when to advocate, when to reframe, and when to accept a direction and ship is as much the work as the artifact itself.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-left">MPP 2.0 — Mitigation Planning Portal</div>
+  <div class="footer-right">← Back to Work</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+// MPP 2.0 Case Study — script.js
+// Currently no interactive JS.
+// Add scroll animations, image lightbox, or nav active state logic here.
+
+:root {
+  --navy:  #222222;
+  --rust:  #C8704A;
+  --mid:   #555555;
+  --lt:    #E8EDF3;
+  --off:   #F7F8FA;
+  --dark:  #222222;
+  --body:  #222222;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Google Sans', sans-serif;
+  background: #fff;
+  color: #222222;
+  line-height: 1.75;
+}
+
+/* ── NAV ── */
+nav {
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #EAECF0;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 13px;
+  color: #222222;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-size: 13px;
+  color: var(--mid);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: #222222; }
+
+/* ── HERO ── */
+
+
+.hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 138px 60px;
+}
+.hero-tag {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 11px;
+  color: var(--rust);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: clamp(36px, 5vw, 52px);
+  color: #222222;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-desc {
+  font-size: 17px;
+  color: #222222;
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 960px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #EAECF0;
+  flex-wrap: wrap;
+}
+.meta-label {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 10px;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.meta-val {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+}
+
+/* ── HERO IMAGE ── */
+
+.hero-img {
+  
+  width: 100%;
+  margin: 0 auto;
+  background: #E8F5FF;
+  height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.hero-dash {
+  width: 75%;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0.92;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.hero-dash img{
+  width: 100%;
+}
+.hd-topbar {
+  background: var(--navy);
+  padding: 10px 16px;
+  display: flex;
+  gap: 16px;
+}
+.hd-nav-item { font-size: 11px; color: rgba(255,255,255,0.55); }
+.hd-nav-item.active { color: #fff; }
+.hd-table-head {
+  background: var(--navy);
+  border-radius: 4px;
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: 1fr repeat(4,60px);
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.hd-th { font-size: 9px; color: rgba(255,255,255,0.7); font-weight: 500; }
+.hd-row {
+  display: grid;
+  grid-template-columns: 1fr repeat(4,60px);
+  gap: 6px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.hd-td { font-size: 9px; color: #444; }
+.hd-badge { font-size: 8px; padding: 2px 6px; border-radius: 3px; font-weight: 500; }
+
+/* ── CONTENT ── */
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px 138px;
+}
+
+/* TL;DR */
+.tldr {
+  background: var(--lt);
+  border-left: 4px solid var(--rust);
+  padding: 28px 32px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 72px;
+}
+.tldr-label {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 10px;
+  color: var(--rust);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.tldr-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222222;
+  line-height: 1.65;
+}
+
+/* ── SECTION ── */
+.section { margin-bottom: 72px; }
+
+h2 {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 30px;
+  color: #222222;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #222222;
+  margin: 32px 0 10px;
+}
+p {
+  font-size: 16px;
+  color: #222222;
+  line-height: 1.78;
+  margin-bottom: 20px;
+}
+p:last-child { margin-bottom: 0; }
+
+/* Eyebrow */
+.eyebrow {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 10px;
+  color: var(--rust);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 36px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--rust);
+  background: var(--off);
+}
+blockquote p {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 19px;
+  font-style: italic;
+  color: #222222;
+  margin: 0;
+  line-height: 1.55;
+}
+blockquote cite {
+  display: block;
+  font-size: 12px;
+  font-family: 'Google Sans Mono', monospace;
+  color: var(--mid);
+  margin-top: 10px;
+  font-style: normal;
+  letter-spacing: 0.06em;
+}
+
+/* Pain points */
+.pain-points { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+.pain-card {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  background: var(--off);
+  border: 1px solid #EAECF0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.pain-num {
+  background: var(--rust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+.pain-body { padding: 14px 18px; }
+.pain-title { font-size: 14px; font-weight: 500; color: #222222; margin-bottom: 4px; }
+.pain-desc { font-size: 13px; color: #222222; line-height: 1.6; margin: 0; }
+
+/* User grid */
+.user-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 24px 0; }
+.user-card {
+  padding: 18px;
+  border: 1px solid #EAECF0;
+  border-radius: 8px;
+  background: #fff;
+}
+.user-card.primary { border-color: #222222; background: var(--lt); }
+.user-badge {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding: 3px 8px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.user-badge.primary { background: var(--navy); color: #fff; }
+.user-badge.secondary { background: #EAECF0; color: var(--mid); }
+.user-title { font-size: 13px; font-weight: 500; color: #222222; margin-bottom: 6px; }
+.user-desc { font-size: 12px; color: #222222; line-height: 1.6; margin: 0; }
+
+/* Solution label */
+.solution-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 11px;
+  color: #222222;
+  background: var(--lt);
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+/* Decision box */
+
+.legacy-img{
+  max-width: 100%;
+  display: flex;
+  column-gap: 12PX;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0px 14px 0px
+
+}
+.legacy-img img{
+  filter: brightness(1.18);
+  max-width: 60%;
+  border-radius: 5px;
+  border: 1px solid #737373;
+  
+}
+.decision-box {
+  background: #FDF4EF;
+  border: 1px solid #F0D0C0;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+.decision-label {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 10px;
+  color: var(--rust);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.decision-text {
+  font-size: 15px;
+  color: #222222;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Image placeholder */
+.img-placeholder {
+  width: 100%;
+  background: var(--lt);
+  border-radius: 8px;
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px dashed #C8D4E0;
+  color: var(--mid);
+}
+.img-placeholder.tall { height: 320px; }
+.img-placeholder.short { height: 200px; }
+.img-ph-label {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 11px;
+  text-align: left;
+  line-height: 1.5;
+}
+.img-ph-icon { font-size: 24px; opacity: 0.4; }
+
+/* Reflection */
+.reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+.ref-card { padding: 20px; border-radius: 8px; }
+.ref-card.do { background: #EAF3DE; border: 1px solid #C0DD97; }
+.ref-card.dont { background: var(--lt); border: 1px solid #C8D4E0; }
+.ref-card-label {
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.ref-card.do .ref-card-label { color: #3B6D11; }
+.ref-card.dont .ref-card-label { color: var(--mid); }
+.ref-item {
+  font-size: 13px;
+  color: #222222;
+  line-height: 1.6;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.ref-item:last-child { border-bottom: none; }
+
+/* Outcome */
+.outcome-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  margin: 28px 0;
+}
+.outcome-card {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #EAECF0;
+  background: var(--off);
+}
+.outcome-num {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 32px;
+  color: #222222;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.outcome-label { font-size: 12px; color: #222222; line-height: 1.5; }
+
+/* Divider */
+hr { border: none; border-top: 1px solid #EAECF0; margin: 64px 0; }
+.inner-section-hr{
+  border: none; border-top: 1px solid #EAECF0; margin: 12px 0;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid #EAECF0;
+  padding: 40px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left { font-size: 13px; color: var(--mid); }
+.footer-right { font-size: 13px; color: var(--mid); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 48px 23px 40px; }
+  .content { padding: 48px 23px; }
+  .user-grid { grid-template-columns: 1fr; }
+  .reflection-grid { grid-template-columns: 1fr; }
+  .outcome-row { grid-template-columns: 1fr; }
+  .hero-img { height: 260px; }
+}
+
+
+/* ── ACCORDION ── */
+.alist{display:flex;flex-direction:column;gap:.5rem;margin:24px 0}
+.ai{border-left:3px solid var(--rust);background:#FDF4EF;overflow:hidden;border-radius:0 4px 4px 0}
+.ai-header{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none;transition:background .18s}
+.ai-header:hover{background:#F9EAE0}
+.aa{color:var(--rust);font-size:14px;flex-shrink:0;font-weight:500}
+.ai-title{flex:1;font-size:14px;line-height:1.5;color:#222}
+.ai-title strong{color:#222;font-weight:500}
+.chevron{flex-shrink:0;width:18px;height:18px;display:flex;align-items:center;justify-content:center;color:#999;transition:transform .3s}
+.ai.open .chevron{transform:rotate(180deg);color:var(--rust)}
+.ai-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1)}
+.ai.open .ai-body{max-height:1200px}
+.ai-body-inner{padding:0 18px 18px;border-top:1px solid #F0D0C0}
+.ai-desc{font-size:14px;line-height:1.8;color:#555;padding-top:12px;max-width:72ch}
+
+/* ── WORKFLOW INDICATOR ── */
+.workflow{display:flex;align-items:center;margin-bottom:24px;border:1px solid #EAECF0;border-radius:8px;overflow:hidden}
+.wf-step{flex:1;padding:14px 18px;border-right:1px solid #EAECF0}
+.wf-step:last-child{border-right:none}
+.wf-step.active{background:#222}
+.wf-num{font-family:'Google Sans Mono',monospace;font-size:10px;color:#999;margin-bottom:3px}
+.wf-step.active .wf-num{color:rgba(255,255,255,.45)}
+.wf-name{font-size:13px;font-weight:500;color:#222}
+.wf-step.active .wf-name{color:#fff}
+.wf-sub{font-size:12px;color:#888;margin-top:2px}
+.wf-step.active .wf-sub{color:rgba(255,255,255,.45)}
+.wf-arrow{display:flex;align-items:center;justify-content:center;width:32px;color:#ccc;font-size:12px;flex-shrink:0}
+
+/* ── LOGIC EMBED ── */
+.logic-embed{border:1px solid #EAECF0;border-radius:8px;overflow:hidden;margin-top:20px}
+.le-head{padding:10px 16px;background:#F7F8FA;border-bottom:1px solid #EAECF0;display:flex;align-items:center;justify-content:space-between}
+.le-label{font-family:'Google Sans Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#888}
+.le-sub{font-size:11px;color:#aaa;font-style:italic}
+.logic-grid{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr;align-items:start;gap:0;padding:16px;background:#fff}
+.lg-col-head{font-family:'Google Sans Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#999;padding-bottom:8px;border-bottom:1px solid #EAECF0;margin-bottom:12px}
+.lg-dropdown{border:1px solid #EAECF0;background:#fff;overflow:hidden;margin-bottom:6px;border-radius:4px}
+.lg-dd-label{font-family:'Google Sans Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#999;padding:6px 10px 4px;background:#F7F8FA;border-bottom:1px solid #EAECF0}
+.lg-option{display:flex;align-items:center;gap:8px;padding:8px 10px;font-size:12px;color:#555;border-bottom:1px solid #EAECF0;cursor:pointer;transition:background .1s}
+.lg-option:last-child{border-bottom:none}
+.lg-option:hover{background:#F7F8FA}
+.lg-option.sel{background:#222;color:#fff}
+.lg-option.auto{background:rgba(44,110,138,.07);color:#2c6e8a;pointer-events:none}
+.lg-option.off{background:#F7F8FA;color:#ccc;pointer-events:none}
+.lg-dot{width:6px;height:6px;border-radius:50%;background:#ccc;flex-shrink:0}
+.lg-option.sel .lg-dot{background:#fff}
+.lg-option.auto .lg-dot{background:#2c6e8a}
+.lg-auto-badge{font-family:'Google Sans Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;background:rgba(44,110,138,.15);color:#2c6e8a;padding:2px 5px;border-radius:2px;margin-left:auto}
+.lg-arrow{display:flex;align-items:center;justify-content:center;padding-top:32px}
+.lg-output{border:1px solid #EAECF0;overflow:hidden;border-radius:4px}
+.lg-out-head{padding:7px 10px;font-size:11px;font-weight:500;border-bottom:1px solid #EAECF0}
+.lg-out-head.a{background:rgba(44,110,138,.07);color:#2c6e8a}
+.lg-out-head.b{background:rgba(46,125,50,.07);color:#2e7d32}
+.lg-out-head.c{background:rgba(123,94,167,.07);color:#7b5ea7}
+.lg-out-body{padding:8px 10px}
+.lg-field{padding:4px 0;border-bottom:1px dashed #EAECF0;font-size:12px;color:#555}
+.lg-field:last-child{border-bottom:none}
+.lg-field strong{color:#222;display:block;font-family:'Google Sans Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.lg-combo-tabs{display:flex;border-bottom:1px solid #EAECF0}
+.lg-tab{flex:1;padding:8px 10px;font-family:'Google Sans Mono',monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;text-align:center;cursor:pointer;color:#999;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;user-select:none}
+.lg-tab.on{color:var(--rust);border-bottom-color:var(--rust)}
+.lg-panel{display:none;padding:16px}
+.lg-panel.on{display:block}
+.lg-note{font-size:12px;color:#555;line-height:1.65;padding:10px 14px;background:rgba(44,110,138,.06);border-left:2px solid #2c6e8a;margin-top:12px;border-radius:0 4px 4px 0}
+
+/* ── IMAGE PLACEHOLDER ── */
+.iph{margin-top:20px;width:100%;border:1px dashed #C8D4E0;background:#F7F8FA;display:flex;align-items:center;justify-content:center;padding:40px 24px;border-radius:8px;position:relative;overflow:hidden}
+.iph::before{content:'';position:absolute;inset:0;background:linear-gradient(#EAECF0 1px,transparent 1px),linear-gradient(90deg,#EAECF0 1px,transparent 1px);background-size:22px 22px;opacity:.5}
+.ipl{font-family:'Google Sans Mono',monospace;font-size:11px;color:#999;position:relative;z-index:1;text-align:center}
+.iph.tall{height:280px}
+.iph.short{height:160px}
+
+/* ── ANNOTATION ── */
+.ann{color:#b43232;font-size:13px;line-height:1.65;font-style:italic;margin-top:16px;padding:12px 16px;border-left:3px solid #b43232;background:rgba(180,50,50,.05);display:flex;align-items:flex-start;gap:8px;border-radius:0 4px 4px 0}
+.ann::before{content:'✎';flex-shrink:0;font-style:normal;margin-top:1px}
+
+/* ── THUMBNAIL ── */
+.thumbnail{padding:32px;background:#E8EDF3;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.thumbnail-img{width:65%;border:3px solid #2C608A;border-radius:6px}
+.thumbnail-caption{font-size:13px;font-style:italic;margin-top:12px;text-align:center;color:#555}
+.ai-body-inner img{margin:16px 0;border:1px solid #EAECF0;border-radius:4px;width:80%;display:block}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.rev.on{opacity:1;transform:none}
+
+/* ── NUMBERED PROBLEM LIST ── */
+.problem-list{margin:20px 0;display:flex;flex-direction:column;gap:24px;padding-left:0;list-style:none;counter-reset:problem}
+.problem-list li{counter-increment:problem;padding-left:40px;position:relative}
+.problem-list li::before{content:counter(problem);font-family:'Google Sans Mono',monospace;font-size:11px;font-weight:500;color:var(--rust);border:1px solid var(--rust);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:2px}
+.problem-list li strong{display:block;font-size:15px;font-weight:500;color:#222;margin-bottom:6px}
+.problem-list li p{font-size:14px;line-height:1.7;color:var(--mid);margin:0}
+
+/* ── LEGACY IMAGE GALLERY ── */
+.legacy-img-gallery{margin-top:24px;display:grid;row-gap:24px}
+.legacy-img-gallery img{border:1px solid #222;border-radius:6px;width:40%}
+.image-with-caption{display:flex;column-gap:16px}
+.caption-number{display:flex;width:1.25rem;height:1.25rem;border-radius:24px;align-items:center;justify-content:center;color:#2C608A;border:1px solid #2C608A;font-size:.75rem;margin-top:2px;flex-shrink:0}
+.caption-title{display:flex;column-gap:8px}
+
+/* ── OPPORTUNITY CARDS ── */
+.opp-list{display:flex;flex-direction:column;gap:40px;margin:28px 0}
+.opp-card{display:grid;grid-template-columns:48px 1fr;gap:0 24px;align-items:start}
+.opp-label{font-family:'Google Sans Mono',monospace;font-size:11px;font-weight:500;color:var(--rust);border-top:2px solid var(--rust);padding-top:8px;letter-spacing:.05em}
+.opp-title{font-size:18px;font-weight:500;color:#222;margin:0 0 12px;letter-spacing:-.01em}
+.opp-content p{font-size:15px;line-height:1.75;color:var(--mid);margin-bottom:16px}
+.opp-content p:last-of-type{margin-bottom:0}
+.opp-img{width:100%;border:1px solid #EAECF0;border-radius:6px;display:block;margin:20px 0}
+
+/* ── OUTCOME CHECK (circle with checkmark) ── */
+.outcome-check{
+  width:40px;height:40px;
+  background:#2e7d32;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.outcome-check svg{display:block}
+/* override pain-card grid to align icon to center */
+.pain-card.outcome{align-items:center}
+
+/* ── CAROUSEL ── */
+.prob-carousel-wrap{margin-top:20px}
+.prob-carousel{border:1px solid #EAECF0;border-radius:8px;overflow:hidden}
+.prob-carousel .carousel-inner{background:#F7F8FA}
+.prob-carousel .carousel-item img{width:100%;height:320px;object-fit:contain;object-position:center;display:block}
+.prob-carousel .carousel-caption{position:static;background:#fff;padding:14px 18px;text-align:left;color:#222}
+.prob-carousel .carousel-caption h5{font-family:'Google Sans',sans-serif;font-size:13px;font-weight:500;color:#222;margin-bottom:4px}
+.prob-carousel .carousel-caption p{font-size:12px;color:#555;line-height:1.6;margin:0}
+.prob-carousel .carousel-control-prev,
+.prob-carousel .carousel-control-next{width:36px;height:36px;background:#fff;border:1px solid #EAECF0;border-radius:50%;top:160px;transform:translateY(-50%);bottom:auto;opacity:1;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.prob-carousel .carousel-control-prev{left:10px}
+.prob-carousel .carousel-control-next{right:10px}
+.prob-carousel .carousel-control-prev-icon{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M8 2L4 6L8 10' stroke='%23222' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E")}
+.prob-carousel .carousel-control-next-icon{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M4 2L8 6L4 10' stroke='%23222' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E")}
+.prob-carousel .carousel-indicators{bottom:auto;top:332px;margin:0;justify-content:flex-start;padding-left:18px}
+.prob-carousel .carousel-indicators li{background:#EAECF0;width:18px;height:3px;border-radius:2px;border:none}
+.prob-carousel .carousel-indicators li.active{background:#C8704A}
+.carousel-step-badge{font-family:'Google Sans Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#C8704A;margin-bottom:3px;display:block}
+
+@media(max-width:640px){
+  .problem-list li::before{display:inline-flex;margin-bottom:4px}
+  .opp-card{grid-template-columns:1fr}
+  .opp-label{border-top:none;border-left:2px solid var(--rust);padding:0 0 0 10px;margin-bottom:8px}
+  .logic-grid{grid-template-columns:1fr}
+  .lg-arrow{display:none}
+}
