@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hazard Tab — Conditional Logic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f0f0e;--ink2:#58574f;--ink3:#a8a89f;
+  --paper:#f8f7f4;--white:#fff;
+  --accent:#c8704a;--al:rgba(200,112,74,.1);
+  --line:#e4e3de;
+  --disabled:#e8e7e4;
+  --disabled-txt:#c0bfba;
+  --combo-a:#2c6e8a;
+  --combo-b:#2e7d32;
+  --combo-c:#7b5ea7;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Outfit',sans-serif;
+}
+body{
+  background:var(--off);
+  font-family:'Google Sans',sans-serif;
+  font-weight:300;
+  color:var(--navy);
+  min-height:100vh;
+  padding:3.5rem 3rem;
+}
+
+/* header */
+.header{margin-bottom:3rem}
+.eyebrow{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:.4rem}
+h1{font-family:'Google Sans Display',sans-serif;font-size:2.2rem;font-weight:400;line-height:1.1;margin-bottom:.6rem}
+h1 em{font-style:italic;color:var(--rust)}
+.subtitle{font-size:.88rem;color:#888;max-width:60ch;line-height:1.7}
+
+/* main layout */
+.diagram{display:grid;grid-template-columns:1fr 80px 1fr 80px 1fr;gap:0;align-items:start;margin-bottom:3rem}
+
+/* columns */
+.col-head{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#888;padding-bottom:.75rem;border-bottom:1px solid #EAECF0;margin-bottom:1rem}
+
+/* dropdown mockups */
+.dropdown{
+  border:1px solid #EAECF0;
+  background:var(--white);
+  overflow:hidden;
+  margin-bottom:.5rem;
+}
+.dd-label{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#888;padding:.5rem .8rem .2rem;background:#f8f7f4;border-bottom:1px solid #EAECF0}
+.dd-option{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.6rem .8rem;
+  font-size:.82rem;color:var(--mid);
+  border-bottom:1px solid #EAECF0;
+  cursor:pointer;
+  transition:background .15s;
+  position:relative;
+}
+.dd-option:last-child{border-bottom:none}
+.dd-option:hover{background:rgba(200,112,74,.08)}
+.dd-option.selected{background:var(--ink);color:var(--white)}
+.dd-option.selected .dd-dot{background:var(--white)}
+.dd-option.disabled{
+  background:var(--disabled);
+  color:var(--disabled-txt);
+  cursor:not-allowed;
+  pointer-events:none;
+}
+.dd-option.auto-selected{
+  background:rgba(44,110,138,.08);
+  color:var(--combo-a);
+  pointer-events:none;
+}
+.dd-dot{width:7px;height:7px;border-radius:50%;background:var(--ink3);flex-shrink:0;transition:background .2s}
+.dd-option.selected .dd-dot{background:var(--white)}
+.dd-option.auto-selected .dd-dot{background:var(--combo-a)}
+.lock-icon{margin-left:auto;font-size:.7rem;opacity:.5}
+.auto-badge{
+  font-size:.52rem;letter-spacing:.07em;text-transform:uppercase;
+  background:rgba(44,110,138,.15);color:var(--combo-a);
+  padding:.1rem .35rem;border-radius:2px;margin-left:auto;
+}
+
+/* connector column */
+.connector{
+  display:flex;flex-direction:column;justify-content:center;
+  align-items:center;padding-top:2.5rem;gap:.3rem;
+}
+.conn-line{
+  width:1px;flex:1;background:#EAECF0;
+  min-height:20px;
+}
+.conn-arrow{
+  font-size:.9rem;color:#888;
+  display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;
+  border:1px solid #EAECF0;
+  background:var(--white);
+  border-radius:50%;
+  font-size:.75rem;
+}
+
+/* output column */
+.output-group{margin-bottom:1rem}
+.combo-tag{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .6rem;margin-bottom:.5rem;
+  border-radius:2px;font-weight:500;
+}
+.combo-tag.a{background:rgba(44,110,138,.1);color:var(--combo-a)}
+.combo-tag.b{background:rgba(46,125,50,.1);color:var(--combo-b)}
+.combo-tag.c{background:rgba(123,94,167,.1);color:var(--combo-c)}
+.combo-tag.d{background:rgba(180,50,50,.08);color:#b43232}
+.combo-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+.output-card{
+  border:1px solid #EAECF0;
+  background:var(--white);
+  overflow:hidden;
+  transition:box-shadow .2s;
+}
+.output-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.07)}
+.output-card.disabled-card{
+  background:var(--disabled);
+  border-color:var(--disabled);
+}
+
+.oc-head{
+  padding:.55rem .85rem;
+  font-size:.65rem;font-weight:500;
+  display:flex;align-items:center;gap:.5rem;
+  border-bottom:1px solid #EAECF0;
+}
+.oc-head.a{background:rgba(44,110,138,.08);color:var(--combo-a)}
+.oc-head.b{background:rgba(46,125,50,.08);color:var(--combo-b)}
+.oc-head.c{background:rgba(123,94,167,.08);color:var(--combo-c)}
+.oc-head.disabled{background:var(--disabled);color:var(--disabled-txt);border-color:var(--disabled)}
+.oc-body{padding:.7rem .85rem}
+
+.output-field{
+  padding:.4rem 0;
+  border-bottom:1px dashed #EAECF0;
+  display:flex;align-items:flex-start;gap:.5rem;
+}
+.output-field:last-child{border-bottom:none}
+.of-label{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#888;min-width:90px;padding-top:.05rem}
+.of-value{font-size:.78rem;color:var(--mid);line-height:1.4}
+.of-value strong{color:var(--navy);font-weight:500}
+
+.disabled-msg{
+  font-size:.75rem;color:var(--disabled-txt);
+  font-style:italic;padding:.6rem .85rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+
+/* SVG connector overlay — drawn per row */
+.svg-connectors{
+  position:absolute;pointer-events:none;
+}
+
+/* matrix table */
+.matrix-wrap{margin-top:1.5rem}
+.matrix-title{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:#888;margin-bottom:1rem}
+.matrix{width:100%;border-collapse:collapse;border:1px solid #EAECF0}
+.matrix th,.matrix td{border:1px solid #EAECF0;padding:.65rem 1rem;font-size:.8rem;text-align:left}
+.matrix th{background:#f0efec;font-weight:500;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#888}
+.matrix td{color:var(--mid)}
+.matrix td strong{color:var(--navy);font-weight:500}
+.cell-valid{background:rgba(46,125,50,.04)}
+.cell-invalid{background:rgba(180,50,50,.04);color:var(--disabled-txt);font-style:italic}
+.badge{display:inline-block;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;padding:.15rem .45rem;border-radius:2px;margin-right:.3rem;font-weight:500;vertical-align:middle}
+.badge.a{background:rgba(44,110,138,.1);color:var(--combo-a)}
+.badge.b{background:rgba(46,125,50,.1);color:var(--combo-b)}
+.badge.c{background:rgba(123,94,167,.1);color:var(--combo-c)}
+.badge.x{background:rgba(180,50,50,.08);color:#b43232}
+
+/* note callout */
+.note{
+  margin-top:2rem;padding:1.2rem 1.5rem;
+  border-left:2px solid var(--accent);
+  background:rgba(200,112,74,.08);
+  font-size:.82rem;line-height:1.75;color:var(--mid);
+}
+.note strong{color:var(--navy)}
+.note-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:.4rem}
+
+/* interactive toggle */
+.toggle-area{
+  margin-bottom:1.5rem;
+  padding:1.2rem 1.5rem;
+  border:1px solid #EAECF0;
+  background:var(--white);
+}
+.toggle-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:.8rem}
+.toggle-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.toggle-btn{
+  padding:.45rem 1rem;font-size:.75rem;font-family:'Google Sans',sans-serif;
+  border:1px solid #EAECF0;background:var(--white);
+  color:var(--mid);cursor:pointer;
+  transition:all .18s;
+}
+.toggle-btn:hover{border-color:var(--navy);color:var(--navy)}
+.toggle-btn.on.a{background:var(--combo-a);border-color:var(--combo-a);color:#fff}
+.toggle-btn.on.b{background:var(--combo-b);border-color:var(--combo-b);color:#fff}
+.toggle-btn.on.c{background:var(--combo-c);border-color:var(--combo-c);color:#fff}
+.toggle-btn.on.d{background:#b43232;border-color:#b43232;color:#fff}
+
+.highlight-box{
+  margin-top:1rem;padding:.85rem 1.1rem;
+  font-size:.82rem;line-height:1.7;color:var(--mid);
+  border:1px solid #EAECF0;background:#f8f7f4;
+  display:none;
+}
+.highlight-box.on{display:none}
+.hb-combo{font-weight:500;color:var(--navy);margin-bottom:.3rem}
+
+/* responsive */
+@media(max-width:900px){
+  body{padding:2rem 1.2rem}
+  .diagram{grid-template-columns:1fr;gap:1rem}
+  .connector{flex-direction:row;padding-top:0}
+}
+</style>
+
+
+</head>
+<body>
+<!-- Interactive combo explorer -->
+<div class="toggle-area">
+  <div class="toggle-label">Explore a combination</div>
+  <div class="toggle-row">
+    <button class="toggle-btn a" onclick="showCombo('a',this)">Combo A — Discrete + Specific Condition</button>
+    <button class="toggle-btn b" onclick="showCombo('b',this)">Combo B — Avg. Annualized Loss + AEF</button>
+    <button class="toggle-btn c" onclick="showCombo('c',this)">Combo C — Discrete + AEF</button>
+    <button class="toggle-btn d" onclick="showCombo('d',this)">Combo D — Impossible ✕</button>
+  </div>
+
+  <div class="highlight-box" id="hb-a">
+  </div>
+  <div class="highlight-box" id="hb-b">
+  </div>
+  <div class="highlight-box" id="hb-c">
+  </div>
+  <div class="highlight-box" id="hb-d">
+  </div>
+</div>
+
+<!-- Main diagram -->
+<div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:0;align-items:start">
+
+  <!-- Column 1: Analysis Type -->
+  <div>
+    <div class="col-head">Analysis Type (AT)</div>
+    <div class="dropdown">
+      <div class="dd-label">Select analysis type</div>
+      <div class="dd-option" id="at-discrete" onclick="selectAT('discrete')">
+        <span class="dd-dot"></span>Discrete
+      </div>
+      <div class="dd-option" id="at-aal" onclick="selectAT('aal')">
+        <span class="dd-dot"></span>Average Annualized Loss
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrow 1 -->
+  <div style="display:flex;align-items:center;justify-content:center;padding-top:2.8rem">
+    <svg width="40" height="20" viewBox="0 0 40 20">
+      <line x1="0" y1="10" x2="28" y2="10" stroke="#e4e3de" stroke-width="1.5"/>
+      <path d="M26 6L34 10L26 14" stroke="#a8a89f" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Column 2: Event Type -->
+  <div>
+    <div class="col-head">Event Type (ET)</div>
+    <div class="dropdown">
+      <div class="dd-label">Select event type</div>
+      <div class="dd-option" id="et-sc" onclick="selectET('sc')">
+        <span class="dd-dot"></span>Specific Condition
+      </div>
+      <div class="dd-option" id="et-aef" onclick="selectET('aef')">
+        <span class="dd-dot"></span>Annual Exceedance Frequency
+        <span class="auto-badge" id="auto-badge" style="display:none">Auto</span>
+      </div>
+    </div>
+    <div id="et-note" style="display:none;margin-top:.5rem;padding:.55rem .75rem;background:rgba(44,110,138,.07);border-left:2px solid var(--combo-a);font-size:.72rem;color:var(--combo-a);line-height:1.55">
+      ⓘ Automatically set when Average Annualized Loss is selected
+    </div>
+  </div>
+
+  <!-- Arrow 2 -->
+  <div style="display:flex;align-items:center;justify-content:center;padding-top:2.8rem">
+    <svg width="40" height="20" viewBox="0 0 40 20">
+      <line x1="0" y1="10" x2="28" y2="10" stroke="#e4e3de" stroke-width="1.5"/>
+      <path d="M26 6L34 10L26 14" stroke="#a8a89f" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Column 3: Output -->
+  <div>
+    <div class="col-head">Parameter Inputs Shown</div>
+    <div id="output-panel">
+      <div style="padding:1.5rem;border:1px dashed #EAECF0;font-size:.78rem;color:#888;font-style:italic;text-align:center">
+        Select options to see resulting parameters
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Combination matrix -->
+<div class="matrix-wrap">
+  <div class="matrix-title">All combinations at a glance</div>
+  <table class="matrix">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Specific Condition</th>
+        <th>Annual Exceedance Frequency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Discrete</th>
+        <td class="cell-valid">
+          <span class="badge a">A</span>
+          <strong>Valid</strong> — Single scenario parameters (depth / discharge value)
+        </td>
+        <td class="cell-valid">
+          <span class="badge c">C</span>
+          <strong>Valid</strong> — Frequency checkboxes (e.g. 1%, 2%, 10% annual chance)
+        </td>
+      </tr>
+      <tr>
+        <th>Average Annualized Loss</th>
+        <td class="cell-invalid">
+          <span class="badge x">D</span>
+          Not available — AAL requires probabilistic frequency data
+        </td>
+        <td class="cell-valid">
+          <span class="badge b">B</span>
+          <strong>Valid</strong> — Auto-selected; full frequency distribution inputs shown
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<script>
+let atState = null;
+let etState = null;
+
+const outputs = {
+  'discrete-sc': {
+    combo: 'A',
+    cls: 'a',
+    label: 'Combo A — Discrete + Specific Condition',
+    fields: [
+      { label: 'Specific Condition', value: 'Years: 10; 20; 50; 100; 200; 500; 1000; 2000;' },
+      { label: 'Confidence Level', value: '10%; 16%; 84%; 90%; Best Estimate;' },
+    ]
+  },
+  'aal-aef': {
+    combo: 'B',
+    cls: 'b',
+    label: 'Combo B — Avg. Annualized Loss + AEF (Auto)',
+    fields: [
+      { label: `Annual Exeedance Frequency <br>(Choose from:)`,  value: '10%, 5%, 2%, 1%, 0.5%, 0.2%, 0.1%, 0.05% annual chance' },
+      { label: 'Confidence Level', value: '10%; 16%; 84%; 90%; Best Estimate;' },
+    ]
+  },
+  'discrete-aef': {
+    combo: 'C',
+    cls: 'c',
+    label: 'Combo C — Discrete + Annual Exceedance Frequency',
+    fields: [
+      { label: 'Annual Exeedance Frequency', value: '10%, 5%, 2%, 1%, 0.5%, 0.2%, 0.1%, 0.05% annual chance' },
+      { label: 'Confidence Level', value: '10%; 16%; 84%; 90%; Best Estimate;' },
+    ]
+  },
+  'aal-sc': null
+};
+
+function selectAT(val) {
+  atState = val;
+  document.querySelectorAll('[id^="at-"]').forEach(el => {
+    el.classList.remove('selected');
+    const dot = el.querySelector('.dd-dot');
+    if(dot) dot.style.background = 'var(--ink3)';
+  });
+  const sel = document.getElementById('at-' + val);
+  sel.classList.add('selected');
+
+  // If AAL selected, force ET to AEF
+  if(val === 'aal') {
+    document.getElementById('et-sc').classList.add('disabled');
+    document.getElementById('et-aef').classList.remove('disabled');
+    document.getElementById('et-aef').classList.add('auto-selected');
+    document.getElementById('auto-badge').style.display = 'inline';
+    document.getElementById('et-note').style.display = 'block';
+    etState = 'aef';
+    // Remove selected from sc
+    document.getElementById('et-sc').classList.remove('selected');
+    // Mark aef as auto-selected
+  } else {
+    document.getElementById('et-sc').classList.remove('disabled','auto-selected');
+    document.getElementById('et-aef').classList.remove('auto-selected');
+    document.getElementById('auto-badge').style.display = 'none';
+    document.getElementById('et-note').style.display = 'none';
+    // Keep existing ET selection if any
+  }
+  updateOutput();
+}
+
+function selectET(val) {
+  if(atState === 'aal' && val === 'sc') return; // blocked
+  etState = val;
+  document.querySelectorAll('[id^="et-"]').forEach(el => el.classList.remove('selected'));
+  document.getElementById('et-' + val).classList.add('selected');
+  updateOutput();
+}
+
+function updateOutput() {
+  const key = atState && etState ? atState + '-' + etState : null;
+  const panel = document.getElementById('output-panel');
+  if(!key || !outputs[key]) {
+    panel.innerHTML = `<div style="padding:1.5rem;border:1px dashed #EAECF0;font-size:.78rem;color:#888;font-style:italic;text-align:center">${key === 'aal-sc' ? 'This combination is not available.' : 'Select both options to see resulting parameters'}</div>`;
+    return;
+  }
+  const o = outputs[key];
+  const fieldsHTML = o.fields.map(f => `
+    <div class="output-field">
+      <span class="of-label">${f.label}</span>
+      <span class="of-value">${f.value}</span>
+    </div>`).join('');
+  panel.innerHTML = `
+    <div class="combo-tag ${o.cls}"><span class="combo-dot"></span>Combo ${o.combo}</div>
+    <div class="output-card">
+      <div class="oc-head ${o.cls}">${o.label}</div>
+      <div class="oc-body">${fieldsHTML}</div>
+    </div>`;
+}
+
+function showCombo(id, btn) {
+  // Toggle buttons
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  // Toggle boxes
+  document.querySelectorAll('.highlight-box').forEach(b => b.classList.remove('on'));
+  document.getElementById('hb-' + id).classList.add('on');
+  // Also drive the diagram
+  const map = { a:['discrete','sc'], b:['aal','aef'], c:['discrete','aef'], d:['aal','sc'] };
+  const [at, et] = map[id];
+  selectAT(at);
+  if(id !== 'b') selectET(et);
+}
+</script>
+</body>
+</html>
