@@ -1194,7 +1194,7 @@ font-size: .85em;
 
 .comparison-slider{
   width: 130%;
-  height: 50vh;
+  height: 80vh;
 }
 iframe{
   border: none;
@@ -1224,8 +1224,8 @@ iframe{
   .comparison-slider{
   width: 100%;
   height: 20vh;
-      -ms-overflow-style: none;
-    scrollbar-width: none;
+-ms-overflow-style: none;
+scrollbar-width: none;
     
 }
 .comparison-slider::-webkit-scrollbar {
