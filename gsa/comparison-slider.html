@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before / After Comparison Slider</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    background: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 40px 24px;
+
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .heading { text-align: center; }
+  .heading h1 {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .heading p {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #888;
+  }
+
+  /* ---------- The slider ---------- */
+  .comparison-slider {
+    --position: 50%;
+    position: relative;
+    border: 1px solid #EAECF0;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    cursor: ew-resize;
+  }
+
+  .image-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* "Before" look — desaturated, slightly darker */
+
+  /* "After" image is clipped based on --position */
+  .image-after {
+    clip-path: inset(0 calc(100% - var(--position)) 0 0);
+  }
+
+  /* Divider line */
+  .slider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--position);
+    width: 2px;
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateX(-50%);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+  }
+
+  /* Draggable handle (the round grip) */
+  .handle {
+    position: absolute;
+    top: 50%;
+    left: var(--position);
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    transition: transform 0.2s ease;
+    cursor: ew-resize;
+    outline: none;
+    border: none;
+  }
+
+  .comparison-slider:hover .handle,
+  .handle:focus-visible {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  .handle:focus-visible {
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.45),
+      0 0 0 3px rgba(120, 160, 255, 0.65);
+  }
+
+  .handle svg {
+    width: 22px;
+    height: 22px;
+    color: #111;
+  }
+
+  /* Corner labels */
+  .label {
+    position: absolute;
+    top: 16px;
+    padding: 6px 14px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .label-before { left: 16px; }
+  .label-after  { right: 16px; }
+
+  .hint {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+  }
+  .hint kbd {
+    display: inline-block;
+    padding: 2px 6px;
+    font-family: inherit;
+    font-size: 11px;
+    border-radius: 4px;
+    background: #1c1c20;
+    border: 1px solid #2a2a30;
+    color: #aaa;
+    margin: 0 2px;
+  }
+</style>
+</head>
+<body>
+  <div class="comparison-slider" id="slider">
+    <!-- Base layer: the "before" image -->
+    <img class="image-layer image-before"
+         src="/img/sam/search-bf.png"
+         alt="Before">
+
+    <!-- Top layer: the "after" image, clipped -->
+    <img class="image-layer image-after"
+         src="/img/sam/legacy-search.png"
+         alt="After">
+
+    <span class="label label-before">Before</span>
+    <span class="label label-after">After</span>
+
+    <div class="slider-line"></div>
+
+    <button class="handle"
+            type="button"
+            role="slider"
+            aria-label="Comparison slider"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="50">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 18l-6-6 6-6"/>
+        <path d="M15 6l6 6-6 6"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+  const handle = slider.querySelector('.handle');
+  let isDragging = false;
+
+  // Update the slider position (0–100)
+  function setPosition(percent) {
+    percent = Math.max(0, Math.min(100, percent));
+    slider.style.setProperty('--position', percent + '%');
+    handle.setAttribute('aria-valuenow', Math.round(percent));
+  }
+
+  // Convert a pointer event into a percentage along the slider
+  function updateFromEvent(event) {
+    const rect = slider.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    setPosition((x / rect.width) * 100);
+  }
+
+  // --- Pointer events (handles mouse + touch + pen in one API) ---
+  slider.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    slider.setPointerCapture(e.pointerId);
+    updateFromEvent(e);
+  });
+
+  slider.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    updateFromEvent(e);
+  });
+
+  slider.addEventListener('pointerup', (e) => {
+    isDragging = false;
+    try { slider.releasePointerCapture(e.pointerId); } catch (_) {}
+  });
+
+  slider.addEventListener('pointercancel', () => { isDragging = false; });
+
+  // --- Keyboard accessibility ---
+  handle.addEventListener('keydown', (e) => {
+    const current = parseFloat(slider.style.getPropertyValue('--position')) || 50;
+    const step = e.shiftKey ? 10 : 2;
+    switch (e.key) {
+      case 'ArrowLeft':
+      case 'ArrowDown':
+        setPosition(current - step); e.preventDefault(); break;
+      case 'ArrowRight':
+      case 'ArrowUp':
+        setPosition(current + step); e.preventDefault(); break;
+      case 'Home': setPosition(0);   e.preventDefault(); break;
+      case 'End':  setPosition(100); e.preventDefault(); break;
+    }
+  });
+</script>
+
+</body>
+</html>
