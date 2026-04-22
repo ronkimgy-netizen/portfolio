@@ -6,7 +6,7 @@
   <title>SAM.gov — Ron Kim</title>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500&family=Google+Sans+Display&family=Google+Sans+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
+  
 </head>
 <body>
 
@@ -24,6 +24,10 @@
   <div class="hero-tag">Case Study · In Progress</div>
   <h1 class="hero-title">SAM.gov</h1>
   <p class="hero-desc">Rethinking how the public searches across federal contracting data.</p>
+  <div class="tldr">
+      <div class="tldr-label">Work in Progress</div>
+      <div class="tldr-text">The full case study is being written. The selected designs below reflect the current state of the work.</div>
+    </div>
   <div class="hero-meta">
     <div>
       <div class="meta-label">Role</div>
@@ -50,27 +54,29 @@
   <div class="section rev">
     <div class="eyebrow">01 — Overview</div>
     <h2>About this project</h2>
-    <p>SAM.gov is the U.S. federal government's official system for finding federal contract opportunities, grants, and entity records. Unlike the specialized analyst tools in my other case studies, SAM.gov serves a broad public audience — vendors, researchers, journalists, small business owners — who typically arrive with a clear goal in mind but different mental models of how federal data is organized. This case study examines a core information architecture challenge: how search results are filtered and categorized across multiple overlapping domains, and how the current taxonomy can better match the way users actually think about what they're looking for.</p>
-
-    <div class="tldr">
-      <div class="tldr-label">Work in Progress</div>
-      <div class="tldr-text">The full case study is being written. The selected designs below reflect the current state of the work.</div>
+    <p>SAM.gov is the U.S. federal government's official system for finding federal contract opportunities, grants, and entity records. Unlike the specialized analyst tools in my other case studies, SAM.gov serves a broad public audience, including vendors, researchers, journalists, and small business owners, who typically arrive with a clear goal in mind but with different mental models of how federal data is organized.</p>
+    <div class="highlight-text">
+      <h4>This case study examines a core information architecture challenge:</h4> <em>how search results are filtered and categorized across multiple  domains, and how the current taxonomy information hierarchy can better align with how users actually think about what they're looking for.</em>
     </div>
   </div>
 
   <hr/>
 
-  <!-- SELECTED DESIGNS -->
+  <!-- PROPOSED DESIGNS -->
+  <iframe class="comparison-slider" src="comparison-slider.html"></iframe>
   <div class="section rev">
-    <div class="eyebrow">02 — Selected Designs</div>
-    <h2>Selected designs</h2>
+    <div class="eyebrow">02 — Proposed Designs</div>
+    <h2>Proposed designs</h2>
     <p>A sampling of the visual direction and information architecture explorations from the project.</p>
-
+    <div class="quote">
+      "The final delivered version diverged from this proposal. This case study presents my recommended direction and the rationale behind it."
+    </div>  
+    
     <div class="design-gallery">
+      
       <!-- Feature image (replace src with real image) -->
-      <div class="dg-item dg-feature">
-        <!-- <img src="/img/samgov-01.png" alt="SAM.gov hero view"/> -->
-        <span class="dg-placeholder">Image 01<br/>Hero screenshot</span>
+      <div class="dg-item dg-feature ">
+        <img src="/img/sam/Search.png" alt="SAM.gov hero view"/>
       </div>
 
       <div class="dg-item">
@@ -114,6 +120,5 @@
   }, {threshold:.08});
   document.querySelectorAll('.rev').forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>
