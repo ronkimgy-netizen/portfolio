@@ -311,22 +311,29 @@ blockquote cite {
 
 /* Decision box */
 
-.legacy-img{
+.legacy{
   max-width: 100%;
   display: flex;
-  column-gap: 12PX;
+  column-gap: 32PX;
   justify-content: center;
   align-items: center;
   padding: 0px 0px 14px 0px
 
 }
-.legacy-img img{
+.legacy img{
   filter: brightness(1.18);
-  max-width: 60%;
+  max-width: 40%;
   border-radius: 5px;
   border: 1px solid #737373;
-  
 }
+.legacy h5{
+  margin-top: 12px;
+}
+.legacy ul{
+  margin-left: 24px;
+  margin-top: 6px;
+}
+
 .decision-box {
   background: #FDF4EF;
   border: 1px solid #F0D0C0;
@@ -534,9 +541,17 @@ footer {
 .rev.on{opacity:1;transform:none}
 
 /* ── NUMBERED PROBLEM LIST ── */
-.problem-list{margin:20px 0;display:flex;flex-direction:column;gap:24px;padding-left:0;list-style:none;counter-reset:problem}
-.problem-list li{counter-increment:problem;padding-left:40px;position:relative}
-.problem-list li::before{content:counter(problem);font-family:'Google Sans Mono',monospace;font-size:11px;font-weight:500;color:var(--rust);border:1px solid var(--rust);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:2px}
+.problem-list{
+
+  margin:20px 0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding-left:0;
+  list-style:none;
+  counter-reset:problem
+}
+.problem-list li{counter-increment:problem;padding-left:40px;position:relative;width: 80%;}
 .problem-list li strong{display:block;font-size:15px;font-weight:500;color:#222;margin-bottom:6px}
 .problem-list li p{font-size:14px;line-height:1.7;color:var(--mid);margin:0}
 
@@ -586,6 +601,28 @@ footer {
 .prob-carousel .carousel-indicators li{background:#EAECF0;width:18px;height:3px;border-radius:2px;border:none}
 .prob-carousel .carousel-indicators li.active{background:#C8704A}
 .carousel-step-badge{font-family:'Google Sans Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#C8704A;margin-bottom:3px;display:block}
+
+.mapping-process-section{
+  width: 100%;
+  display: block;
+}
+.userflow-diagram img{
+  width: 100%;
+}
+.userflow-desc ol{
+  margin-left: 32px;
+}
+.userflow-desc p{
+  background: #FDF4EF;
+  border: 1px solid #F0D0C0;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+
+.userflow-desc h3{
+  margin-top: 0px;
+}
 
 @media(max-width:640px){
   .problem-list li::before{display:inline-flex;margin-bottom:4px}
