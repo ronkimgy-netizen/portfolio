@@ -65,7 +65,30 @@
   <hr/>
 
   <!-- PROPOSED DESIGNS -->
-  <iframe class="comparison-slider" src="comparison-slider.html"></iframe>
+  <figure class="cs-root" id="comparisonSlider">
+  <img class="cs-image cs-before"
+       src="/img/sam/search-bf.png"
+       alt="Before">
+  <img class="cs-image cs-after"
+  src="/img/sam/legacy-search.png"
+       
+       alt="After">
+
+  <span class="cs-label cs-label-before">Before</span>
+  <span class="cs-label cs-label-after">After</span>
+
+  <div class="cs-line" aria-hidden="true"></div>
+
+  <button class="cs-handle" type="button" role="slider"
+          aria-label="Comparison slider"
+          aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M9 18l-6-6 6-6"/>
+      <path d="M15 6l6 6-6 6"/>
+    </svg>
+  </button>
+  </figure>
   <div class="section rev">
     <div class="eyebrow">02 — Proposed Designs</div>
     <h2>Proposed designs</h2>
