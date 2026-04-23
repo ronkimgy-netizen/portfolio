@@ -187,7 +187,28 @@ nav {
 }
 
 /* ── SECTION ── */
+.bi-colum-img{
+  display: flex;
+  padding: 0px;
+  width: 50%;
+  gap: 12px;
+  margin: 32px 0;
+}
 .section { margin-bottom: 72px; }
+.section img{
+  width: 100%;
+  padding: 3%;
+  background: var(--lt);
+  border-radius: 8px;
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px dashed #C8D4E0;
+  color: var(--mid);
+}
 
 h2 {
   font-family: 'Google Sans Display', sans-serif;
