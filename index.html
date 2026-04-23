@@ -249,6 +249,163 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
   }
+
+  /* ── WIP MODAL ── */
+  #wip-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(34, 34, 34, 0.25);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  #wip-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #wip-modal {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 32px 28px;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    position: relative;
+    text-align: center;
+    transform: scale(0.92) translateY(10px);
+    transition: transform 0.38s cubic-bezier(0.34, 1.42, 0.64, 1);
+  }
+
+  #wip-backdrop.visible #wip-modal {
+    transform: scale(1) translateY(0);
+  }
+
+  #wip-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--lt);
+    border: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 11px;
+    color: var(--mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    line-height: 1;
+    padding: 0;
+  }
+
+  #wip-close:hover {
+    background: var(--border);
+    color: var(--navy);
+  }
+
+  .wip-modal-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .wip-modal-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rust);
+    animation: wip-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  .wip-modal-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .wip-modal-body {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .wip-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .wip-btn-primary {
+    background: var(--navy);
+    color: var(--off-white);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    display: inline-block;
+  }
+
+  .wip-btn-primary:hover { opacity: 0.8; }
+
+  .wip-btn-ghost {
+    font-size: 13px;
+    color: var(--mid);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    transition: color 0.15s;
+  }
+
+  .wip-btn-ghost:hover { color: var(--navy); }
+
+  /* countdown ring */
+  .wip-ring {
+    position: absolute;
+    top: 13px;
+    right: 46px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .wip-ring-track { fill: none; stroke: var(--border); stroke-width: 2.5; }
+  .wip-ring-fill  {
+    fill: none;
+    stroke: var(--rust);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    opacity: 0.5;
+  }
 </style>
 </head>
 <body>
@@ -313,6 +470,58 @@
 
   </div>
 </section>
+  <div id="wip-backdrop">
+  <div id="wip-modal">
 
+    <svg class="wip-ring" viewBox="0 0 26 26">
+      <circle class="wip-ring-track" cx="13" cy="13" r="10"/>
+      <circle class="wip-ring-fill" id="wipRingFill" cx="13" cy="13" r="10"/>
+    </svg>
+
+    <button id="wip-close" onclick="closeWipModal()">✕</button>
+
+    <p class="wip-modal-eyebrow">Work in progress</p>
+    <p class="wip-modal-title">This portfolio is still being built.</p>
+    <p class="wip-modal-body">
+      Happy to walk you through my projects in detail —<br>
+      please don't hesitate to reach out. Apologies for the mess!
+    </p>
+    <div class="wip-modal-footer">
+      <a class="wip-btn-primary" href="mailto:">Say hello →</a>
+      <button class="wip-btn-ghost" onclick="closeWipModal()">Dismiss</button>
+    </div>
+
+  </div>
+</div>
+<script>
+  (function () {
+    const SECS = 5;
+    const backdrop = document.getElementById('wip-backdrop');
+    const ring = document.getElementById('wipRingFill');
+    const C = 2 * Math.PI * 10;
+    ring.style.strokeDasharray = C;
+    ring.style.strokeDashoffset = 0;
+    let autoClose;
+
+    window.closeWipModal = function () {
+      backdrop.classList.remove('visible');
+      clearTimeout(autoClose);
+    };
+
+    function openWipModal() {
+      backdrop.classList.add('visible');
+      ring.style.transition = 'none';
+      ring.style.strokeDashoffset = 0;
+      void ring.offsetWidth;
+      ring.style.transition = `stroke-dashoffset ${SECS}s linear`;
+      ring.style.strokeDashoffset = C;
+      autoClose = setTimeout(closeWipModal, SECS * 1000);
+    }
+
+    window.addEventListener('load', function () {
+      setTimeout(openWipModal, 800);
+    });
+  })();
+</script>
 </body>
 </html>
