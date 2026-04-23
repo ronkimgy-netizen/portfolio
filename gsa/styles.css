@@ -1196,12 +1196,104 @@ font-size: .85em;
   width: 130%;
   height: 50vh;
 }
-iframe{
-  border: none;
-  display: flex;
-  justify-self: center;
-  
+
+/* ======= Comparison Slider (inline) ======= */
+.cs-root {
+  --position: 50%;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #EAECF0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  cursor: ew-resize;
 }
+
+.cs-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.cs-before {
+  filter: inset(0 calc(100% - var(--position)) 0 0);
+}
+
+.cs-after {
+  clip-path: inset(0 calc(100% - var(--position)) 0 0);
+}
+
+.cs-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+  width: 2px;
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateX(-50%);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.cs-handle {
+  position: absolute;
+  top: 50%;
+  left: var(--position);
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease;
+  cursor: ew-resize;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+.cs-root:hover .cs-handle,
+.cs-handle:focus-visible {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.cs-handle:focus-visible {
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.45),
+    0 0 0 3px rgba(120, 160, 255, 0.65);
+}
+.cs-handle svg {
+  width: 22px;
+  height: 22px;
+  color: #111;
+}
+
+.cs-label {
+  position: absolute;
+  top: 16px;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.cs-label-before { left: 16px; }
+.cs-label-after  { right: 16px; }
 
 
 @media (max-width: 768px) {
