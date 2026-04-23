@@ -145,5 +145,55 @@
   }, {threshold:.08});
   document.querySelectorAll('.rev').forEach(el => obs.observe(el));
 </script>
+  <script>
+  (function() {
+    const slider = document.getElementById('comparisonSlider');
+    if (!slider) return;
+    const handle = slider.querySelector('.cs-handle');
+    let isDragging = false;
+
+    function setPosition(percent) {
+      percent = Math.max(0, Math.min(100, percent));
+      slider.style.setProperty('--position', percent + '%');
+      handle.setAttribute('aria-valuenow', Math.round(percent));
+    }
+
+    function updateFromEvent(event) {
+      const rect = slider.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      setPosition((x / rect.width) * 100);
+    }
+
+    slider.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      slider.setPointerCapture(e.pointerId);
+      updateFromEvent(e);
+    });
+    slider.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      updateFromEvent(e);
+    });
+    slider.addEventListener('pointerup', (e) => {
+      isDragging = false;
+      try { slider.releasePointerCapture(e.pointerId); } catch (_) {}
+    });
+    slider.addEventListener('pointercancel', () => { isDragging = false; });
+
+    handle.addEventListener('keydown', (e) => {
+      const current = parseFloat(slider.style.getPropertyValue('--position')) || 50;
+      const step = e.shiftKey ? 10 : 2;
+      switch (e.key) {
+        case 'ArrowLeft':
+        case 'ArrowDown':
+          setPosition(current - step); e.preventDefault(); break;
+        case 'ArrowRight':
+        case 'ArrowUp':
+          setPosition(current + step); e.preventDefault(); break;
+        case 'Home': setPosition(0);   e.preventDefault(); break;
+        case 'End':  setPosition(100); e.preventDefault(); break;
+      }
+    });
+  })();
+</script>
 </body>
 </html>
