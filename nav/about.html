@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Ron Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Google+Sans+Display:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #222222;
+    --rust:     #C8704A;
+    --mid:      #555555;
+    --off-white:#F7F8FA;
+    --lt:       #E8EDF3;
+    --border:   #EAECF0;
+    --font-sans:    'Google Sans', sans-serif;
+    --font-display: 'Google Sans Display', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--off-white);
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── CENTERED WRAPPER ── */
+  .container {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  /* ── NAV (identical to index) ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a.active { color: var(--navy); font-weight: 500; }
+
+  /* ── PAGE LAYOUT ── */
+  .page {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    padding: 56px 0 64px;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 48px;
+    align-items: start;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro-text {}
+
+  .intro-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .intro-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--rust);
+  }
+
+  .intro-name {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+
+  .intro-bio {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.75;
+    max-width: 520px;
+  }
+
+  .intro-bio p + p { margin-top: 14px; }
+
+  /* photo placeholder */
+  .photo-wrap {
+    width: 200px;
+    aspect-ratio: 3 / 4;
+    background: var(--lt);
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--border);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    border: 1px dashed var(--border);
+  }
+
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── SECTION SHARED ── */
+  .section {
+    padding: 52px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .skill-cell {
+    background: var(--off-white);
+    padding: 20px 22px;
+  }
+
+  .skill-cell-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .skill-list li {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.4;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .exp-item:first-child { padding-top: 0; }
+  .exp-item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+  .exp-date {
+    font-size: 12px;
+    color: var(--mid);
+    padding-top: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  .exp-role {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 3px;
+    letter-spacing: -0.01em;
+  }
+
+  .exp-org {
+    font-size: 13px;
+    color: var(--rust);
+    margin-bottom: 8px;
+  }
+
+  .exp-desc {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  /* ── VALUES / FUN FACTS ── */
+  .facts-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .fact-card {
+    background: var(--lt);
+    border-radius: 8px;
+    padding: 22px 20px;
+  }
+
+  .fact-number {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .fact-number span {
+    color: var(--rust);
+  }
+
+  .fact-label {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  /* ── CONTACT ── */
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .contact-cta {
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.6;
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--off-white);
+    border: none;
+    border-radius: 6px;
+    padding: 11px 22px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { opacity: 0.75; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--mid); }
+
+  /* ── FADE IN ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .intro      { animation: fadeUp 0.5s ease both; }
+  .section:nth-child(1) { animation: fadeUp 0.5s 0.08s ease both; }
+  .section:nth-child(2) { animation: fadeUp 0.5s 0.16s ease both; }
+  .section:nth-child(3) { animation: fadeUp 0.5s 0.22s ease both; }
+  .section:nth-child(4) { animation: fadeUp 0.5s 0.28s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav, .page { width: 80%; }
+  }
+
+  @media (max-width: 600px) {
+    nav, .page { width: 90%; }
+    .nav-links { gap: 20px; }
+
+    .intro {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .photo-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      order: -1;
+    }
+
+    .skills-grid { grid-template-columns: 1fr; }
+
+    .exp-item {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .facts-row { grid-template-columns: 1fr; }
+    .contact-row { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/index.html" class="nav-logo">Ron Kim</a>
+  <ul class="nav-links">
+    <li><a href="/index.html#work">Work</a></li>
+    <li><a href="/about.html" class="active">About Me</a></li>
+    <li><a href="#">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div class="intro-text">
+      <p class="intro-eyebrow">About Me</p>
+      <h1 class="intro-name">Ron Kim</h1>
+      <div class="intro-bio">
+        <p>
+          I am a UI/UX Designer based in Washington, D.C., specializing in transforming complex data-driven systems into clear, usable designs for web, mobile, and interactive platforms, as well as for technology and people. Over the years, I have proven my ability to design visual systems, data visualizations, and interfaces for large-scale platforms serving a wide range of users, including those with limited digital access. Dedicated to human-centered design to help solve real-world problems, such as improving federal infrastructure and public services. Strong background in visual design, building design systems, and working closely with developers and researchers.
+        </p>
+        <p>
+          Dedicated to human-centered design to help solve real-world problems, such as improving federal infrastructure and public services. Strong background in visual design, building design systems, and working closely with developers and researchers.
+        </p>
+      </div>
+    </div>
+
+    <!-- Replace src with your photo -->
+    <div class="photo-wrap">
+      <img src="/nav/profile2.jpg" alt="Ron Kim"
+           onerror="this.parentElement.innerHTML='Your photo here'">
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <p class="section-label">SKILLS</p>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <p class="skill-cell-label">Design</p>
+        <ul class="skill-list">
+          <li>Visual Design</li>
+          <li>Wireframing</li>
+          <li>Prototyping</li>
+          <li>Design Systems</li>
+          <li>Responsive Systems</li>
+        </ul>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-label">Tools</p>
+        <ul class="skill-list">
+          <li>Figma</li>
+          <li>Adobe XD</li>
+          <li>Adobe Creative Suite</li>
+          <li>Claude Code</li>
+          <li>HTML / CSS</li>
+        </ul>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-label">Domain</p>
+        <ul class="skill-list">
+          <li>Federal Government</li>
+          <li>Accessibility (508)</li>
+          <li>Data Visualization</li>
+          <li>Enterprise UX</li>
+          <li>Geospatial Tools</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <p class="section-label">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <span class="exp-date">2017 – Present</span>
+        <div>
+          <p class="exp-role">UI/UX Designer</p>
+          <p class="exp-org">IBM · Washington D.C.</p>
+          <p class="exp-desc">Designed modern and accessible user experiences for large-scale federal platforms including FEMA, the VA, and GSA. From simplifying data-heavy workflows to building standardized design systems, I focused on making complex processes intuitive for everyone.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-date">2016 – 2017</span>
+        <div>
+          <p class="exp-role">Graphic Designer</p>
+          <p class="exp-org">Bluetext</p>
+          <p class="exp-desc">Designed web experiences for diverse clients across multiple industries, translating brand identities into visually compelling, user-friendly digital interfaces</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-date">2011 – 2016</span>
+        <div>
+          <p class="exp-role">Design BFA</p>
+          <p class="exp-org">The School of Visual Arts; New York, NY</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATS / FACTS -->
+  <div class="section">
+    <p class="section-label">By the numbers</p>
+    <div class="facts-row">
+      <div class="fact-card">
+        <p class="fact-number">7<span>+</span></p>
+        <p class="fact-label">Years designing digital products across public and private sectors.</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-number">5<span>+</span></p>
+        <p class="fact-label">Federal projects shipped end-to-end, from discovery through delivery.</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-number">2</p>
+        <p class="fact-label">Design systems built from scratch and handed off to engineering teams.</p>
+      </div>
+      <!--<div class="fact-card">
+        <p class="fact-number"><span>∞</span></p>
+        <p class="fact-label">Sticky notes used in research synthesis sessions. Approximately.</p>
+      </div>-->
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section">
+    <p class="section-label">Get in touch</p>
+    <div class="contact-row">
+      <p class="contact-cta">
+        Open to new opportunities, collaborations, and interesting conversations.<br>
+        The best way to reach me is by email.
+      </p>
+      <div class="contact-links">
+        <a class="btn-primary" href="mailto:your@email.com">Say hello →</a>
+        <a class="btn-ghost" href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>
