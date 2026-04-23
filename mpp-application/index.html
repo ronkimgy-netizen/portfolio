@@ -175,9 +175,9 @@
       </div>
     </div>
   </div>
-  <!-- DESIGN DECISIONS -->
+  <!-- FINAL DESIGNS -->
   <div class="section">
-    <h2>Design Decisions</h2>
+    <h2>Final Designs</h2>
     <p>The client didn’t want to deviate too much from the original design. I didn’t want this to be a “make it look pretty” type of work, so I pushed for a bigger challenge and explained how the new design proposal can benefit users’ experience. 
     <br>
     <br>
@@ -192,15 +192,11 @@
 
   <!-- SOLUTION 6A -->
   <div class="section">
-    <h3>Status Dashboard and Navigation</h3>
-    <p>Introduced a Flag Plans feature that lets users mark any plans and return to them directly from the dashboard. </p>
-    <p>Separated the Jurisdiction Status table into its own tab, giving the data room to help users process information faster and reducing the chance of making errors.</p>
-    
-    <h3>What changed</h3>
-    <p>Two targeted interventions addressed the navigation problem directly:</p>
+    <img src="/img/MPP-Plan-flagged.png">
     <p><strong>Flag Plans</strong> — Introduced a feature that lets users mark any plan and return to it directly from the dashboard. Accessible from a dedicated My Plans tab, the saved plan list eliminates the need to reconstruct a search for work already in progress.</p>
     
     <hr class="inner-section-hr">
+    <img src="/img/MPP - Jurisdiction.png">
     <p><strong>Jurisdiction Status tab</strong> — Separated the Jurisdiction Status table into its own dedicated tab, giving the data room to breathe. Framed to the client around cognitive load: sectioning content helps users process information faster and reduces the likelihood of input errors.</p>
     
     <hr class="inner-section-hr">
@@ -215,26 +211,21 @@
     <div class="solution-label">6B</div>
     <div class="eyebrow">Design Solutions</div>
     <h2>Alert Preferences</h2>
-    <p>The client-approved alert system used a modal popup triggered by a bell icon inside a dense data table. Every time a planner wanted to configure alerts for a plan, they lost their place in the list — the modal disrupted context rather than extending it.</p>
-    <p>In a government application, modals carry specific associations: errors, confirmations, warnings. Using a modal for a settings task sends the wrong signal. It implies urgency when the user is simply trying to configure a preference.</p>
-    <div class="img-placeholder short">
-      <div class="img-ph-icon">⚠️</div>
-      <div class="img-ph-label">Client-approved version — modal popup triggered by bell icon<br>Context lost on every alert configuration</div>
+    <p>The client-approved alert system used a modal pop-up triggered by a bell icon within a dense data table. Each time a planner configured alerts for a plan, they lost their place in the list, disrupting context instead of supporting it.</p>
+    <p>In government applications, modals are typically associated with errors, confirmations, or warnings. Using a modal for settings suggests urgency when users are simply configuring preferences.</p>
+
+    <div class="bi-colum-img"> 
+      <img src="/img/MPP-AlertPref-ClientV-1.png">
+      <img src="/img/MPP-AlertPref-ClientV-2.png">
     </div>
     <h3>The split-panel approach</h3>
-    <p>The redesigned Alert Preferences page uses a split-panel layout: a card list of saved plans on the left, an inline settings panel on the right. Selecting a plan opens its alert configuration without navigating away or interrupting the list view.</p>
-    <p>Each plan card shows a summary of currently active alerts — status change, expiration window, review activity — so planners can see at a glance which plans have alerts configured and which don't. Plans with no alerts set are visually dimmed.</p>
-    <div class="img-placeholder tall">
-      <div class="img-ph-icon">🖥</div>
-      <div class="img-ph-label">Alert Preferences — MPP 2.0<br>Split panel: plan list + inline settings</div>
-    </div>
+    <p>The redesigned Alert Preferences page uses a split-panel layout, with a card list of saved plans on the left and an inline settings panel on the right. Selecting a plan opens its alert configuration without leaving or interrupting the list view.</p>
+    <p>Each plan card displays a summary of active alerts, such as status changes, expiration windows, and review activity, allowing planners to quickly identify which plans have alerts configured. Plans without alerts are visually dimmed.</p>
+    <div class="add-carousel"></div>
+    <img src="/img/alert-preference.gif">
     <div class="decision-box">
       <div class="decision-label">Input type rationale</div>
       <p class="decision-text">Expiration alerts use radio buttons — selecting a time window is a mutually exclusive choice, and presenting options as a card-style group makes that logic visible. Status and comment alerts use toggles — they are independent, binary, and the toggle communicates that directly.</p>
-    </div>
-    <div class="img-placeholder short">
-      <div class="img-ph-icon">🖥</div>
-      <div class="img-ph-label">Alert settings panel — detail view<br>Three sections: status / expiration / review activity</div>
     </div>
   </div>
 
