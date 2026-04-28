@@ -18,6 +18,23 @@ function toggle(id) {
   document.getElementById(id).classList.toggle('open');
 }
 
+// ── Image lightbox ──
+const modal = document.getElementById('imgModal');
+const modalImg = document.getElementById('imgModalImg');
+
+document.querySelectorAll('.image-gallery img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => {
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modal.classList.add('open');
+  });
+});
+
+document.getElementById('imgModalClose').addEventListener('click', () => modal.classList.remove('open'));
+modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('open'); });
+
 // ── Swiper init ──
 new Swiper('.prob-swiper', {
   loop: true,
