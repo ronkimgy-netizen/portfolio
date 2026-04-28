@@ -388,7 +388,32 @@
     e.target.classList.add('on');
     wrap.querySelector('#lgp-'+id).classList.add('on');
   }
+  function openModal(src) {
+  document.getElementById('imgModalSrc').src = src;
+  document.getElementById('imgModal').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('imgModal').classList.remove('open');
+}
+
+// 원하는 이미지들에 클릭 바인딩
+document.querySelectorAll('.legacy-img-gallery img, .opp-img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => openModal(img.src));
+});
+
+// 배경 클릭으로도 닫기
+document.getElementById('imgModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ESC 키로 닫기
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+  
 </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
 </body>
