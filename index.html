@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ron — UI/UX Designer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Google+Sans+Display:wght@400;500&display=swap" rel="stylesheet">
+  <title>Ron — UI/UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Google+Sans+Display:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #222222;
@@ -406,17 +406,37 @@
     transform-origin: 50% 50%;
     opacity: 0.5;
   }
+
+  .wip-snooze {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    justify-content: center;
+    margin: 0 0 16px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--mid);
+    user-select: none;
+  }
+  .wip-snooze input[type="checkbox"] {
+    accent-color: var(--navy);
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/index.html" class="nav-logo">Ron Kim</a>
-    <div class="nav-links">
-    <a href="/index.html">Works</a> 
-    <a href="nav/about.html">About Me</a> 
-    <a href="https://drive.google.com/file/d/1UZSxA8nOesgF5-FuaYZBjt0GW5nQTI96/view">Resume</a> 
-  </div>
+  <a href="#" class="nav-logo">Ron Kim</a>
+  <ul class="nav-links">
+    <a href="nav/projects">Projects</a>
+    <a href="nav/about">About Me</a>
+    <a href="nav/resume">Resume</a>
+  </ul>
 </nav>
 
 <section class="hero">
@@ -431,9 +451,9 @@
 
 <section class="work-section" id="work">
   <div class="work-grid">
-    <a class="work-card" href="/Interactive_Map">
+    <a class="work-card" href="/hazard-config/">
       <div class="work-card-image">
-        <img src="/img/thumbnail/landing-thumbnail-map.png"> 
+        <img src="/img/thumbnail/landing-thumbnail-hazard.png"> 
       </div>
       <p class="work-card-tag">FEMA · Hazard Analysis</p>
       <p class="work-card-title">OpenHazus Interactive Map Viewer</p>
@@ -448,10 +468,9 @@
       <p class="work-card-desc">Sole UX designer on a modernization effort for the Mitigation Planning Portal.</p>
     </a>
 
-    <a href="/gsa" class="project-card"  style="position:relative;">
+    <a href="case-study-samgov.html" class="project-card"  style="position:relative;">
       <div class="work-card-image">
         <img src="/img/Thumbnail/landing-thumbnail-gsa.png" alt="SAM.gov"/>
-        
       </div>
         <p class="work-card-tag">GSA · Contract Workspace</p><span class="wip-badge">In Progress</span>
         <p class="work-card-title">SAM.GOV</p>
@@ -459,25 +478,27 @@
 
     </a>
 
-    <a class="work-card" href="/hazard-config" style="position:relative;">
+    <a class="work-card" href="#" style="position:relative;">
       <div class="work-card-image">
         <img src="/img/thumbnail/landing-thumbnail-hazard.png">
       </div>
-      <p class="work-card-tag">FEMA · Hazard Analysis</p> <span class="wip-badge">In Progress</span>
+      <p class="work-card-tag">FEMA · Hazard Analysis</p><span class="wip-badge">In Progress</span>
       <p class="work-card-title">Hazard Configuration</p>
       <p class="work-card-desc">Designing the analyst workflow for a national hazard loss estmation platform.</p>
     </a>
 
   </div>
 </section>
-  <div id="wip-backdrop">
+
+
+<!-- ── WIP MODAL ── -->
+<div id="wip-backdrop">
   <div id="wip-modal">
 
     <svg class="wip-ring" viewBox="0 0 26 26">
       <circle class="wip-ring-track" cx="13" cy="13" r="10"/>
       <circle class="wip-ring-fill" id="wipRingFill" cx="13" cy="13" r="10"/>
     </svg>
-
     <button id="wip-close" onclick="closeWipModal()">✕</button>
 
     <p class="wip-modal-eyebrow">Work in progress</p>
@@ -486,24 +507,34 @@
       Happy to walk you through my projects in detail —<br>
       please don't hesitate to reach out. Apologies for the mess!
     </p>
+    <label class="wip-snooze">
+      <input type="checkbox" id="wipSnooze">
+      <span>Don't show again for 24 hours</span>
+    </label>
     <div class="wip-modal-footer">
-      <a class="wip-btn-primary" href="mailto:">Say hello →</a>
+      <a class="wip-btn-primary" href="https://www.linkedin.com/in/ronkimgy/">Say hello →</a>
       <button class="wip-btn-ghost" onclick="closeWipModal()">Dismiss</button>
     </div>
 
   </div>
 </div>
+
 <script>
   (function () {
     const SECS = 5;
+    const SNOOZE_KEY = 'wip-snooze-until';
     const backdrop = document.getElementById('wip-backdrop');
     const ring = document.getElementById('wipRingFill');
+    const snoozeBox = document.getElementById('wipSnooze');
     const C = 2 * Math.PI * 10;
     ring.style.strokeDasharray = C;
     ring.style.strokeDashoffset = 0;
     let autoClose;
 
     window.closeWipModal = function () {
+      if (snoozeBox.checked) {
+        localStorage.setItem(SNOOZE_KEY, Date.now() + 24 * 60 * 60 * 1000);
+      }
       backdrop.classList.remove('visible');
       clearTimeout(autoClose);
     };
@@ -515,13 +546,17 @@
       void ring.offsetWidth;
       ring.style.transition = `stroke-dashoffset ${SECS}s linear`;
       ring.style.strokeDashoffset = C;
-      autoClose = setTimeout(closeWipModal, SECS * 1000);
+      autoClose = setTimeout(closeWipModal, SECS * 1500);
     }
 
     window.addEventListener('load', function () {
-      setTimeout(openWipModal, 800);
+      const snoozeUntil = localStorage.getItem(SNOOZE_KEY);
+      if (snoozeUntil && Date.now() < Number(snoozeUntil)) return;
+      setTimeout(openWipModal, 200);
     });
   })();
 </script>
+
 </body>
 </html>
+
