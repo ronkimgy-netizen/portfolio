@@ -118,7 +118,8 @@ nav {
   position: relative;
 }
 .hero-dash {
-  width: 75%;
+  width: 720px;
+  max-width: 90%;
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
