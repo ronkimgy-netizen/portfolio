@@ -213,12 +213,12 @@
       </div>
     <p>The client-approved alert system used a modal pop-up triggered by a bell icon within a dense data table. Each time a planner configured alerts for a plan, they lost their place in the list, disrupting context instead of supporting it.</p>
     <p>In government applications, modals are typically associated with errors, confirmations, or warnings. Using a modal for settings suggests urgency when users are simply configuring preferences.</p>
-
+    <img src="/img/alert-preference.gif">
     <h3>The split-panel approach</h3>
     <p>The redesigned Alert Preferences page uses a split-panel layout, with a card list of saved plans on the left and an inline settings panel on the right. Selecting a plan opens its alert configuration without leaving or interrupting the list view.</p>
     <p>Each plan card displays a summary of active alerts, such as status changes, expiration windows, and review activity, allowing planners to quickly identify which plans have alerts configured. Plans without alerts are visually dimmed.</p>
     <div class="add-carousel"></div>
-    <img src="/img/alert-preference.gif">
+    
     <div class="decision-box">
       <div class="decision-label">Input type rationale</div>
       <p class="decision-text">Expiration alerts use radio buttons — selecting a time window is a mutually exclusive choice, and presenting options as a card-style group makes that logic visible. Status and comment alerts use toggles — they are independent, binary, and the toggle communicates that directly.</p>
