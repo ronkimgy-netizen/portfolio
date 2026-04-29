@@ -653,3 +653,30 @@ footer {
   .logic-grid{grid-template-columns:1fr}
   .lg-arrow{display:none}
 }
+@media(max-width:640px){
+  .problem-list li::before{display:inline-flex;margin-bottom:4px}
+  .opp-card{grid-template-columns:1fr}
+  .opp-label{border-top:none;border-left:2px solid var(--rust);padding:0 0 0 10px;margin-bottom:8px}
+  .logic-grid{grid-template-columns:1fr}
+  .lg-arrow{display:none}
+}
+
+/* ── LIGHTBOX ── */
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+#lightbox-overlay.active { display: flex; }
+#lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 4px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
