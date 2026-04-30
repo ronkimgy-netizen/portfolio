@@ -928,33 +928,77 @@ font-size: .85em;
       .image-gallery img{width:calc(50% - 4px)}
       .alist .ai-body-inner img{width:100%}
     }
-  .full-bleed{
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  overflow-x: auto;
-  padding: 16px 24px;
+/* ── Ideation — Vertical Stack ── */
+.full-bleed {
+  width: 100%;
+  margin: 32px 0 0;
+  padding: 0;
 }
-  .full-bleed-image-gallery{
+.full-bleed-image-gallery {
   display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; /* ✅ 여기로 이동 */
+  flex-direction: column;
   gap: 24px;
+}
+.full-bleed-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+  padding: 28px;
+  background: var(--off, #F7F8FA);
+  border: 1px solid #EAECF0;
+  border-radius: 12px;
+}
+.full-bleed-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #EAECF0;
+  display: block;
+}
+.full-bleed-card ul {
+  padding-left: 0;
+  list-style: none;
+}
+.full-bleed-card > ul > li > h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 12px;
+}
+.concept-list-group {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.concept-list-group li {
+  font-size: 14px;
+  color: var(--mid, #555555);
+  line-height: 1.65;
+  padding-left: 14px;
+  position: relative;
+}
+.concept-list-group li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #BBBFC8;
+}
 
+@media (max-width: 768px) {
+  .full-bleed-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
   }
-  .full-bleed-image-gallery img, .full-bleed-card{
-    width: 500px;
+}
+@media (max-width: 480px) {
+  .full-bleed-card {
+    padding: 16px;
   }
-  .full-bleed-image-gallery img{
-    height: 300px;
-  }
-
-
-
-  /* IDeation */
-  .concept-list-group{
-    padding-left: 12px;
-  }
+}
 /* ── Final Design · Horizontal Gallery ─────────────────────────── */
 .fd-gallery {
   position: relative;
