@@ -21,14 +21,27 @@ function toggle(id) {
 // ── Image lightbox ──
 const modal = document.getElementById('imgModal');
 const modalImg = document.getElementById('imgModalImg');
+const modalCaption = document.getElementById('imgModalCaption');
+
+function openModal(src, alt, caption) {
+  modalImg.src = src;
+  modalImg.alt = alt;
+  modalCaption.textContent = caption || '';
+  modalCaption.style.display = caption ? 'block' : 'none';
+  modal.classList.add('open');
+}
 
 document.querySelectorAll('.image-gallery img').forEach(img => {
   img.style.cursor = 'zoom-in';
-  img.addEventListener('click', () => {
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
-    modal.classList.add('open');
-  });
+  img.addEventListener('click', () => openModal(img.src, img.alt, ''));
+});
+
+document.querySelectorAll('.preview-item').forEach(item => {
+  const img = item.querySelector('img');
+  const caption = item.querySelector('span');
+  if (!img) return;
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => openModal(img.src, img.alt, caption ? caption.textContent : ''));
 });
 
 document.getElementById('imgModalClose').addEventListener('click', () => modal.classList.remove('open'));

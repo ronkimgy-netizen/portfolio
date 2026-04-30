@@ -789,6 +789,15 @@ footer {
   z-index: 10;
 }
 .img-modal-close:hover { background: rgba(0,0,0,0.75); }
+.img-modal-caption {
+  padding: 10px 16px;
+  font-family: 'Google Sans Mono', monospace;
+  font-size: 12px;
+  color: #555;
+  background: #fff;
+  border-top: 1px solid #EAECF0;
+  text-align: center;
+}
 
 @media (max-width: 640px) {
   .mosaic-row { height: 140px; }
@@ -1087,5 +1096,519 @@ font-size: .85em;
   .fd-feature-item img {
     height: auto;
     width: 100%;
+  }
+}
+/* ── Problem section ─────────────────────────── */
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 2rem;
+}
+
+.problem-row {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 왼쪽 — 이미지 블록 */
+.problem-img {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e8e8e8;
+}
+
+.problem-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  flex: 1;
+}
+
+.problem-img figcaption {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.6;
+  padding: 10px 14px;
+  border-top: 1px solid #e8e8e8;
+  background: #fafafa;
+}
+
+/* 오른쪽 — 텍스트 블록 */
+.problem-body {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.problem-num {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.08em;
+}
+
+.problem-body h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222222;
+  margin: 0;
+}
+
+.problem-body p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .problem-row {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-img {
+    border-right: none;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .problem-img img {
+    height: 160px;
+  }
+}
+/* Ideation — what carried forward */
+.carried-forward {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #f0f7f0;
+  border-radius: 6px;
+}
+
+.carried-forward::before {
+  content: "✓";
+  color: #3a7d3a;
+  font-weight: 500;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.carried-forward p {
+  font-size: 16px;
+  color: #3a7d3a;
+  line-height: 1.6;
+  margin: 0;
+}
+/* Ideation — synthesis block */
+.synthesis-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #EEF5F1;
+  border: 1px solid #B7D5C4;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-top: 2.5rem;
+}
+
+.synthesis-check {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: #D4EBE0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.synthesis-block p {
+  font-size: 15px;
+  color: #1B4332;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Design Overview ─────────────────────────── */
+.decision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.decision-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.decision-img {
+  background: #f5f5f5;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.decision-img img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  height: 220px;
+}
+
+.decision-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.decision-body h4 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222222;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.decision-body p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Why 문장 */
+.decision-why {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.75;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .decision-grid {
+    grid-template-columns: 1fr;
+  }
+}/* Gallery track — 4컬럼 고정 */
+.fd-gallery__track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* 카드 */
+.fd-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이미지 고정 높이 */
+.fd-card__image {
+  aspect-ratio: unset;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.fd-card__image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* STEP 라벨 */
+.fd-card__tag {
+  font-size: 11px;
+  color: #C8704A;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* 카드 타이틀 */
+.fd-card__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222222;
+  margin: 0 0 8px;
+}
+
+/* 카드 설명 */
+.fd-card__subtitle {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 캐러셀 네비 — 4컬럼 그리드 쓰면 nav 숨겨도 돼 */
+.fd-gallery__nav {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fd-gallery__track {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .fd-gallery__track {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Outcomes & Reflection ───────────────────── */
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 24px;
+  width: 1px;
+  background: #e0e0e0;
+}
+
+.tl-item {
+  position: relative;
+  padding: 0 0 28px 20px;
+}
+
+.tl-dot {
+  position: absolute;
+  left: -21px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.tl-dot--done { background: #2D6A4F; }
+.tl-dot--cut  { background: #bbb; }
+
+.tl-tag {
+  display: block;
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.tl-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.tl-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+}
+
+.tl-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.tl-badge--done {
+  background: #EEF5F1;
+  color: #2D6A4F;
+}
+
+.tl-badge--cut {
+  background: #f5f5f5;
+  color: #999;
+}
+
+.tl-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Insight cards */
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.insight-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.insight-icon {
+  width: 36px;
+  height: 36px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.insight-card h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.insight-card p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* What I would do differently */
+.diff-block {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 1.5rem;
+}
+
+.diff-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.diff-num {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  margin-top: 3px;
+  width: 20px;
+}
+
+.diff-item p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .insight-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* 새로운 dot 색상 */
+.tl-dot--done      { background: #2D6A4F; }
+.tl-dot--presented { background: #C8704A; }
+.tl-dot--explored  { background: #bbb; }
+
+/* 새로운 badge 색상 */
+.tl-badge--presented {
+  background: #fdf0eb;
+  color: #9a4a28;
+}
+
+.tl-badge--explored {
+  background: #f5f5f5;
+  color: #999;
+}
+
+/* Further exploration 불릿 */
+.tl-bullets {
+  margin: 8px 0 0 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tl-bullets li {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+  padding-left: 4px;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-item img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #e8e8e8;
+  display: block;
+}
+
+.preview-item span {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .preview-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
