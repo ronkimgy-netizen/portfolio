@@ -46,7 +46,32 @@ document.querySelectorAll('.preview-item').forEach(item => {
 
 document.getElementById('imgModalClose').addEventListener('click', () => modal.classList.remove('open'));
 modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('open'); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    modal.classList.remove('open');
+    conceptModal.classList.remove('open');
+  }
+});
+
+// ── Concept card lightbox ──
+const conceptModal = document.getElementById('conceptModal');
+const conceptModalImg = document.getElementById('conceptModalImg');
+const conceptModalText = document.getElementById('conceptModalText');
+
+document.querySelectorAll('.full-bleed-card img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => {
+    const card = img.closest('.full-bleed-card');
+    const ul = card.querySelector('ul');
+    conceptModalImg.src = img.src;
+    conceptModalImg.alt = img.alt;
+    conceptModalText.innerHTML = ul ? ul.innerHTML : '';
+    conceptModal.classList.add('open');
+  });
+});
+
+document.getElementById('conceptModalClose').addEventListener('click', () => conceptModal.classList.remove('open'));
+conceptModal.addEventListener('click', e => { if (e.target === conceptModal) conceptModal.classList.remove('open'); });
 
 // ── Swiper init ──
 new Swiper('.prob-swiper', {
