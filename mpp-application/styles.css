@@ -202,6 +202,50 @@ nav {
   border-radius: 8px;
   border: 1px solid #EAECF0;
 }
+.side-by-side {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin: 32px 0;
+}
+.sbs-figure {
+  flex: 0 0 calc(50% - 6px);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sbs-figure img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #EAECF0;
+  display: block;
+}
+.sbs-figure figcaption {
+  font-size: 13px;
+  color: #667085;
+  line-height: 1.5;
+  display: flex;
+
+  align-items: baseline;
+  gap: 6px;
+}
+.sbs-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #F2F4F7;
+  color: #344054;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.sbs-label--after {
+  background: #EEF4FF;
+  color: #3538CD;
+}
+
 .section { margin-bottom: 72px; }
 .section img{
   width: 100%;
@@ -253,7 +297,9 @@ p:last-child { margin-bottom: 0; }
 
 /* Blockquote */
 blockquote {
+  border-radius: 8px;
   margin: 36px 0;
+  border: #a4a4a4 .5px solid;
   padding: 24px 28px;
   background: var(--off);
 }
@@ -342,15 +388,15 @@ blockquote cite {
 .legacy{
   max-width: 100%;
   display: flex;
-  column-gap: 32PX;
+  column-gap: 24px;
   justify-content: center;
-  align-items: center;
+  align-items: top;
   padding: 0px 0px 14px 0px
 
 }
 .legacy img{
   filter: brightness(1.18);
-  max-width: 40%;
+  max-width: 70%;
   border-radius: 5px;
   border: 1px solid #737373;
 }
@@ -409,8 +455,8 @@ blockquote cite {
 .img-ph-icon { font-size: 24px; opacity: 0.4; }
 
 /* Reflection */
-.reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
-.ref-card { padding: 20px; border-radius: 8px; }
+.reflection-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 24px 0; }
+.ref-card { padding: 20px 20px 12px 20px ; border-radius: 8px; }
 .ref-card.do { background: #EAF3DE; border: 1px solid #C0DD97; }
 .ref-card.dont { background: var(--lt); border: 1px solid #C8D4E0; }
 .ref-card-label {

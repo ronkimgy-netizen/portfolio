@@ -23,19 +23,19 @@
 <div class="hero">
   <div class="hero-tag">Case Study · Federal Web Application</div>
   <h1 class="hero-title">Modernizing FEMA's Mitigation Planning Portal</h1>
-  <p class="hero-desc">MPP 2.0 consolidates two outdated systems into a user-centered platform, giving federal planners a clearer, faster way to manage hazard mitigation plans across all ten FEMA regions.</p>
+  <p class="hero-desc">Modernizing FEMA's Mitigation Planning Portal recreated the plan management experience, so plan managers could quickly return to their plans, review dense jurisdiction data more clearly, and manage plan updates without being overwhelmed by notifications.</p>
   <div class="hero-meta">
     <div class="meta-item">
       <div class="meta-label">Role</div>
-      <div class="meta-val">Solo UX Designer</div>
+      <div class="meta-val">UX Designer</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Client</div>
-      <div class="meta-val">FEMA (Federal)</div>
+      <div class="meta-val">Federal Agency</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Timeline</div>
-      <div class="meta-val">4 months active</div>
+      <div class="meta-val">Feb 2024 – Sep 2025</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Platform</div>
@@ -63,7 +63,9 @@
   <!-- BACKGROUND -->
   <div class="section">
     <h2>Background</h2>
-    <p>The Mitigation Planning Portal (MPP) is a web application developed by FEMA to track and report hazard mitigation plans and related data elements across all 10 regions. Users can create mitigation plans, manage compliance, and oversee funding across a national network of states and local jurisdictions.  </p>
+    <p>A federal client’s Mitigation Planning Portal is used to manage and track hazard mitigation plans across all ten regions nationwide.
+    <br><br>
+    As the sole UX designer on the team, I focused on improving the plan management experience in MPP 2.0 to help users look up, review, and manage plans with less friction.</p>
     <blockquote>
       <p>"Consolidated space of record for mitigation plan status."</p>
       <cite>— Stakeholder workshop, FEMA</cite>
@@ -73,29 +75,26 @@
   <!-- USERS -->
   <div class="section">
     <h2>Understanding the Users</h2>
-    <p>MPP comprises a wide range of FEMA users, each with varying levels of administrative access. Users are organized into three primary groups: Federal, Regional, and State, each with a unique set of access.
+    <p>MPP supports Federal, Regional, and State users, each with different levels of access and responsibility.
     <br>
     <br>
-      To cover the complexity and design process in greater depth, this case study focuses on federal users.  </p>
+      For this case study, I focused on Federal users, as they have the broadest access across all 10 regions and the most complex workflows.</p>
     <div class="user-grid">
       <div class="user-card primary">
-        <div class="user-badge primary">Primary Focus</div>
         <div class="user-title">Federal</div>
-        <div class="user-desc">Full edit access across all 10 regions. The most demanding user — highest data scope, highest stakes for accuracy.</div>
+        <div class="user-desc">Full access across all 10 regions. The user with the most complex workflow.</div>
       </div>
       <div class="user-card">
-        <div class="user-badge secondary"></div>
         <div class="user-title">Regional</div>
-        <div class="user-desc">Data quality oversight across all regions. Responsible for enforcing entry standards.</div>
+        <div class="user-desc">Regional users oversee data quality across their assigned regions. Their responsibilities are similar to those of Federal users but limited to specific regions.</div>
       </div>
       <div class="user-card">
-        <div class="user-badge secondary"></div>
         <div class="user-title">State</div>
-        <div class="user-desc">Scoped to assigned region or state. Mirror the Federal permission tiers within their geographic boundary.</div>
+        <div class="user-desc">State users are limited to their assigned region or state and have roles similar to Federal users within their jurisdiction.</div>
       </div>
     </div>
-    <p>The design work centered on the Federal Read &amp; Write user — the role with the broadest scope and the most friction in the existing system. Meet Jamie:</p>
     <img src="/img/mpp-persona.png">
+    <p>I created a working persona based on the workshop notes. This helped me translate broad requirements into a more realistic day-to-day activity.</p>
       <blockquote>
         <p>"I shouldn't have to open Excel to know where a plan stands."</p>
       </blockquote>
@@ -104,31 +103,31 @@
   <!-- PROBLEM -->
   <div class="section">
     <h2>Pain Points</h2>
-    <p>I learned from the stakeholder workshops that several user pain points were overlooked during the transition from the Legacy version to MPP 1.0, and the updates were completed without resolving many of the problems in the legacy version.</p>
+    <p>While previous versions of MPP managed many plans, the user experience remained challenging for plan managers. The workflow did not consistently support quick resumption of work, activity tracking, or monitoring updates across multiple plans.</p>
       <div class="pain-points">
 
   <div class="pain-item">
     <div class="pain-header">
       <span class="pain-num-inline">01</span>
-      <span class="pain-title-inline">Broken user flow</span>
+      <span class="pain-title-inline">View assigned plans </span>
     </div>
-    <p class="pain-desc">The status dashboard provided a high-level view of plan status, but did not offer a direct path to the plans they were working on. Users had to navigate via search to resume their work.</p>
+    <p class="pain-desc">The status dashboard did not give users a direct way to return to the plans they were working on. To resume work, users had to search for the same plans again.</p>
   </div>
 
   <div class="pain-item">
     <div class="pain-header">
       <span class="pain-num-inline">02</span>
-      <span class="pain-title-inline">Confusing review process</span>
+      <span class="pain-title-inline">Reviewing activity was hard to capture</span>
     </div>
-    <p class="pain-desc">The current design lacks a reliable way to log their activity or leave comments tied to the plan they are working on.</p>
+    <p class="pain-desc">Plan managers needed a reliable way to document activity logs and leave comments tied to a plan.</p>
   </div>
 
   <div class="pain-item">
     <div class="pain-header">
       <span class="pain-num-inline">03</span>
-      <span class="pain-title-inline">Can't easily track updates</span>
+      <span class="pain-title-inline">Users recieved too many notifications</span>
     </div>
-    <p class="pain-desc">Users can either receive all notifications for a plan or none at all. For those working with 100 or more, it becomes overwhelming, making it nearly impossible to prioritize.</p>
+    <p class="pain-desc">Users could either receive all notifications or none at all. For plan managers working with dozens of plans or more, this made prioritizing updates difficult and easy to miss.</p>
   </div>
 
 </div>
@@ -137,25 +136,13 @@
     <cite>— Stakeholder workshop, FEMA</cite>
   </blockquote>
   </div>
-  <h3>Legacy designs screenshots</h3>
-    <div>
-      <div class="legacy">
-        <img src="/img/MPP-legacy-dashboard.png">
-        <div class="img-ph-label">
-          <strong>Status Dashboard (Landing Page) - </strong>The landing page gave analysts a regional overview of plan statuses at a glance. It was a useful starting point but not a complete workflow. The design assumed users would navigate to individual plans through search, with  <span style="font-weight: 500; text-decoration: underline;"> no shortcut back to work already in progress. </span>
-          <!--
-          <h5>How can we improve?</h5>
-          <ul>
-            <li>How might we allow users quickly resume plans they were previously working on?</li>
-            <li>What would a "saved" or "flagged" state look like in this context?</li>
-          </ul>--></div>
-      </div>
-    </div>
+  <h3>Legacy Experience</h3>
     <div>
       <div class="legacy">
         <img src="/img/MPP-legacy-plan detail.png">
-        <div class="img-ph-label"><strong>Plan Detail -</strong>
-        The plan detail page tried to show everything at once: basic plan information, funding status, and jurisdiction data all competing for space in a dense view. This made it difficult for analysts to focus on what mattered most at any point in their workflow.
+        <div class="img-ph-label"><strong>Plan Detail</strong>
+        <br>
+        The earlier plan detail page tried to show too much at once without clear navigation. Funding, status, and jurisdiction data competed within one dense view, making review harder.
         <!--
         <h5>How can we improve?</h5>
           <ul>
@@ -179,7 +166,7 @@
     <div class="ideation-row">
       <div class="ideation-cell pain">
         <span class="ideation-tag">Pain point 01</span>
-        <p>Analysts had no way to save their plans. They had to manually repeat search process to resume work which was a major pain point that came across with a 100 or more plans.</p>
+        <p>Returning to assigned plans could be easier.</p>
       </div>
       <div class="ideation-arrow">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,15 +174,14 @@
         </svg>
       </div>
       <div class="ideation-cell feature">
-        <span class="ideation-tag">Flag Plans</span>
-        <p>A way to mark any plan and return to it directly from the dashboard.</p>
+        <p>Create a clearer entry point to my plans page.</p>
       </div>
     </div>
 
     <div class="ideation-row">
       <div class="ideation-cell pain">
         <span class="ideation-tag">Pain point 02</span>
-        <p>The all-or-nothing notification model overwhelmed analysts managing large number of plans. Analysts receiving every update for every plan made prioritization nearly impossible.</p>
+        <p>All-or-nothing notification model overwhelmed analysts managing large number of plans</p>
       </div>
       <div class="ideation-arrow">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -203,15 +189,14 @@
         </svg>
       </div>
       <div class="ideation-cell feature">
-        <span class="ideation-tag">Alert Preferences</span>
-        <p>Granular, per-plan notification customization feature that let analysts follow only the updates they need.</p>
+        <p>Create a more customizable alert preference model so plan managers can choose which alert types to receive.</p>
       </div>
     </div>
 
     <div class="ideation-row">
       <div class="ideation-cell pain">
         <span class="ideation-tag">Pain point 03</span>
-        <p>Plan detail pages tried to show everything at once which includes, funding, status, and jurisdiction data all competing for limited space in a single dense view.</p>
+        <p>Plan detail pages tried to show everything at once.</p>
       </div>
       <div class="ideation-arrow">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -219,23 +204,25 @@
         </svg>
       </div>
       <div class="ideation-cell feature">
-        <span class="ideation-tag">Jurisdiction Status tab</span>
-        <p>A dedicated tab that gives jurisdiction data room to breathe, reducing cognitive load for analysts reviewing large datasets.</p>
+        <p>Restructure the page so that pages with complex data fields has its own space for better readability.</p>
       </div>
     </div>
 
   </div>
 
   <!-- User Flow Diagram -->
-  <h3>Mapping out the plan management process</h3>
-  <p>The user flow diagram served two purposes. Initially, it mapped navigation gaps and established a shared understanding of the workflow. As designs evolved, it was updated to reflect the final structure and used to ensure all pain points were addressed.</p>
+  <h3>Mapping the plan management workflow</h3>
+  <p>I created an end-to-end workflow to understand how key tasks are connected across MPP. This helped me figure out missing pieces and where new entry points were needed.</p>
 
   <div class="mapping-process-section">
     <div class="userflow-diagram">
       <img src="/img/mpp-userflow-diagram.png" alt="MPP user flow diagram"/>
     </div>
     <div class="userflow-desc">
-      <p>Features carried over from Legacy MPP are indicated in yellow. New features added for MPP 2.0 are in blue. Green indicates my design suggestion that was not included in the delivered version, but is documented here as part of this case study.</p>
+      <p> Yellow shows features carried over from Legacy MPP.
+        <br>
+        Blue shows new features added for MPP 2.0.<br>
+        Green highlights a design recommendation documented in this case study that was not included in the delivered version.</p>
     </div>
   </div>
 
@@ -243,10 +230,7 @@
   <!-- FINAL DESIGNS -->
   <div class="section">
     <h2>Final Designs</h2>
-    <p>The modernization effort required to keep a lot of the existing structure. I treated this constraint as an opportunity, ensuring every change addressed a specific user need and could be justified to stakeholders.
-    <br>
-    <br>
-    Not all proposals were included in the final version. This case study documents the design I advocated for, including decisions that were ultimately removed. </p>
+    <p>The final design focused on improving the three main workflows. Helping plan managers access assigned plans, reviewing jurisdiction data in a clearer space, and managing plan updates with more control.</p>
       <!--
     <div class="decision-box">
       <div class="decision-label">Design rationale</div>
@@ -258,19 +242,12 @@
   <!-- SOLUTION 6A -->
 <!-- Flag Plans 메인 -->
 <div class="opp-card">
-  <div class="opp-label">6A</div>
+  <div class="opp-label">Design Decision 01</div>
   <div class="opp-content">
-    <h3 class="opp-title">Flag Plans</h3>
-    <p>Introduced a feature that lets users mark any plan and return to it directly from the dashboard, without reconstructing a search for work already in progress.</p>
+    <h3 class="opp-title">Assigned plans and My Plans</h3>
+    <p>Introduced a feature takes plan managers directly to their assigned plans and allows them to save plans for quick access.</p>
 
-    <img src="/img/MPP-Plan-flagged.png" alt="Flag Plans feature" class="opp-img"/>
-
-    <!-- Option B subsection -->
-    <div class="subsection">
-      <span class="subsection-eyebrow">Naming the feature</span>
-      <h4 class="subsection-title">From Save, Bookmark, Heart Icon, Add to Favorites to Flag Plans</h4>
-      <p class="subsection-body">The label went through several months of iteration before landing on "Flag Plans." Early candidates, such as "Save," "Bookmark," "Add to Favorites," etc., were ruled out because they carried a social media vibe that felt misaligned with the platform's tone. The stakeholders wanted it to feel like a serious data management tool, not an everyday social app. "Flag" worked because it already existed in the federal platform, ‘flagging a case’, ‘flagging a record’, and implied immediate attention.</p>
-    </div>
+    <img src="/img/mpp_myplans.gif" alt="Flag Plans feature" class="opp-img"/>
 
   </div>
 </div>
@@ -279,33 +256,23 @@
 
 <!-- Jurisdiction Status 메인 -->
 <div class="opp-card opp-jurisdiction">
-  <div class="opp-label">6B</div>
+  <div class="opp-label">Design Decision 02</div>
   <div class="opp-content">
-    <h3 class="opp-title">Jurisdiction Status tab</h3>
-    <p>Separated the Jurisdiction Status table into its own dedicated tab, giving the data room to breathe.</p>
+    <h3 class="opp-title">Jurisdiction status</h3>
+    <p>Created a dedicated space for jurisdiction-level review instead of keeping the table inside a crowded plan detail page.</p>
+    <p><strong>Initial pain point:</strong> The plan detail view contained too much information, making jurisdiction data harder to scan and review.</p>
+    
+    <p><strong>Design Decision:</strong> I moved jurisdiction status into a dedicated tab and treated it as its own review task, rather than burying it inside the general plan detail page.</p>
 
-    <figure class="cs-root" id="cs-jurisdiction">
-      <img class="cs-image cs-before" src="/img/MPP-legacy-plan detail.png" alt="Before: Jurisdiction embedded in Plan Detail">
-      <img class="cs-image cs-after"  src="/img/MPP - Jurisdiction.png"     alt="After: Dedicated Jurisdiction Status tab">
-      <span class="cs-label cs-label-before">Before</span>
-      <span class="cs-label cs-label-after">After</span>
-      <div class="cs-line" aria-hidden="true"></div>
-      <button class="cs-handle" type="button" role="slider"
-              aria-label="Comparison slider"
-              aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M9 18l-6-6 6-6"/>
-          <path d="M15 6l6 6-6 6"/>
-        </svg>
-      </button>
-    </figure>
-
-    <!-- Option B subsection -->
-    <div class="subsection">
-      <span class="subsection-eyebrow">Framing the decision</span>
-      <h4 class="subsection-title">How it was positioned to the client</h4>
-      <p class="subsection-body">Rather than taking this as a visual cleanup, the decision was shaped around reducing cognitive load. Sectioning the dense content helps users process information faster and reduces the likelihood of input errors.</p>
+    <div class="side-by-side">
+      <figure class="sbs-figure">
+        <img src="/img/MPP-legacy-plan detail.png" alt="Before: Jurisdiction embedded in Plan Detail">
+        <figcaption><span class="sbs-label">Before</span> Jurisdiction data was buried inside a dense detail page</figcaption>
+      </figure>
+      <figure class="sbs-figure">
+        <img src="/img/MPP - Jurisdiction.png" alt="After: Dedicated Jurisdiction Status tab">
+        <figcaption><span class="sbs-label sbs-label--after">After</span> Dedicated tab for jurisdiction-level review</figcaption>
+      </figure>
     </div>
 
   </div>
@@ -313,25 +280,30 @@
 <!-- SOLUTION 6C -->
 <hr/>
 <div class="opp-card">
-  <div class="opp-label">6C</div>
+  <div class="opp-label">Design Decision 03</div>
   <div class="opp-content">
-    <h3 class="opp-title">Alert Preferences</h3>
-    <p>The client-approved alert version used a modal pop-up triggered by a bell icon within a dense data table. Each time a planner configured alerts for a plan, they lost their place in the list, disrupting context instead of supporting it.</p>
-    <p>In most government applications, modals are typically associated with errors or important messages. Using a modal suggests urgency when users are simply configuring preferences.</p>
+    <h3 class="opp-title">Alert preferences</h3>
+    <p>I explored various approaches to give plan managers more control over their notifications and prevent from receiving too many notifications that aren't relevant.</p>
+    <p><strong>Problem</strong> <br>Plan managers needed more control over notifications.</p>
 
+
+    <p><strong>Client approved version</strong><br>The client-approved direction triggered a modal from a bell icon inside a table.</p>
+    <p>While this met basic requirements, it disrupted the workflow by pulling user's attention from the plan list every time they configured alerts.</p>
+    
     <div class="bi-colum-img">
       <img src="/img/MPP-AlertPref-ClientV-1.png" alt="Client-approved alert modal version 1"/>
       <img src="/img/MPP-AlertPref-ClientV-2.png" alt="Client-approved alert modal version 2"/>
     </div>
-
+    <p><strong>Proposed Design</strong><br>I explored an alternative split-panel design to keep the users focused on the plan's list while users configured alerts across multiple plans.
+    <br><br>
+    For plan managers working with multiple plans, customizing alerts is not a one time action. Keeping the plans visible made the experience feel more like managing updates.
+    </p>
     <img src="/img/alert-preference.gif" alt="Alert Preferences split-panel interaction" class="opp-img"/>
 
-    <div class="subsection">
-      <span class="subsection-eyebrow">The redesign</span>
-      <h4 class="subsection-title">The split-panel approach</h4>
-      <p class="subsection-body">The redesigned Alert Preferences page uses a split-panel layout, with a card list of saved plans on the left and an inline settings panel on the right. Selecting a plan opens its alert configuration without leaving or interrupting the list view.</p>
-      <p class="subsection-body" style="margin-top: 12px;">Each plan card displays a summary of active alerts allowing planners to quickly identify which plans have alerts configured.</p>
-    </div>
+    <blockquote>
+      <p class="subsection-body">Although the alternate version was not approved by client, I included the split-panel version for this case study because it better reflects the problem I was trying to solve.</p>
+    </blockquote>
+    
     <!--<div class="decision-box">
       <div class="decision-label">Input type rationale</div>
       <p class="decision-text">Expiration alerts use radio buttons — selecting a time window is a mutually exclusive choice, and presenting options as a card-style group makes that logic visible. Status and comment alerts use toggles — they are independent, binary, and the toggle communicates that directly.</p>
@@ -339,7 +311,9 @@
     <hr>
 
   </div>
+  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/fbytIP4ytdcSzQnbvdaDDv/Designs?node-id=2106-10067&p=f&viewport=2754%2C224%2C0.9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2097%3A6468&page-id=2030%3A2526&embed-host=share" allowfullscreen></iframe>
 </div>
+
   <!-- OUTCOME -->
    <!-- 
   <div class="section">
@@ -367,29 +341,22 @@
   <div class="section">
   <div class="section">
     <h2>Outcomes</h2>
-    <p>This project was delivered without formal usability testing or post-launch analytics which is a common reality in out team. The reflection below captures what I learned from the process itself: the facilitation, the trade-offs, and the decisions I'd approach differently.</p>
+    <p>This project did not include formal usability testing or post-launch analytics, so I do not claim measured impact. The primary outcome was a clearer plan management workflow for MPP 2.0.
+    <br><br>
+    The design work clarified how plan managers could review jurisdiction-level data and manage alert preferences across multiple plans. It also provided the team with a clearer structure for integrating new features into the existing MPP workflow.</p>
   </div>
 </div>
   <!-- REFLECTION -->
   <div class="section">
     <h2>What I'd Do Differently</h2>
     <div class="reflection-grid">
-      <div class="ref-card do">
-        <div class="ref-card-label">Would do again</div>
-        <div class="ref-item">Anchor every design decision to a specific stakeholder quote or workshop finding</div>
-        <div class="ref-item">Use the persona as a decision-making tool, not just a deliverable</div>
-        <div class="ref-item">Document the facilitation work more thoroughly</div>
-        <div class="ref-item">Advocate for my rationale even when the stakeholder's decision goes another way</div>
-      </div>
       <div class="ref-card dont">
         <div class="ref-card-label">Would do differently</div>
-        <div class="ref-item">Establish a baseline usability benchmark earlier, even informally</div>
-        <div class="ref-item">Push harder to resolve stakeholder conflicts before they affect delivery</div>
-        <div class="ref-item">Get alignment on visual direction in week one, not month two</div>
-        <div class="ref-item">Involve a second designer for peer review on key decision points</div>
+        <div class="ref-item">Validate the workflow earlier to keep the team aligned regarding design decisions</div>
+        <div class="ref-item">Test the alert preference model with real users</div>
+        <div class="ref-item">Define MVP vs. future improvements sooner</div>
       </div>
     </div>
-    <p style="margin-top:32px;">This project reinforced a key lesson: in enterprise and government UX, the most challenging problems often stem from competing stakeholder priorities, unclear mandates, and slow decision-making. Knowing when to advocate, reframe, or accept a direction is as important as the design work itself.</p>
   </div>
 
 </div>
