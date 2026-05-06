@@ -9,176 +9,322 @@
   
 </head>
 <body>
-
-<nav>
-  <a href="/index.html" class="nav-logo">Ron Kim</a>
-  <div class="nav-links">
-    <a href="/index.html">Works</a>
-    <a href="nav/about.html">About Me</a>
-    <a href="https://drive.google.com/file/d/1UZSxA8nOesgF5-FuaYZBjt0GW5nQTI96/view">Resume</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag">Case Study · In Progress</div>
-  <h1 class="hero-title">SAM.gov</h1>
-  <p class="hero-desc">Rethinking how the public searches across federal contracting data.</p>
-  <div class="tldr">
-      <div class="tldr-label">Work in Progress</div>
-      <div class="tldr-text">The full case study is being written. The selected designs below reflect the current state of the work.</div>
+ 
+  <nav>
+    <a class="nav-logo" href="https://ronkimgy.com/">Ron Kim</a>
+    <div class="nav-links">
+      <a href="https://ronkimgy.com/">Works</a>
+      <a href="https://ronkimgy.com/nav/about.html">About Me</a>
+      <a href="https://drive.google.com/file/d/1UZSxA8nOesgF5-FuaYZBjt0GW5nQTI96/view" target="_blank">Resume</a>
     </div>
-  <div class="hero-meta">
-    <div>
-      <div class="meta-label">Role</div>
-      <div class="meta-val">Designer</div>
-    </div>
-    <div>
-      <div class="meta-label">Client</div>
-      <div class="meta-val">GSA</div>
-    </div>
-    <div>
-      <div class="meta-label">Tool</div>
-      <div class="meta-val">Sketch</div>
-    </div>
-    <div>
-      <div class="meta-label">Activities</div>
-      <div class="meta-val">Visual Design, Information Architecture</div>
+  </nav>
+ 
+  <div class="hero rev">
+    <p class="hero-tag">Case Study · GSA</p>
+    <h1 class="hero-title">SAM.gov</h1>
+    <p class="hero-desc">Rethinking how the public searches across federal contracting data.</p>
+    <div class="hero-meta">
+      <div><p class="meta-label">Role</p><p class="meta-val">UI/UX Designer</p></div>
+      <div><p class="meta-label">Client</p><p class="meta-val">GSA</p></div>
+      <div><p class="meta-label">Tool</p><p class="meta-val">Sketch</p></div>
+      <div><p class="meta-label">Activities</p><p class="meta-val">Visual Design, Information Architecture</p></div>
     </div>
   </div>
-</div>
-
-<div class="content">
-
-  <!-- OVERVIEW -->
-  <div class="section rev">
-    <div class="eyebrow">01 — Overview</div>
-    <h2>About this project</h2>
-    <p>SAM.gov is the U.S. federal government's official system for finding federal contract opportunities, grants, and entity records. Unlike the specialized analyst tools in my other case studies, SAM.gov serves a broad public audience, including vendors, researchers, journalists, and small business owners, who typically arrive with a clear goal in mind but with different mental models of how federal data is organized.</p>
-    <div class="highlight-text">
-      <div class="highlight-text">
-      <h4>This case study examines a core information architecture challenge:</h4> <p><em>how search results are filtered and categorized across multiple  domains, and how the current taxonomy information hierarchy can better align with how users actually think about what they're looking for.</em></p>
-    </div>
-    </div>
+ 
+  <div class="hero-img">
+    <img src="/img/sam/SAM - Search Result - Screenshot.png" alt="SAM.gov redesigned search" />
   </div>
+ 
+  <div class="content">
+    <!-- 01 OVERVIEW -->
+    <div class="section rev">
+      <p class="eyebrow">01 — Overview</p>
+      <h2>Overview</h2>
+      <p>SAM.gov is the U.S. federal government's central platform owned by the General Services Administration (GSA) for contract opportunities, grants, and entity registration.  The GSA initiated a modernization effort to consolidate 10 independent federal services into a single, unified experience.</p>
+      <h3>My Role</h3>
+      <p>As a designer, I reviewed the current state of the search results page, examining its application across various domains to identify key areas of pain points and potential improvements. My primary objectives focused on enhancing the site’s visual appeal and usability.</p>
+    </div>
+ 
+    <hr />
+ 
+    <!-- 02 THE CHALLENGE -->
+    <div class="section rev">
+      <p class="eyebrow">02 — The Challenge</p>
+      <h2>Challenge</h2>
+      <h3>There was no unified search.</h3>
+      <p>Before the SAM.gov got merged, each of the 10 legacy systems had it's own search engines. When these systems merged, the existing search had poor usability for users due to outdated design patterns that ignored current industry standards and user expectations.</p>
+      <blockquote class="challange-point">
+        <p>Users who needed to find a contract data or look up wage information had to use different services.</p>
+      </blockquote>
+      <!-- 
+      <div class="bi-col">
+        <div style="border:1px solid #EAECF0;border-radius:8px;padding:24px;background:var(--off)">
+          <p class="sec-label">Challenge 01</p>
+          <h3 style="margin-top:0">Single experience, multiple domains</h3>
+          <p style="font-size:14px;color:var(--mid);margin:0">Each domain carries its own data types, filter parameters, and user expectations. The search page needed to accommodate all of them without a confusing, one-size-fits-none interface.</p>
+        </div>
+        <div style="border:1px solid #EAECF0;border-radius:8px;padding:24px;background:var(--off)">
+          <p class="sec-label">Challenge 02</p>
+          <h3 style="margin-top:0">Domains must not interfere</h3>
+          <p style="font-size:14px;color:var(--mid);margin:0">Because data structures varied significantly across domains, filter logic and result display had to be scoped so one domain's workflow didn't bleed into another's.</p>
+        </div>
+      </div>
+      -->
+    </div>
+ 
+    <hr />
+ 
+    <!-- 03 DISCOVERY -->
+    <div class="section rev discovery-section">
+      <p class="eyebrow">03 — Discovery</p>
+      <h2>Discovery</h2>
+      <h3>Competitive Analysis</h3>
+      <img src="/img/sam/Example Research.jpg">
+      <!--
 
-  <hr/>
-
-  <!-- PROPOSED DESIGNS -->
-  <figure class="cs-root" id="comparisonSlider">
-  <img class="cs-image cs-before"
-       src="/img/sam/search-bf.png"
-       alt="Before">
-  <img class="cs-image cs-after"
-  src="/img/sam/legacy-search.png"
-       
-       alt="After">
-
-  <span class="cs-label cs-label-before">Before</span>
-  <span class="cs-label cs-label-after">After</span>
-
-  <div class="cs-line" aria-hidden="true"></div>
-
-  <button class="cs-handle" type="button" role="slider"
-          aria-label="Comparison slider"
-          aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M9 18l-6-6 6-6"/>
-      <path d="M15 6l6 6-6 6"/>
-    </svg>
-  </button>
-  </figure>
-  <div class="section rev">
-    <div class="eyebrow">02 — Proposed Designs</div>
-    <h2>Proposed designs</h2>
-    <p>A sampling of the visual direction and information architecture explorations from the project.</p>
-    <div class="quote">
-      "The final delivered version diverged from this proposal. This case study presents my recommended direction and the rationale behind it."
-    </div>  
-    
-    <div class="design-gallery">
-      
-      <!-- Feature image (replace src with real image) -->
-      <div class="dg-item dg-feature ">
-        <img src="/img/sam/Search.png" alt="SAM.gov hero view"/>
+      <p>Before exploring layouts, I conducted a survey of search experiences across major platforms to identify patterns worth adopting and those that are not. I looked at filter structure, result grouping, visual hierarchy, and how each platform handles large, complex datasets.</p>
+ 
+      <div class="platform-block">
+        <p class="platform-name">Apple</p>
+        <p>Aesthetically clean but underperforms on usability. The filter icon is too subtle to catch easily. Single-item dropdowns add no functional value. The result count is placed inconsistently, away from the main results area.</p>
+        <p class="takeaway">Takeaway: Aesthetic quality alone does not equal usability. Avoid decorative choices that come at the cost of clarity.</p>
+      </div>
+      <div class="platform-block">
+        <p class="platform-name">Amazon</p>
+        <p>Important filter groups have dedicated space so users don't miss them. Highlighting the searched keyword in results helps users confirm they're in the right place. Filter groups separated only by bold text, however, become hard to parse when lists grow long.</p>
+        <p class="takeaway">Takeaway: Dedicated space for high-priority filters and keyword confirmation in results — both worth adopting.</p>
+      </div>
+      <div class="platform-block">
+        <p class="platform-name">B&amp;H Photo</p>
+        <p>The strongest reference overall. Checkboxes send a clear, immediate signal when a filter is selected. A result counter next to each filter option helps users anticipate what they'll get before committing. Accordion groups work especially well for large filter sets — directly applicable to SAM.gov. Background contrast instead of borders separates result cards without visual noise.</p>
+        <p class="takeaway">Takeaway: Counter labels, shortcut navigation, accordion structure for complex filters, and background-contrast card design — all carried forward into the SAM.gov proposal.</p>
+      </div>
+ -->
+      <table class="comp-table">
+        <thead><tr><th>Observation</th><th>Source</th><th>Applied to SAM.gov</th></tr></thead>
+        <tbody>
+          <tr><td>Dedicated space for high-priority filter groups</td><td><span class="source-tag">Amazon</span></td><td>Filter panel restructured to surface key parameters</td></tr>
+          <tr><td>Result counter next to filter options</td><td><span class="source-tag">B&amp;H</span></td><td>Helps users anticipate result volume before committing</td></tr>
+          <tr><td>Accordion pattern for large filter sets</td><td><span class="source-tag">B&amp;H</span></td><td>Adopted for complex parameter groups</td></tr>
+          <tr><td>Shortcut navigation at top of results</td><td><span class="source-tag">B&amp;H</span></td><td>Evolved into domain shortcut buttons</td></tr>
+          <tr><td>Contrasting background instead of borders for cards</td><td><span class="source-tag">B&amp;H</span></td><td>Cleaner card separation without visual noise</td></tr>
+          <tr><td>Single-item dropdowns add no value</td><td><span class="source-tag">Apple</span></td><td>Removed unnecessary dropdown wrappers in filter</td></tr>
+        </tbody>
+      </table>
+ 
+      <hr class="inner-section-hr" />
+ 
+      <h3>Usability Testing</h3>
+      <p>Formal user research was not available during the client engagement. To validate design decisions for this case study, I conducted informal usability testing with two subject matter experts after the project was completed.</p>
+      <p>Following were the key findings from the user testing.</p>
+      <ul class="findings-list">
+        <li>Search results were hard to scan — content felt grouped arbitrarily, making it difficult to extract relevant information quickly</li>
+        <li>Key filter options were invisible until activated — users didn't know what filtering was possible until they clicked into a dropdown</li>
+        <li>Long dropdown lists offered no way to preview or narrow options before committing</li>
+      </ul>
+    </div>
+ 
+    <hr />
+ 
+    <!-- 04 KEY PROBLEMS -->
+    <div class="section rev">
+      <p class="eyebrow">04 — Key Problems</p>
+      <h2>Pain Points</h2>
+      <div class="pain-points">
+        <div class="pain-card">
+          <div class="pain-num">01</div>
+          <div class="pain-body">
+            <p class="pain-title">Ambiguous result grouping</p>
+            <p class="pain-desc">Search results appeared as a flat, visually undifferentiated list spanning multiple domains. Without clear grouping or visual hierarchy, results were difficult to scan, particularly for users seeking specific record types within extensive result sets.</p>
+          </div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">02</div>
+          <div class="pain-body">
+            <p class="pain-title">Filter with too many unnecessary actions</p>
+            <p class="pain-desc">The existing filter wasn’t simple enough to digest the complex dataset displayed in the search results. Users were forced to go through complicated steps without proper visual elements, hierarchy, and groupings, and they experienced pain points when using the filters. </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+ 
+    <hr />
+ 
+    <!-- 05 IDEATION -->
+    <div class="section rev">
+      <p class="eyebrow">05 — Ideation</p>
+      <h2>Ideation</h2>
+      <h3>Wireframes</h3>
+      <p>Three layout directions were explored before arriving at the final design. Each concept addressed part of the problem but revealed new constraints that shaped the direction forward.</p>
+ 
+      <div class="concept-grid">
+        <div class="concept-card">
+          <div class="concept-img-wrap">
+            <img class="concept-img" src="/img/sam/Wireframe - 1.png" alt="Wireframe concept 01"/>
+          </div>
+          <div class="concept-card-body">
+            <h4 class="concept-card-heading">Concept 01 — Horizontal Filter Bar with Domain Tabs</h4>
+            <p class="ai-desc">Filters placed in a horizontal bar above results, with domain-based tabs to section results by type. Compact layout but quickly degraded under complexity — not enough horizontal space for meaningful options without crowding the interface.</p>
+            <p class="ai-desc">The domain tab logic showed clear promise and evolved into the domain shortcut buttons in the final design.</p>
+            <ul class="verdict-dropped-list">
+              <li>Horizontal filter bar was too limited for complex parameter sets</li>
+              <li>Not mobile friendly</li>
+            </ul>
+            <div class="verdict-kept-box">
+              <div class="verdict-kept-item">Domain-based navigation as a structural anchor</div>
+            </div>
+          </div>
+        </div>
 
-  <!-- CTA -->
-  <div class="wip-cta rev">
-    <div class="wip-cta-label">Coming soon</div>
-    <h3>The full case study is on the way.</h3>
-    <p>If you'd like to see more of the work or talk through the information architecture approach behind it, I'm happy to share.</p>
-    <div class="wip-cta-links">
-      <a href="mailto:your@email.com">Email</a>
-      <a href="#">LinkedIn</a>
+        <div class="concept-card">
+          <div class="concept-img-wrap">
+            <img class="concept-img" src="/img/sam/Wireframe - 2.png" alt="Wireframe concept 02"/>
+          </div>
+          <div class="concept-card-body">
+            <h4 class="concept-card-heading">Concept 02 — Accordion Result Cards</h4>
+            <p class="ai-desc">Standard search results with collapsible accordion-style cards, letting users expand individual results for more detail. Dismissed over concern that users might miss critical information if it were collapsed by default.</p>
+            <ul class="verdict-dropped-list">
+              <li>Open/close mechanic was too much risk of hiding critical information</li>
+            </ul>
+            <div class="verdict-kept-box">
+              <div class="verdict-kept-item">Structured card layout as a foundation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-img-wrap">
+            <img class="concept-img" src="/img/sam/Wireframe - 3.png" alt="Wireframe concept 03"/>
+          </div>
+          <div class="concept-card-body">
+            <h4 class="concept-card-heading">Concept 03 — Table View</h4>
+            <p class="ai-desc">Referenced usaspending.gov's data table model. Dense and scannable, but SAM.gov delivers <em>information</em> — context-rich records requiring reading and evaluation — not raw <em>data</em> meant to be sorted and compared.</p>
+            <ul class="verdict-dropped-list">
+              <li>Table format was not suitable for informational content</li>
+              <li>Not mobile friendly</li>
+            </ul>
+            <div class="verdict-kept-box">
+              <div class="verdict-kept-item">Entire search results are visible and easy to read</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+ 
+    <hr />
+ 
+    <!-- 06 DESIGN SOLUTIONS -->
+    <div class="section rev">
+      <p class="eyebrow">06 — Design Solutions</p>
+      <h2>Two decisions. One guiding principle: reduce friction.</h2>
+      <div class="opp-list">
+        <div class="opp-card">
+          <div class="opp-label">01</div>
+          <div class="opp-content">
+            <h3 class="opp-title">Restructured result cards for scannability</h3>
+            <p>Each result card was redesigned around a clear visual hierarchy: primary identifier, domain tag, key metadata, and action. Data-dense results are grouped within a consistent card structure so that users can scan vertically without re-reading the layout on each item.</p>
+            <img class="opp-img" src="/img/sam/Search.png" alt="Redesigned result cards" />
+          </div>
+        </div>
+        <div class="opp-card">
+          <div class="opp-label">02</div>
+          <div class="opp-content">
+            <h3 class="opp-title">Simplified filter panel</h3>
+            <p>All buttons, borders, backgrounds, and actions not directly relevant to filtering were removed. Every element in the filter panel exists to help users find what they need — nothing more. Key filter groups are visible by default, reducing the number of interactions required before a user can begin narrowing results.</p>
+            <img class="opp-img" src="/img/sam/search-bf.png" alt="Simplified filter panel" />
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <hr />
+ 
+    <!-- 07 OUTCOMES -->
+    <div class="section rev">
+      <p class="eyebrow">07 — Outcomes &amp; Reflection</p>
+      <h2>What shipped looked different from what I proposed.</h2>
+      <p>The client-approved direction prioritized information density — more search parameters surfaced in the filter panel, bolder typographic treatment on result metadata, and additional keyword-matching controls (Any Words / All Words / Exact Phrase). The domain shortcut buttons I had explored in wireframing made it in, but the overall filter experience grew more complex rather than less.</p>
+ 
+      <!-- Comparison Slider -->
+      <div class="cs-root" id="cs">
+        <img class="cs-image cs-before" src="https://ronkimgy.com/img/sam/search-bf.png" alt="My proposed design" />
+        <img class="cs-image cs-after"  src="https://ronkimgy.com/img/sam/legacy-search.png" alt="Client approved design" />
+        <div class="cs-line"></div>
+        <button class="cs-handle" aria-label="Compare">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-3 3 3 3M16 9l3 3-3 3"/></svg>
+        </button>
+        <span class="cs-label cs-label-before">My Proposal</span>
+        <span class="cs-label cs-label-after">Client Approved</span>
+      </div>
+ 
+      <p>My proposed direction made a different bet: that reducing visual noise and surfacing structure clearly would lower cognitive load for a broad public audience — users who arrive with a specific goal but without specialized training. Neither direction is wrong. But they represent genuinely different philosophies about what "useful" means for a search page serving diverse users across 10 federal domains.</p>
+ 
+      <div class="decision-box">
+        <p class="decision-label">Note</p>
+        <p class="decision-text">The final delivered version diverged from this proposal. This case study presents my recommended direction and the rationale behind it.</p>
+      </div>
+ 
+      <hr />
+ 
+      <h3>What I learned &amp; what I'd do differently</h3>
+      <div class="reflection-grid">
+        <div class="ref-card do">
+          <p class="ref-card-label">Do next time</p>
+          <div class="ref-item"><strong>Lead with research, not designs</strong>Open every review with competitive analysis and usability findings — ground the conversation in behavior before showing a single screen.</div>
+          <div class="ref-item"><strong>Name the tradeoff explicitly</strong>"More information density" vs. "lower cognitive load" is a real design tension. Name it out loud and let the team decide consciously.</div>
+        </div>
+        <div class="ref-card dont">
+          <p class="ref-card-label">What I'd avoid</p>
+          <div class="ref-item"><strong>Deferring when I should push</strong>This was my first UX project. I can see exactly where I deferred when I should have advocated. The work was there — the advocacy wasn't.</div>
+          <div class="ref-item"><strong>Letting decisions resolve by default</strong>Direction should be named and agreed upon, not left to resolve passively in the direction of development convenience.</div>
+        </div>
+      </div>
+    </div>
+ 
   </div>
-
-</div>
-
-<footer>
-  <div class="footer-left">Ron Kim | UIUX Designer | Washington D.C.</div>
-  <div class="footer-right"><a href="https://www.linkedin.com/in/ronkimgy/">LinkedIn</a> · <a href="mailto:ronkimgy@gmail.com">Email</a> &nbsp;© 2026</div>
-</footer> 
-
-<script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
-  }, {threshold:.08});
-  document.querySelectorAll('.rev').forEach(el => obs.observe(el));
-</script>
+ 
+  <footer>
+    <span class="footer-left">Ron Kim | UI/UX Designer | Washington D.C.</span>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/ronkimgy/" target="_blank">LinkedIn</a>
+      <a href="mailto:ronkimgy@gmail.com">Email</a>
+      <span style="margin-left:16px">© 2026</span>
+    </div>
+  </footer>
+ 
   <script>
-  (function() {
-    const slider = document.getElementById('comparisonSlider');
-    if (!slider) return;
-    const handle = slider.querySelector('.cs-handle');
-    let isDragging = false;
+    // Scroll reveal
+    const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)} }), {threshold:.08});
+    document.querySelectorAll('.rev').forEach(el => obs.observe(el));
 
-    function setPosition(percent) {
-      percent = Math.max(0, Math.min(100, percent));
-      slider.style.setProperty('--position', percent + '%');
-      handle.setAttribute('aria-valuenow', Math.round(percent));
-    }
-
-    function updateFromEvent(event) {
-      const rect = slider.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      setPosition((x / rect.width) * 100);
-    }
-
-    slider.addEventListener('pointerdown', (e) => {
-      isDragging = true;
-      slider.setPointerCapture(e.pointerId);
-      updateFromEvent(e);
-    });
-    slider.addEventListener('pointermove', (e) => {
-      if (!isDragging) return;
-      updateFromEvent(e);
-    });
-    slider.addEventListener('pointerup', (e) => {
-      isDragging = false;
-      try { slider.releasePointerCapture(e.pointerId); } catch (_) {}
-    });
-    slider.addEventListener('pointercancel', () => { isDragging = false; });
-
-    handle.addEventListener('keydown', (e) => {
-      const current = parseFloat(slider.style.getPropertyValue('--position')) || 50;
-      const step = e.shiftKey ? 10 : 2;
-      switch (e.key) {
-        case 'ArrowLeft':
-        case 'ArrowDown':
-          setPosition(current - step); e.preventDefault(); break;
-        case 'ArrowRight':
-        case 'ArrowUp':
-          setPosition(current + step); e.preventDefault(); break;
-        case 'Home': setPosition(0);   e.preventDefault(); break;
-        case 'End':  setPosition(100); e.preventDefault(); break;
-      }
-    });
-  })();
-</script>
+    // Lightbox for .discovery-section images
+    (function(){
+      const lb = document.createElement('div');
+      lb.className = 'lightbox';
+      lb.innerHTML = '<button class="lightbox-close" aria-label="Close">&#x2715;</button><img/>';
+      document.body.appendChild(lb);
+      const img = lb.querySelector('img');
+      document.querySelectorAll('.discovery-section img').forEach(el => {
+        el.addEventListener('click', () => { img.src = el.src; img.alt = el.alt; lb.classList.add('open'); });
+      });
+      lb.addEventListener('click', e => { if(e.target === lb || e.target === lb.querySelector('.lightbox-close')) lb.classList.remove('open'); });
+      document.addEventListener('keydown', e => { if(e.key === 'Escape') lb.classList.remove('open'); });
+    })();
+ 
+    // Comparison slider
+    (function(){
+      const root = document.getElementById('cs');
+      if(!root) return;
+      let drag = false;
+      function pos(x){ const r=root.getBoundingClientRect(); root.style.setProperty('--position',Math.min(100,Math.max(0,((x-r.left)/r.width)*100))+'%'); }
+      root.querySelector('.cs-handle').addEventListener('mousedown', ()=>drag=true);
+      window.addEventListener('mouseup', ()=>drag=false);
+      window.addEventListener('mousemove', e=>{ if(drag) pos(e.clientX); });
+      root.addEventListener('touchstart', e=>{ drag=true; pos(e.touches[0].clientX); },{passive:true});
+      window.addEventListener('touchend', ()=>drag=false);
+      window.addEventListener('touchmove', e=>{ if(drag) pos(e.touches[0].clientX); },{passive:true});
+      root.addEventListener('click', e=>pos(e.clientX));
+    })();
+  </script>
 </body>
 </html>
