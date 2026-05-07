@@ -40,7 +40,7 @@
     <div class="section rev">
       <p class="eyebrow">01 — Overview</p>
       <h2>Overview</h2>
-      <p>SAM.gov is the U.S. federal government's central platform owned by the General Services Administration (GSA) for contract opportunities, grants, and entity registration.  The GSA initiated a modernization effort to consolidate 10 independent federal services into a single, unified experience.</p>
+      <p>SAM.gov is the U.S. federal government’s central platform, managed by the General Services Administration (GSA), for contract opportunities, entity registration, and other federal records. During this period, GSA was consolidating ten independent federal services into a unified system.</p>
       <h3>My Role</h3>
       <p>As a designer, I reviewed the current state of the search results page, examining its application across various domains to identify key areas of pain points and potential improvements. My primary objectives focused on enhancing the site’s visual appeal and usability.</p>
     </div>
@@ -51,11 +51,10 @@
     <div class="section rev">
       <p class="eyebrow">02 — The Challenge</p>
       <h2>Challenge</h2>
-      <h3>There was no unified search.</h3>
-      <p>Before the SAM.gov got merged, each of the 10 legacy systems had it's own search engines. When these systems merged, the existing search had poor usability for users due to outdated design patterns that ignored current industry standards and user expectations.</p>
-      <blockquote class="challange-point">
-        <p>Users who needed to find a contract data or look up wage information had to use different services.</p>
-      </blockquote>
+      <p>Before SAM.gov was unified, each of the 10 legacy systems had its own search experience. After merging these systems into a single platform, the search results page was <span class="highlight">required to support multiple types of federal records simultaneously</span> . 
+        <br><br>
+      However, the existing interface did not effectively enable users to understand, compare, or filter results across domains, resulting in <span class="highlight">an outdated and challenging search experience</span>.
+      </p>
       <!-- 
       <div class="bi-col">
         <div style="border:1px solid #EAECF0;border-radius:8px;padding:24px;background:var(--off)">
@@ -78,30 +77,10 @@
     <div class="section rev discovery-section">
       <p class="eyebrow">03 — Discovery</p>
       <h2>Discovery</h2>
-      <h3>Competitive Analysis</h3>
+      <p>I reviewed familiar search platforms to see how they manage lots of results, filters, and how users scan information. My goal was not to copy them, but to find out what makes some search experiences easier to use.</p>
       <img src="/img/sam/Example Research.jpg">
-      <!--
-
-      <p>Before exploring layouts, I conducted a survey of search experiences across major platforms to identify patterns worth adopting and those that are not. I looked at filter structure, result grouping, visual hierarchy, and how each platform handles large, complex datasets.</p>
- 
-      <div class="platform-block">
-        <p class="platform-name">Apple</p>
-        <p>Aesthetically clean but underperforms on usability. The filter icon is too subtle to catch easily. Single-item dropdowns add no functional value. The result count is placed inconsistently, away from the main results area.</p>
-        <p class="takeaway">Takeaway: Aesthetic quality alone does not equal usability. Avoid decorative choices that come at the cost of clarity.</p>
-      </div>
-      <div class="platform-block">
-        <p class="platform-name">Amazon</p>
-        <p>Important filter groups have dedicated space so users don't miss them. Highlighting the searched keyword in results helps users confirm they're in the right place. Filter groups separated only by bold text, however, become hard to parse when lists grow long.</p>
-        <p class="takeaway">Takeaway: Dedicated space for high-priority filters and keyword confirmation in results — both worth adopting.</p>
-      </div>
-      <div class="platform-block">
-        <p class="platform-name">B&amp;H Photo</p>
-        <p>The strongest reference overall. Checkboxes send a clear, immediate signal when a filter is selected. A result counter next to each filter option helps users anticipate what they'll get before committing. Accordion groups work especially well for large filter sets — directly applicable to SAM.gov. Background contrast instead of borders separates result cards without visual noise.</p>
-        <p class="takeaway">Takeaway: Counter labels, shortcut navigation, accordion structure for complex filters, and background-contrast card design — all carried forward into the SAM.gov proposal.</p>
-      </div>
- -->
       <table class="comp-table">
-        <thead><tr><th>Observation</th><th>Source</th><th>Applied to SAM.gov</th></tr></thead>
+        <thead><tr><th>Pattern I reviewed</th><th>Source</th><th>Why it mattered for SAM.gov</th></tr></thead>
         <tbody>
           <tr><td>Dedicated space for high-priority filter groups</td><td><span class="source-tag">Amazon</span></td><td>Filter panel restructured to surface key parameters</td></tr>
           <tr><td>Result counter next to filter options</td><td><span class="source-tag">B&amp;H</span></td><td>Helps users anticipate result volume before committing</td></tr>
@@ -115,18 +94,20 @@
       <hr class="inner-section-hr" />
  
       <h3>Usability Testing</h3>
-      <p>Formal user research was not available during the client engagement. To validate design decisions for this case study, I conducted informal usability testing with two subject matter experts after the project was completed.</p>
+      <p>Because formal user research was not available during the work, I later tested the redesigned flow with two subject matter experts who were familiar with federal search and procurement workflows.
+      <br><br>
+      This was not a formal research study, but it helped me understand whether the design direction addressed the issues I had observed during the project.</p>
       <p>Following were the key findings from the user testing.</p>
       <ul class="findings-list">
-        <li>Search results were hard to scan — content felt grouped arbitrarily, making it difficult to extract relevant information quickly</li>
-        <li>Key filter options were invisible until activated — users didn't know what filtering was possible until they clicked into a dropdown</li>
-        <li>Long dropdown lists offered no way to preview or narrow options before committing</li>
+        <li>Search results were hard to scan — Content felt grouped arbitrarily, making it harder to read relevant information quickly.</li>
+        <li>Page felt visually overwhelming — Filter navigation, dense metadata, and unclear groupings made the results page as a whole feel cluttered and difficult to navigate.</li>
       </ul>
     </div>
  
     <hr />
  
     <!-- 04 KEY PROBLEMS -->
+     <!--
     <div class="section rev">
       <p class="eyebrow">04 — Key Problems</p>
       <h2>Pain Points</h2>
@@ -147,7 +128,7 @@
         </div>
       </div>
     </div>
- 
+    -->
     <hr />
  
     <!-- 05 IDEATION -->
@@ -164,15 +145,11 @@
           </div>
           <div class="concept-card-body">
             <h4 class="concept-card-heading">Concept 01 — Horizontal Filter Bar with Domain Tabs</h4>
-            <p class="ai-desc">Filters placed in a horizontal bar above results, with domain-based tabs to section results by type. Compact layout but quickly degraded under complexity — not enough horizontal space for meaningful options without crowding the interface.</p>
-            <p class="ai-desc">The domain tab logic showed clear promise and evolved into the domain shortcut buttons in the final design.</p>
+            <p class="ai-desc">Filters placed in a horizontal bar above results, with domain-based tabs to section results by type. The layout was compact, but it quickly became crowded as more filters and domain-specific options were added.</p>
             <ul class="verdict-dropped-list">
               <li>Horizontal filter bar was too limited for complex parameter sets</li>
               <li>Not mobile friendly</li>
             </ul>
-            <div class="verdict-kept-box">
-              <div class="verdict-kept-item">Domain-based navigation as a structural anchor</div>
-            </div>
           </div>
         </div>
 
@@ -182,13 +159,10 @@
           </div>
           <div class="concept-card-body">
             <h4 class="concept-card-heading">Concept 02 — Accordion Result Cards</h4>
-            <p class="ai-desc">Standard search results with collapsible accordion-style cards, letting users expand individual results for more detail. Dismissed over concern that users might miss critical information if it were collapsed by default.</p>
+            <p class="ai-desc">This version explored collapsible result cards, where users could expand each result to view additional details. It reduced visual density, but users might miss important information if they were collapsed by default.</p>
             <ul class="verdict-dropped-list">
-              <li>Open/close mechanic was too much risk of hiding critical information</li>
+              <li>Collapsing details created a risk of hiding critical information</li>
             </ul>
-            <div class="verdict-kept-box">
-              <div class="verdict-kept-item">Structured card layout as a foundation</div>
-            </div>
           </div>
         </div>
 
@@ -198,14 +172,11 @@
           </div>
           <div class="concept-card-body">
             <h4 class="concept-card-heading">Concept 03 — Table View</h4>
-            <p class="ai-desc">Referenced usaspending.gov's data table model. Dense and scannable, but SAM.gov delivers <em>information</em> — context-rich records requiring reading and evaluation — not raw <em>data</em> meant to be sorted and compared.</p>
+            <p class="ai-desc">This one referenced USAspending.gov’s table .It made the results feel more scannable, but it was not the right fit for SAM.gov. Many SAM.gov results are context-rich records that require reading and evaluation.</p>
             <ul class="verdict-dropped-list">
               <li>Table format was not suitable for informational content</li>
-              <li>Not mobile friendly</li>
+              <li>Also not mobile friendly</li>
             </ul>
-            <div class="verdict-kept-box">
-              <div class="verdict-kept-item">Entire search results are visible and easy to read</div>
-            </div>
           </div>
         </div>
       </div>
@@ -213,25 +184,31 @@
  
     <hr />
  
-    <!-- 06 DESIGN SOLUTIONS -->
+    <!-- 06 Final Design -->
     <div class="section rev">
-      <p class="eyebrow">06 — Design Solutions</p>
-      <h2>Two decisions. One guiding principle: reduce friction.</h2>
+      <p class="eyebrow">06 — Final Design</p>
+      <h2>Final Design</h2>
       <div class="opp-list">
         <div class="opp-card">
           <div class="opp-label">01</div>
           <div class="opp-content">
-            <h3 class="opp-title">Restructured result cards for scannability</h3>
-            <p>Each result card was redesigned around a clear visual hierarchy: primary identifier, domain tag, key metadata, and action. Data-dense results are grouped within a consistent card structure so that users can scan vertically without re-reading the layout on each item.</p>
-            <img class="opp-img" src="/img/sam/Search.png" alt="Redesigned result cards" />
+            <h3 class="opp-title">Filters were reorganized into a more guided refinement panel</h3>
+            <img src="/img/sam/Filters.png" alt="Redesigned filter panel" style="margin:16px 0px 0px 0px;max-width:100%; border:1px solid #EAECF0; border-radius: 8px;"/>
+            <p>I redesigned the filter panel to feel more guided and easier to parse, giving users a clearer starting point for refining large result sets.</p>
+            <hr>
+            <img src="/img/sam/fed-ord-table.gif" alt="Redesigned federal organization filter" style="margin:16px 0;max-width:100%; border-radius: 8px;"/>
+            <p>One of the more complex interactions on the filter was selecting a federal organization.
+            <br>
+            I redesigned the modal into a multi-column checkbox group so users could browse department, subtier, and office levels more naturally.
+            </p>
           </div>
         </div>
         <div class="opp-card">
           <div class="opp-label">02</div>
           <div class="opp-content">
-            <h3 class="opp-title">Simplified filter panel</h3>
-            <p>All buttons, borders, backgrounds, and actions not directly relevant to filtering were removed. Every element in the filter panel exists to help users find what they need — nothing more. Key filter groups are visible by default, reducing the number of interactions required before a user can begin narrowing results.</p>
-            <img class="opp-img" src="/img/sam/search-bf.png" alt="Simplified filter panel" />
+            <h3 class="opp-title">Result cards were redesigned for faster scanning</h3>
+            <img src="/img/sam/Search-Cards.png"/>
+            <p>Titles and domain types were surfaced first, followed by short summaries and supporting metadata, so users could quickly scan without reading each result in full.</p>
           </div>
         </div>
       </div>
@@ -240,47 +217,6 @@
     <hr />
  
     <!-- 07 OUTCOMES -->
-    <div class="section rev">
-      <p class="eyebrow">07 — Outcomes &amp; Reflection</p>
-      <h2>What shipped looked different from what I proposed.</h2>
-      <p>The client-approved direction prioritized information density — more search parameters surfaced in the filter panel, bolder typographic treatment on result metadata, and additional keyword-matching controls (Any Words / All Words / Exact Phrase). The domain shortcut buttons I had explored in wireframing made it in, but the overall filter experience grew more complex rather than less.</p>
- 
-      <!-- Comparison Slider -->
-      <div class="cs-root" id="cs">
-        <img class="cs-image cs-before" src="https://ronkimgy.com/img/sam/search-bf.png" alt="My proposed design" />
-        <img class="cs-image cs-after"  src="https://ronkimgy.com/img/sam/legacy-search.png" alt="Client approved design" />
-        <div class="cs-line"></div>
-        <button class="cs-handle" aria-label="Compare">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-3 3 3 3M16 9l3 3-3 3"/></svg>
-        </button>
-        <span class="cs-label cs-label-before">My Proposal</span>
-        <span class="cs-label cs-label-after">Client Approved</span>
-      </div>
- 
-      <p>My proposed direction made a different bet: that reducing visual noise and surfacing structure clearly would lower cognitive load for a broad public audience — users who arrive with a specific goal but without specialized training. Neither direction is wrong. But they represent genuinely different philosophies about what "useful" means for a search page serving diverse users across 10 federal domains.</p>
- 
-      <div class="decision-box">
-        <p class="decision-label">Note</p>
-        <p class="decision-text">The final delivered version diverged from this proposal. This case study presents my recommended direction and the rationale behind it.</p>
-      </div>
- 
-      <hr />
- 
-      <h3>What I learned &amp; what I'd do differently</h3>
-      <div class="reflection-grid">
-        <div class="ref-card do">
-          <p class="ref-card-label">Do next time</p>
-          <div class="ref-item"><strong>Lead with research, not designs</strong>Open every review with competitive analysis and usability findings — ground the conversation in behavior before showing a single screen.</div>
-          <div class="ref-item"><strong>Name the tradeoff explicitly</strong>"More information density" vs. "lower cognitive load" is a real design tension. Name it out loud and let the team decide consciously.</div>
-        </div>
-        <div class="ref-card dont">
-          <p class="ref-card-label">What I'd avoid</p>
-          <div class="ref-item"><strong>Deferring when I should push</strong>This was my first UX project. I can see exactly where I deferred when I should have advocated. The work was there — the advocacy wasn't.</div>
-          <div class="ref-item"><strong>Letting decisions resolve by default</strong>Direction should be named and agreed upon, not left to resolve passively in the direction of development convenience.</div>
-        </div>
-      </div>
-    </div>
- 
   </div>
  
   <footer>
