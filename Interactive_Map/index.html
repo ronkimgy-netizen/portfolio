@@ -47,16 +47,15 @@
 <!-- HERO IMAGE -->
 <div class="hero-img">
   <div class="hero-dash">
-    <img src="/img/Map-State.png" alt="OpenHazus Map Viewer"/>
+    <img src="img/Map-State.png" alt="OpenHazus Map Viewer"/>
   </div>
 </div>
 
 <div class="content">
   <!-- 01 CONTEXT -->
   <div class="section rev" id="context">
-    <div class="eyebrow">01 — Context</div>
     <h2>Context</h2>
-    <p>The Interactive Map is one of the first steps in the workflow for generating the risk analysis report. Analysts use it to select the geographic boundary for their analysis, which defines which area will be included in the report. However, this selection process can be complex and not clearly explained. </p>
+    <p>The Interactive Map is first step in the workflow for generating the risk analysis report. Analysts use it to select the geographic boundary for their analysis, which defines which area will be included in the report. However, this selection process can be complex and not clearly explained. </p>
 
     <p>I redesigned the interactive map experience to make geographic selection clearer and easier to confirm before users move forward with report generation.</p>
     <!--
@@ -70,11 +69,30 @@
   </div>
 
   <hr/>
-
+<div class="section rev" id="preview">
+  <h2>At a Glance</h2>
+  <p>The redesigned workflow helps users move from an initial map view (landing) to a defined geographic selection with more clarity and flexibility.</p>
+  <div class="preview-grid">
+    <div class="preview-item">
+      <img src="img/Map-Default.png" alt="Landing view"/>
+      <span>Landing</span>
+    </div>
+    <div class="preview-item">
+      <img src="img/Map-State.png" alt="State selected"/>
+      <span>State selection</span>
+    </div>
+    <div class="preview-item">
+      <img src="img/Map-County - 1.png" alt="County selected"/>
+      <span>County selection</span>
+    </div>
+    <div class="preview-item">
+      <img src="img/Map-Community.png" alt="Community selected"/>
+      <span>Community selection</span>
+    </div>
+  </div>
+</div>
 <!-- 02 — Problem -->
 <section class="case-section" id="problem">
-
-  <div class="eyebrow">02 — Problem</div>
 
   <h2>Problem</h2>
 
@@ -87,38 +105,13 @@
   <!--
   
   -->
-
-
 </section>
 
   <hr/>
   <!-- 03 — At a Glance -->
-<div class="section rev" id="preview">
-  <div class="eyebrow">03 — At a Glance</div>
-  <h2>At a Glance</h2>
-  <p>The redesigned workflow helps users move from an initial map view (landing) to a defined geographic selection with more clarity and flexibility.</p>
-  <div class="preview-grid">
-    <div class="preview-item">
-      <img src="/img/Map-Default.png" alt="Landing view"/>
-      <span>Landing</span>
-    </div>
-    <div class="preview-item">
-      <img src="/img/Map-State.png" alt="State selected"/>
-      <span>State selection</span>
-    </div>
-    <div class="preview-item">
-      <img src="/img/Map-County - 1.png" alt="County selected"/>
-      <span>County selection</span>
-    </div>
-    <div class="preview-item">
-      <img src="/img/Map-Community.png" alt="Community selected"/>
-      <span>Community selection</span>
-    </div>
-  </div>
-</div>
+
   <!-- 04 Understanding the Problem -->
   <div class="section rev">
-    <div class="eyebrow">04 — Understanding the Problem</div>
     <h2>Understanding the Problem</h2>
     <p>To understand how users interact with the map, I reviewed existing business requirements and participated in client workshops with stakeholders who work closely with analysts.</p>
     <p>I was able to identify three key user groups with different levels of GIS familiarity and analysis needs:</p>
@@ -168,31 +161,34 @@
 
   <hr/>
   <div class="section rev" id="ideation">
-    <div class="eyebrow">05 — Ideation</div>
     <h2>Ideation</h2>
     <p>To simplify the selection process, I explored multiple interaction models to understand how users could find and select jurisdictions while maintaining the map as the central element of the workflow.</p>
     <div class="full-bleed">
-      <div class="full-bleed-image-gallery">
-        <div class="full-bleed-card">
-          <img src="/img/Concept 1.png">
+      <div class="full-bleed-swiper swiper">
+      <div class="swiper-wrapper">
+        <div class="full-bleed-card swiper-slide">
+          <img style="margin-bottom: 24px;" src="img/Concept-1.png">
           <ul>
             <li>
               <h4>Concept 01 — Structured Drill-Down</h4>
-                <p>I first explored a structured sidebar flow using dropdowns. Starting with the State and arriving at the Census Block. This created a clear sequence, but it still depended on a rigid hierarchy and pulled too much attention away from the map.</p>
+                <p>I first explored a structured sidebar flow using dropdowns. Starting with the State and arriving at the Census Block. However, it depended on a rigid hierarchy and pulled too much attention away from the map.</p>
+              <!--
               <ul class="concept-list-group">
               <li>Depended on a rigid hierarchy</li>
               <li>Pulled too much attention away from the map</li>
               <li>Difficult to scale when users needed to select jurisdictions across different parent regions</li>
               <li>However, users needed a persistent side panel that showed the active jurisdiction and its relationship to the parent geography.</li>
               </ul>
+              
             <div class="carried-forward">
               <p>A side panel showing the active jurisdiction and its relationship to the parent level was definitely a keeper.</p>
               </div>
+              -->
             </li>
           </ul>
         </div>
-        <div class="full-bleed-card">
-          <img src="/img/Concept 2.png">
+        <div class="full-bleed-card swiper-slide">
+          <img src="img/Concept 2.png">
           <ul>
             <li class="concept-list-group">
               <h4>Concept 02 — Zoom-Based Boundary Switching</h4>
@@ -207,8 +203,8 @@
               </div>
           </ul>
         </div>
-        <div class="full-bleed-card">
-          <img src="/img/Concept 3.png">
+        <div class="full-bleed-card swiper-slide">
+          <img src="img/Video Project 4.gif">
           <ul>
             <li class="concept-list-group">
               <h4>Concept 03 — Search-Assisted Map Selection</h4>
@@ -227,6 +223,10 @@
           </ul>
         </div>
       </div>
+      <div class="swiper-pagination"></div>
+      <div class="full-bleed-swiper-btn full-bleed-swiper-prev" aria-label="Previous concept">←</div>
+      <div class="full-bleed-swiper-btn full-bleed-swiper-next" aria-label="Next concept">→</div>
+      </div>
     </div>
     <div class="synthesis-block">
   <div class="synthesis-check">
@@ -240,7 +240,6 @@
 <!-- 06 — Design Overview -->
 <section class="case-section" id="design-decision">
 
-  <div class="section-label">06 — Key Design Decisions</div>
 
   <h2>Key Design Decisions</h2>
   <p>Based on the concepts explored, I narrowed the final design direction to three ideas:</p>
@@ -255,7 +254,7 @@
 
       <div class="kdd-gallery">
         
-        <img src="/img/InteractiveMap - Search - 01.gif">
+        <img src="img/InteractiveMap - Search - ">
         <div class="kdd-gallery-desc">
           <p>Improved search experience</p>
           <p>For users who already knew the jurisdiction name or FIPS code, the search provided a faster path into the map flow without requiring them to manually navigate through each geographic layer.</p>
@@ -390,7 +389,6 @@
  -->
 
   <div class="section rev" id="Final-Design">
-    <div class="eyebrow">07 — Final Design</div>
     <h2>Final Design</h2>
     <p>The redesigned Interactive Map keeps the geography selection process on the map. Analysts can search for a location, select a state, switch between boundary types, and confirm their selection without leaving the map workflow.</p>
 
@@ -485,8 +483,6 @@
   </div>
   <!-- 07 — Outcomes & Reflection -->
 <section class="case-section" id="outcomes">
-
-  <div class="section-label">08 — Outcomes & Reflection</div>
   <h2>Outcomes & Reflection</h2>
   <p>The new Interactive Map Viewer gives analysts a clearer, more flexible way to define a study area before creating a risk analysis report.</p>
 

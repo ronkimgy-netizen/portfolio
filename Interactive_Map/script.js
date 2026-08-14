@@ -81,6 +81,15 @@ new Swiper('.prob-swiper', {
   navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
 });
 
+new Swiper('.full-bleed-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  grabCursor: true,
+  autoHeight: true,
+  pagination: { el: '.full-bleed-swiper .swiper-pagination', clickable: true },
+  navigation: { nextEl: '.full-bleed-swiper-next', prevEl: '.full-bleed-swiper-prev' },
+});
+
 // ── Final Design gallery scroll ──
 function scrollFdGallery(direction) {
   const track = document.getElementById('fdGalleryTrack');
