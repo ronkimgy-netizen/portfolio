@@ -6,8 +6,6 @@
   <title>OpenHazus — Interactive Map Viewer</title>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500&family=Google+Sans+Display&family=Google+Sans+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
 <nav>
@@ -24,10 +22,11 @@
   <div class="hero-tag">Case Study · 01 — OpenHazus</div>
   <h1 class="hero-title">Interactive Map Viewer</h1>
   <p class="hero-desc">Redesigning the geography selection step of a hazard analysis workflow, making geospatial boundary selection accessible to analysts across all technical backgrounds.</p>
+  <p class="note">The project ended due to federal budget cuts before the work was finished. The final section covers the location selection model I continued developing afterward.</p>
   <div class="hero-meta">
     <div>
       <div class="meta-label">Role</div>
-      <div class="meta-val">UI/UX Designer · Team of 3</div>
+      <div class="meta-val">UI/UX Designer · Team of 3 designer</div>
     </div>
     <div>
       <div class="meta-label">Client</div>
@@ -41,13 +40,17 @@
       <div class="meta-label">Activities</div>
       <div class="meta-val">Wireframing, Prototyping, Presentations</div>
     </div>
+    <div>
+      <div class="meta-label">Duration</div>
+      <div class="meta-val">6 months (2025-2026)</div>
+    </div>
   </div>
 </div>
 
 <!-- HERO IMAGE -->
 <div class="hero-img">
   <div class="hero-dash">
-    <img src="img/Map-State.png" alt="OpenHazus Map Viewer"/>
+    <img src="img/v2-Map-Default.png" alt="OpenHazus Map Viewer"/>
   </div>
 </div>
 
@@ -55,21 +58,14 @@
   <!-- 01 CONTEXT -->
   <div class="section rev" id="context">
     <h2>Context</h2>
-    <p>The Interactive Map is first step in the workflow for generating the risk analysis report. Analysts use it to select the geographic boundary for their analysis, which defines which area will be included in the report. However, this selection process can be complex and not clearly explained. </p>
-
+    <p>The Interactive Map is the first step in the workflow for generating the risk analysis report. Analysts use it to select the geographic boundary for their analysis, which defines which area will be included in the report. However, this selection process can be complex and not clearly explained. </p>
+    <h3>My role</h3>
     <p>I redesigned the interactive map experience to make geographic selection clearer and easier to confirm before users move forward with report generation.</p>
-    <!--
-    <h3>Current Design</h3>
-    <div class="image-gallery">
-      <img src="/img/leg-hazus (2).png" alt="Legacy Hazus interface"/>
-      <img src="/img/leg-hazus (1).webp" alt="Legacy Hazus interface"/>
-      <img src="/img/leg-hazus (3).png" alt="Legacy Hazus interface"/>
-      <img src="/img/leg-hazus (4).png" alt="Legacy Hazus interface"/>
-    </div>-->
   </div>
 
   <hr/>
-<div class="section rev" id="preview">
+
+<!-- <div class="section rev" id="preview">
   <h2>At a Glance</h2>
   <p>The redesigned workflow helps users move from an initial map view (landing) to a defined geographic selection with more clarity and flexibility.</p>
   <div class="preview-grid">
@@ -90,21 +86,14 @@
       <span>Community selection</span>
     </div>
   </div>
-</div>
+</div> -->
 <!-- 02 — Problem -->
 <section class="case-section" id="problem">
 
   <h2>Problem</h2>
-
-  <p>The existing platform was built on an ArcGIS-based application. It was robust for users with GIS expertise, but confusing for non-specialist users.</p>
-  <p>While the platform offered many advanced tools, <span class="underline">not every user needed that level of complexity</span> to define a geographic boundary and run an analysis. This created a steep learning curve for users who were unfamiliar with GIS tools.</p>
-  <p>
-    The design challenge was to simplify the map-based selection workflow while still supporting the accuracy and flexibility required for hazard analysis.
-    
-  </p>
-  <!--
-  
-  -->
+  <p>The existing platform was built on an ArcGIS-based application. While the platform offered a wide range of advanced mapping tools, <span class="underline">not every user needed that level of complexity</span> to define a geographic boundary. This created a <span class="underline">steep learning curve</span> for users who were unfamiliar with GIS tools.</p>
+  <img class="legacy-img" src="img/hazus2.webp">
+  <p class="thumbnail-caption">Screenshot of current Hazus platform. ESRI ArcGIS </p>
 </section>
 
   <hr/>
@@ -113,35 +102,16 @@
   <!-- 04 Understanding the Problem -->
   <div class="section rev">
     <h2>Understanding the Problem</h2>
-    <p>To understand how users interact with the map, I reviewed existing business requirements and participated in client workshops with stakeholders who work closely with analysts.</p>
-    <p>I was able to identify three key user groups with different levels of GIS familiarity and analysis needs:</p>
 
-    <div class="user-grid">
-      <div class="user-card primary">
-        <span class="user-badge primary">Primary</span>
-        <div class="user-title">Hazard Analysts</div>
-        <p class="user-desc">They usually know the exact location they need, but have to go through extra steps to find it.</p>
-      </div>
-      <div class="user-card">
-        <span class="user-badge secondary">Secondary</span>
-        <div class="user-title">Technical Specialists</div>
-        <p class="user-desc">They know how to use the interface, but get frustrated by how many steps it takes to do tasks they already know.</p>
-      </div>
-      <div class="user-card">
-        <span class="user-badge secondary">Secondary</span>
-        <div class="user-title">Emergency Managers</div>
-        <p class="user-desc">They often handle a lot of data at once, so they need to be sure they have picked the right area before moving on.</p>
-      </div>
-    </div>
-
+    
     <h3>User Needs and Goal</h3>
     <div class="stickies">
-      <div class="sticky"><p class="st">Select a study area quickly without needing to understand the underlying GIS data structure.</p></div>
+      <div class="sticky"><p class="st">Quickly select a study area without having to learn all of ArcGIS's tools and features.</p></div>
       <div class="sticky"><p class="st">Clearly understand what is selected on the map at every point in the workflow.</p></div>
       <div class="sticky goal"><p class="st">Select and confirm the correct geographic area for analysis, then move on to the next step with confidence.</p></div>
     </div> 
     <div class="diff-block">
-      <div class="diff-item"><p style="font-weight: 500; font-style: italic;">A complex map does not need a complex workflow. Because users were already looking at a dense map, the redesigned flow needed to reduce cognitive load by helping them focus on one action at a time.</p></div>
+      <div class="diff-item"><p style="font-weight: 500; font-style: italic;">Just because a map is complex doesn’t mean it requires a complex workflow. Since users are already looking at maps packed with data, the redesigned workflow needed to reduce cognitive load by helping users focus on only one task at a time.</p></div>
     </div>
     <h3>Product Goals</h3>
     <div>
@@ -157,76 +127,59 @@
         </li>
       </ul>
     </div>
+
   </div>
 
   <hr/>
   <div class="section rev" id="ideation">
     <h2>Ideation</h2>
     <p>To simplify the selection process, I explored multiple interaction models to understand how users could find and select jurisdictions while maintaining the map as the central element of the workflow.</p>
-    <div class="full-bleed">
-      <div class="full-bleed-swiper swiper">
-      <div class="swiper-wrapper">
-        <div class="full-bleed-card swiper-slide">
-          <img style="margin-bottom: 24px;" src="img/Concept-1.png">
-          <ul>
-            <li>
-              <h4>Concept 01 — Structured Drill-Down</h4>
-                <p>I first explored a structured sidebar flow using dropdowns. Starting with the State and arriving at the Census Block. However, it depended on a rigid hierarchy and pulled too much attention away from the map.</p>
-              <!--
-              <ul class="concept-list-group">
-              <li>Depended on a rigid hierarchy</li>
-              <li>Pulled too much attention away from the map</li>
-              <li>Difficult to scale when users needed to select jurisdictions across different parent regions</li>
-              <li>However, users needed a persistent side panel that showed the active jurisdiction and its relationship to the parent geography.</li>
-              </ul>
-              
-            <div class="carried-forward">
-              <p>A side panel showing the active jurisdiction and its relationship to the parent level was definitely a keeper.</p>
-              </div>
-              -->
-            </li>
+    <div class="concept-stack">
+
+      <div class="concept-row">
+        <img src="img/concept-1.gif" alt="Structured drill-down concept using sidebar dropdowns">
+        <div class="concept-row__text">
+          <h4>Concept 01 — Structured Drill-Down</h4>
+          <p>A structured sidebar flow using dropdowns, starting at State and arriving at Census Block.</p>
+          <ul class="concept-list-group">
+            <li>Difficult to scale when users needed jurisdictions across different parent regions</li>
           </ul>
-        </div>
-        <div class="full-bleed-card swiper-slide">
-          <img src="img/Concept 2.png">
-          <ul>
-            <li class="concept-list-group">
-              <h4>Concept 02 — Zoom-Based Boundary Switching</h4>
-              <p>I also explored whether the map could guide the workflow by changing boundary detail based on zoom level. This felt more natural since most people are familiar with Google Maps, but it did not give users enough control to explicitly select and confirm a jurisdiction for analysis.</p>
-              <ul>
-                <li>Limited control over the selection process</li>
-                <li>Users use zoom in/out for other purposes too, e.g., for a better view or faster movements.</li>
-              </ul>
-            </li>
-              <div class="not-carried-forward">
-                <p>Zoom in/out was not sufficient enough for this user cases. Users still needed a clear selection model, visible states, and a confirmation step before moving forward.</p>
-              </div>
-          </ul>
-        </div>
-        <div class="full-bleed-card swiper-slide">
-          <img src="img/Video Project 4.gif">
-          <ul>
-            <li class="concept-list-group">
-              <h4>Concept 03 — Search-Assisted Map Selection</h4>
-              <p>
-                Finally, I explored a search approach for users who already knew the area they needed. This made it faster to get started and meant they didn’t have to click through every map layer.
-              </p>
-              <ul>
-                <li>Search for a specific location or jurisdiction</li>
-                <li>Beneficial for users who know the exact location they want to select.</li>
-              </ul>
-              <div class="carried-forward">
-                <p>Search integration showed clear potential for faster location lookup and carried into the final design as a 
-                map-integrated search bar.</p>
-              </div>
-            </li>
-          </ul>
+          <div class="carried-forward">
+            <p>A side panel showing the active jurisdiction and its relationship to the parent level was a idea worth keeping.</p>
+          </div>
         </div>
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="full-bleed-swiper-btn full-bleed-swiper-prev" aria-label="Previous concept">←</div>
-      <div class="full-bleed-swiper-btn full-bleed-swiper-next" aria-label="Next concept">→</div>
+
+      <div class="concept-row">
+        <img src="img/concept-2.gif" alt="Zoom-based boundary switching concept">
+        <div class="concept-row__text">
+          <h4>Concept 02 — Zoom-Based Boundary Switching</h4>
+          <p>Zoom in & zoom out felt familiar from most online maps like google map, but it gave users too little control over confirming a jurisdiction.</p>
+          <ul class="concept-list-group">
+            <li>Limited control over the selection process</li>
+            <li>Users zoom for other reasons too — a better view, faster movement</li>
+          </ul>
+          <div class="not-carried-forward">
+            <p>Zoom alone was not enough for these use cases. Users still needed a clear selection model, visible states, and a confirmation step.</p>
+          </div>
+        </div>
       </div>
+
+      <div class="concept-row">
+        <img src="img/concept-3.gif" alt="Search-assisted map selection concept">
+        <div class="concept-row__text">
+          <h4>Concept 03 — Search-Assisted Map Selection</h4>
+          <p>A search approach for users who already knew the area they needed, removing the need to click through every map layer.</p>
+          <ul class="concept-list-group">
+            <li>Search for a specific location or jurisdiction</li>
+            <li>Fastest path for users who know the exact target</li>
+          </ul>
+          <div class="carried-forward">
+            <p>Search carried into the final design as a map-integrated search bar.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="synthesis-block">
   <div class="synthesis-check">
@@ -237,157 +190,34 @@
   <p>Each concept had something worth carrying forward. The final design incorporates all three of these elements while addressing the visual feedback issues that none of them had fully resolved.</p>
 </div>
   </div>  
-<!-- 06 — Design Overview -->
-<section class="case-section" id="design-decision">
 
-
-  <h2>Key Design Decisions</h2>
-  <p>Based on the concepts explored, I narrowed the final design direction to three ideas:</p>
-
-  <ol class="design-decision-list">
-    <li>Support direct lookup for known jurisdictions</li>
-    <li>Let users switch boundary types without repeating the selection process</li>
-    <li>Make selected areas easier to confirm.</li>
-  </ol>
-    <div> <!-- Decision 1 -->
-      <h3>Decision 1 - Support direct lookup for known jurisdictions</h3>
-
-      <div class="kdd-gallery">
-        
-        <img src="img/InteractiveMap - Search - ">
-        <div class="kdd-gallery-desc">
-          <p>Improved search experience</p>
-          <p>For users who already knew the jurisdiction name or FIPS code, the search provided a faster path into the map flow without requiring them to manually navigate through each geographic layer.</p>
-        </div>
-      </div>
-    </div>
-    <div> <!-- Decision 2 -->
-      <h3>Decision 2 - Let users choose boundary types without a strict hierarchy</h3>
-        <div class="kdd-gallery">
-          <img src="/img/InteractiveMap-Boundary_Selector.gif">
-        <div class="kdd-gallery-desc">
-          <p>Boundary selector buttons</p>
-          <p>I designed boundary selector buttons that let users select a state first, then choose a boundary type without navigating through every geographic level.</p>
-        </div>
-      </div>
-    </div>
-    <div> <!-- Decision 3 -->
-      <h3>Decision 3 — Make selected areas easier to confirm</h3>
-        <div class="kdd-gallery">
-          <img src="/img/Summary Panel.png">
-        <div class="kdd-gallery-desc">
-          <p>Selected-boundaries summary panel</p>
-          <p>I paired map symbology with a selected-boundaries panel so users could verify where the selected area was on the map and how it fit into the broader geographic hierarchy.</p>
-        </div>
-      </div>
-      <div class="synthesis-block">
-        <p>Together, these decisions shaped a map-centered workflow that enables users to find, select, and confirm geographic boundaries with less friction.</p>
-      </div>
-    </div>
-    <!-- <div class="decision-grid">
-
-    <div class="decision-card">
-      <div class="decision-img">
-        <img src="/img/map-navigation-button.png" alt="Boundary selector buttons" />
-      </div>
-      <div class="decision-body">
-        <h4>Guided navigation for boundary selection</h4>
-        <p>Introduce a structured navigation panel that lets users select a state first, then choose the geographic boundary type they need, without following a rigid hierarchy.</p>
-        <p class="decision-why">Analysts already knew their target location. The interface shouldn't force them to prove it by stepping through every level.</p>
-      </div>
-    </div>
-
-    <div class="decision-card">
-      <div class="decision-img">
-        <img src="/img/map-feedback.png" alt="Visual feedback on map" />
-      </div>
-      <div class="decision-body">
-        <h4>Clear visual feedback on the map</h4>
-        <p>Design eye-catching map symbology to clearly highlight selected jurisdictions, helping users immediately understand which geographic area is currently active.</p>
-        <p class="decision-why">Without clear visual cues, users constantly second-guessed whether their selection had registered.</p>
-      </div>
-    </div>
-
-    <div class="decision-card">
-      <div class="decision-img">
-        <img src="/img/map-summary-panel.png" alt="Summary panel" />
-      </div>
-      <div class="decision-body">
-        <h4>Summary panel for selected jurisdiction</h4>
-        <p>Provide a summary panel that displays the selected location and boundary level, letting users quickly verify their selections.</p>
-        <p class="decision-why">Analysts needed to see not just what was selected, but how it fit into the broader hierarchy — State → County → Community.</p>
-      </div>
-    </div>
-
-    <div class="decision-card">
-      <div class="decision-img">
-        <img src="/img/map-search.png" alt="Search experience" />
-      </div>
-      <div class="decision-body">
-        <h4>Improve location selection with a better search experience</h4>
-        <p>Enhance the search functionality so users can quickly find a specific jurisdiction without manually navigating through multiple geographic layers.</p>
-        <p class="decision-why">For analysts who already knew the jurisdiction name or FIPS code, navigating the map was an unnecessary detour.</p>
-      </div>
-    </div>
-
-  </div> -->
-  
-
-</section>
 
   <hr/>
 
-  <!-- 05 KEY DESIGN DECISION
+
   <div class="section rev" id="decision">
-    <div class="eyebrow">05 — Key Design Decision</div>
-    <h2>Key Design Decision</h2>
-    <p>The most significant design challenge was how users select their geographic location. If the user could not easily identify and select the correct jurisdiction, the resulting analysis would be inaccurate or incomplete.</p>
 
-    <h3>The current approach</h3>
-    <p>The existing system used a layered, hierarchical model. Users had to navigate downward through a geographic pyramid — state → county → jurisdiction — even when they already knew the exact location they wanted.</p>
-    <p>This structure became even more inefficient when users needed to select multiple areas. Selecting several census tracts across neighboring communities required repeating the navigation process from the top of the hierarchy each time.</p>
+    
+    <h2>The solutions</h2>
+    <p>I redesigned the map from a complex GIS interface into a focused, step-by-step workflow for defining an analysis area.</p>
 
-    <h3>The design exploration</h3>
-    <p>Early wireframes explored a refined version of the pyramid model — cleaner, more modern, but structurally the same. Through continued stakeholder discussions, it became clear that the core issue was not the visual design. It was about how analysts actually think about geographic boundaries.</p>
-
-    <div class="baf-diagram">
-      <div class="baf-col before">
-        <div class="baf-title">Before</div>
-        <div class="baf-nodes">
-          <div class="baf-node">State</div>
-          <div class="baf-connector-v"></div>
-          <div class="baf-node">County</div>
-          <div class="baf-connector-v"></div>
-          <div class="baf-node">Community</div>
-          <div class="baf-connector-v"></div>
-          <div class="baf-node">Census Tract</div>
-          <div class="baf-connector-v"></div>
-          <div class="baf-node">Census Block</div>
-        </div>
-      </div>
-      <div class="baf-col after">
-        <div class="baf-title">After</div>
-        <div class="baf-nodes">
-          <div class="baf-state">State</div>
-          <div class="baf-direct">
-            <div class="baf-direct-row"><span class="arr">→</span><span class="node">County</span></div>
-            <div class="baf-direct-row"><span class="arr">→</span><span class="node">Community</span></div>
-            <div class="baf-direct-row"><span class="arr">→</span><span class="node">Census Tract</span></div>
-            <div class="baf-direct-row"><span class="arr">→</span><span class="node">Census Block</span></div>
-          </div>
-        </div>
+    <div class="solution-group">
+      <img src="img/uswds-components.png">
+      <div class="solution-text-box">
+        <h3>Standardize the experience</h3>
+        <p>Redesigned the interface using USWDS patterns to create a more consistent and accessible experience across different levels of GIS expertise.</p>
       </div>
     </div>
 
-    <blockquote>
-      <p>"When people think about where they live, they don't start from the top of a geographic pyramid. They already know the place they're looking for. I wanted the interactive map to reflect that mental model instead of forcing users through a rigid hierarchy."</p>
-      <cite>The Insight</cite>
-    </blockquote>
+    <div class="solution-group">
+      <img src="img/Progressive_hierarchy.png">
+      <div class="solution-text-box">
+        <h3>Guide geographic selection</h3>
+        <p>Introduced a progressive hierarchy from State → County → Community → Census Tract / Block, helping users narrow their analysis area before loading more detailed geographic data</p>
+      </div>
+    </div>
 
-    <h3>The solution</h3>
-    <p>Instead of forcing users to follow a strict hierarchical drill-down, the redesigned workflow allows analysts to first select a state and then choose the geographic boundary type they want to work with — county, community, or census block — in a single step.</p>
- -->
-
+<hr/>
   <div class="section rev" id="Final-Design">
     <h2>Final Design</h2>
     <p>The redesigned Interactive Map keeps the geography selection process on the map. Analysts can search for a location, select a state, switch between boundary types, and confirm their selection without leaving the map workflow.</p>
@@ -397,7 +227,7 @@
 
         <article class="fd-card">
           <div class="fd-card__image">
-            <img src="/img/Map-Default.png" alt="State-level selection"/>
+            <img src="img/v2-Map-Default.png" alt="State-level selection"/>
           </div>
           <span class="fd-card__tag">Step 01</span>
           <h3 class="fd-card__title">Opening Page</h3>
@@ -408,7 +238,7 @@
 
         <article class="fd-card">
           <div class="fd-card__image">
-            <img src="/img/Map-State.png" alt="State boundary"/>
+            <img src="img/v2-Map-State_Active.png" alt="State boundary"/>
           </div>
           <span class="fd-card__tag">Step 02</span>
           <h3 class="fd-card__title">State Selected</h3>
@@ -418,7 +248,7 @@
 
         <article class="fd-card">
           <div class="fd-card__image">
-            <img src="/img/Map-County.png" alt="County boundary"/>
+            <img src="img/v2-Map-Community_Active.png" alt="County boundary"/>
           </div>
           <span class="fd-card__tag">Step 03</span>
           <h3 class="fd-card__title">Boundary Type Selected</h3>
@@ -428,7 +258,7 @@
 
         <article class="fd-card">
           <div class="fd-card__image">
-            <img src="/img/Map-County - 1.png" alt="Selection preview"/>
+            <img src="img/v2-Map-Community_Active-2.png" alt="Selection preview"/>
           </div>
           <span class="fd-card__tag">Step 04</span>
           <h3 class="fd-card__title">Confirm Selection</h3>
@@ -443,63 +273,76 @@
         <button class="fd-gallery__btn" onclick="scrollFdGallery(1)" aria-label="Next">→</button>
       </div>
     </div>
-
+    <!--
     <div class="fd-feature-desc">
-      <div class="fd-feature-item">
-        <img src="/img/Map - Search View.png">
-        <div class="fd-feature-item-text">
-          <h2>Search entry point</h2>
-          <p>For analysts who already know the the location name or jurisdiction ID, search provides a faster entry point than navigating the map manually.</p>
-        </div>
-      </div>
-      <div class="fd-feature-item">
-        <img src="/img/Map - Summary.png">
-        <div class="fd-feature-item-text">
-          <h2>Selected boundaries overview</h2>
-          <p>As analysts make selections on the map, a summary panel on the right keeps track of what has been added to the study area.<br><br>The selections are organized by hierarchy, allowing users to see both the boundary level and the specific jurisdictions they selected at a glance.</p>
-        </div>
-      </div>
-      <div class="fd-feature-item">
-          <img src="/img/Map/InteractiveMap-Boundary_Selector.gif">
-          <div class="fd-feature-item-text">
-            <h2>Jurisdiction selector</h2>
-            <p>Analysts can switch between State, County, Community, Census Tract, and Census Block boundaries without restarting the selection flow.
-              <br><br>
-            The selector tool reduced the need for a rigid drill-down method and gave analysts more direct control over the geographic level they wanted to analyze.</p>
-          </div>
-        </div>
         <div class="fd-feature-item">
-          <img src="/img/Map - Symbology.png">
+          <img src="img/Map - Symbology.png">
           <div class="fd-feature-item-text">
-            <h2>Colored Symbology</h2>
-            <p>I created the palette using the U.S. Web Design System by combining unique colors with varying border thicknesses.
-              <br><br>
-            This helped reduce reliance on GIS-specific map patterns and made it easier to distinguish between active, selected, and available boundaries.
-            </p>
+            <h3>Colored symbology</h3>
+            <p>I built the palette from the U.S. Web Design System, pairing each state with a distinct border weight rather than relying on hue alone.</p>
+            <p>Color-only encoding fails for analysts with color vision deficiency, and Section 508 compliance is a baseline requirement for federal products. Pairing color with a second visual cue meant active, selected, and available boundaries stayed distinguishable without depending on GIS-specific map conventions.</p>
           </div>
         </div>
     </div>
-
+    
   </div>
-  <!-- 07 — Outcomes & Reflection -->
+
+  <section class="case-section" id="where-stopped">
+    <h2>Budget cut and revisiting the design</h2>
+    
+    <p>After the project ended, I kept thinking about the main problem: how analysts choose the areas to analyze. While we were developing the project, we came across something important: flood zones do not respect administrative boundaries. As a result, one analysis may have to include parts of several counties or communities.</p>
+    
+    <p> I further explored this using Claude Design to build a two-stage model.</p>
+    <p> 
+    The first stage, the anchor, selects the first top three tiers of geography (State, County, or Community). In the second stage, the remaining tier opens after the anchor is selected, allowing the analyst to select tracts or blocks.  
+    </p> 
+  </section>
+  
+
+  <section class="case-section" id="revisiting">
+    <h3>Testing with a prototype</h3>
+    <img style="width: 100% ;" src="img/redesgin-1.gif">
+    <div class="proto-grid">
+      <div class="proto-card">
+        <img src="img/act3-polygon-drawing.png" alt="Polygon drawing interaction with visible vertices and live outline"/>
+        <p>Drawing a polygon on the map. Vertices appear as the user clicks, and the outline updates live.</p>
+      </div>
+      <div class="proto-card">
+        <img src="img/act3-polygon-selection.png" alt="Three census tracts selected via polygon, shown in light blue"/>
+        <p>After closing the polygon, selected tracts appear in a distinct color, giving immediate feedback.</p>
+      </div>
+      <div class="proto-card">
+        <img src="img/act3-partially-selected.png" alt="County view showing selected tracts in blue and partially-selected tracts in blue with white hatching"/>
+        <p>Zooming out to county level, tracts that are only partly selected appear with hatching—showing the analyst exactly which parent units were affected.</p>
+      </div>
+    </div>
+
+    <h3>What this revealed</h3>
+
+    <p>The prototype confirmed three critical insights. First, <strong>analysts select areas, not individual units</strong>—they draw and think in regions, not in steps. Second, <strong>geographic hierarchies don't reflect physical reality</strong>—hazard zones cross administrative lines, so the interface can't constrain selection to a single parent boundary. Third, <strong>returned navigation is an opportunity, not a burden</strong>—when analysts zoom back out, showing them which parent units are partially selected in a visual summary (hatching, distinct shading) helps them make confident decisions without backtracking.</p>
+  </section>
+-->
+  <!-- 07 — Outcomes & Reflection
 <section class="case-section" id="outcomes">
-  <h2>Outcomes & Reflection</h2>
-  <p>The new Interactive Map Viewer gives analysts a clearer, more flexible way to define a study area before creating a risk analysis report.</p>
+  <h2>What the redesign changed</h2>
+  <p>The redesign replaced a fixed drill-down sequence with a model that lets analysts reach a jurisdiction directly and see what they have selected before committing to an analysis.</p>
 
   <ol class="design-decision-list">
     <li>
-      <p>Reduced reliance on a rigid State → County → Community drill-down flow</p>
+      <p><strong>Selection path:</strong> a fixed State → County → Community sequence became a boundary-type selector that lets analysts enter at the level they already know.</p>
     </li>
     <li>
-      <p>Improved visibility of selected jurisdictions through map feedback and a selected-boundaries panel</p>
+      <p><strong>Selection feedback:</strong> jurisdictions that were previously confirmed only by a form field became visible on the map and listed in a persistent summary panel.</p>
     </li>
-        <li>
-      <p>Supported both users who wanted guided exploration and users who already knew the jurisdiction they needed</p>
+    <li>
+      <p><strong>Revisiting a choice:</strong> changing an earlier selection no longer required working back through the sequence.</p>
     </li>
   </ol>
 
+  <p class="note">These changes were reviewed with stakeholders during design sessions but were not validated through usability testing — the project ended before that phase was scoped.</p>
+   -->
 
-  <!-- C: Timeline -->
+  <!-- C: Timeline
   <h3>What was delivered</h3>
 
 <div class="timeline">
@@ -519,7 +362,7 @@
       <div class="tl-title">Search integration</div>
       <span class="tl-badge tl-badge--presented">Presented</span>
     </div>
-    <p class="tl-desc">The search feature was presented in a final review session. The project concluded before formal approval was given from the client.</p>
+    <p class="tl-desc">The search feature was presented in a final review session. The project concluded before the client gave formal approval.</p>
   </div>
 
   <div class="tl-item">
@@ -532,50 +375,14 @@
   </div>
 
 </div>
+   -->
 
-  <!-- A: Insight cards -->
-  <h3>What I learned</h3>
-  <!--
-    <div class="insight-grid">
-
-    <div class="insight-card">
-      <div class="insight-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="9" cy="9" r="7.5" stroke="#666" stroke-width="1.2"/>
-          <path d="M9 5v4l2.5 2.5" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <h4>Validate the domain model first</h4>
-      <p>The jurisdiction hierarchy proved to be more complex than initially anticipated. Early misalignment with this model led to project delays, as designs had to be revised each time additional complexity emerged.</p>
-    </div>
-
-    <div class="insight-card">
-      <div class="insight-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="6" cy="6" r="2.5" stroke="#666" stroke-width="1.2"/>
-          <circle cx="12" cy="12" r="2.5" stroke="#666" stroke-width="1.2"/>
-          <path d="M8.5 6H12a2.5 2.5 0 0 1 0 5" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <h4>Build shared understanding across the whole team</h4>
-      <p>In projects involving a highly specialized knowledge, it is important to take the time to align all participants including stakeholders, and leads. Without the foundational alignment, I was often left to address the gaps on my own.</p>
-    </div>
-
-    <div class="insight-card">
-      <div class="insight-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2.5" y="4.5" width="13" height="10" rx="1.5" stroke="#666" stroke-width="1.2"/>
-          <path d="M6 4.5V3M12 4.5V3" stroke="#666" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M2.5 7.5h13" stroke="#666" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <h4>Define "done" before you start</h4>
-      <p>Scope changes frequently occur in government contracts. However, establishing explicit agreement on the definition of completion for each phase provides the team with a consistent reference point when priorities shift.</p>
-    </div>
-
+  <div class="prototype">
+  
   </div>
-  -->
+
   <div class="insight-card">
+    <h3 style="margin-top: 0px;">What I learned</h3>
     <p>One thing I learned from this project is that having complex and extra controls doesn’t always guarantee a better user experience. A better experience happens when things are simple and give users just enough tools to get their job done with confidence.</p>
   </div>
 </section>
@@ -603,7 +410,6 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
