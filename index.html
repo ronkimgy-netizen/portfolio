@@ -2,532 +2,422 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ron — UI/UX Designer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Google+Sans+Display:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #222222;
-    --rust: #C8704A;
-    --mid: #555555;
-    --off-white: #F7F8FA;
-    --lt: #E8EDF3;
-    --border: #EAECF0;
-    --font-sans: 'Google Sans', sans-serif;
-    --font-display: 'Google Sans Display', sans-serif;
-  }
+<title>Ron — UX Portfolio</title>
+<meta name="description" content="UI/UX designer in Washington D.C. with 5+ years designing accessible digital services for FEMA, GSA, VA, and CMS.">
 
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ron — UX Portfolio">
+<meta property="og:description" content="Designing clear, accessible digital services for the public sector. FEMA · GSA · VA · CMS.">
+<meta property="og:url" content="https://ronkimgy-netizen.github.io/portfolio_2026/">
+<!-- Drop a 1200×630 image at assets/og-cover.png to activate the social preview -->
+<meta property="og:image" content="https://ronkimgy-netizen.github.io/portfolio_2026/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
 
-  html {
-    font-size: 16px;
-  }
-
-  body {
-    font-family: var(--font-sans);
-    background-color: var(--off-white);
-    color: var(--navy);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── NAV ── */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 40px;
-  }
-
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--navy);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--mid);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .nav-links a:hover {
-    color: var(--navy);
-  }
-
-  /* ── HERO ── */
-  .hero {
-    padding: 48px 40px 64px;
-    max-width: 860px;
-  }
-
-  .hero-header {
-    font-family: var(--font-display);
-    font-size: clamp(34px, 3vw, 30px);
-    font-weight: 400;
-    line-height: 1.75;
-    color: var(--navy);
-    letter-spacing: -0.02em;
-  }
-    .hero-text {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 1vw, 30px);
-    font-weight: 400;
-    line-height: 1.75;
-    color: var(--navy);
-    letter-spacing: -0.02em;
-  }
-
-  /* ── WORK SECTION ── */
-  .work-section {
-    padding: 0 40px 80px;
-  }
-
-  .section-label {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--mid);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .work-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    cursor: pointer;
-
-  }
-
-  .work-card-image {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    background-color: var(--lt);
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 16px;
-    transition: opacity 0.2s;
-  }
-
-  .work-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .work-card:hover .work-card-image {
-    opacity: 0.85;
-  }
-
-  .work-card-tag {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--rust);
-    margin-bottom: 6px;
-  }
-
-  .work-card-title {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 6px;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-  }
-
-  .work-card-desc {
-    font-size: 14px;
-    color: var(--mid);
-    line-height: 1.55;
-  }
-
-  /* ── RESPONSIVE 480px ── */
-  @media (max-width: 480px) {
-    nav {
-      padding: 20px 20px;
-    }
-
-    .nav-links {
-      gap: 20px;
-    }
-
-    .hero {
-      padding: 32px 20px 48px;
-    }
-
-    .hero-text {
-      font-size: 20px;
-    }
-
-    .work-section {
-      padding: 0 20px 60px;
-    }
-
-    .work-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-
-    .work-card-title {
-      font-size: 16px;
-    }
-  }
-   /* ── CSS TO ADD TO styles.css ── */
- 
-  /* Ensure thumbnail container can position the badge */
-  .thumb-wrap {
-    position: relative;
-    display: block;
-  }
- 
-  /* The badge itself */
-  .wip-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 2;
- 
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
- 
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--rust);
-    border: 1px solid var(--rust);
- 
-    padding: 5px 10px;
-    border-radius: 2px;
- 
-    font-family: 'Google Sans Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    line-height: 1;
- 
-    backdrop-filter: blur(4px);
-  }
- 
-  /* Pulsing dot indicator */
-  .wip-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--rust);
-    animation: wip-pulse 2s ease-in-out infinite;
-  }
- 
-  @keyframes wip-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  /* ── WIP MODAL ── */
-  #wip-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(34, 34, 34, 0.25);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-
-  #wip-backdrop.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  #wip-modal {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 36px 32px 28px;
-    width: 380px;
-    max-width: calc(100vw - 40px);
-    position: relative;
-    text-align: center;
-    transform: scale(0.92) translateY(10px);
-    transition: transform 0.38s cubic-bezier(0.34, 1.42, 0.64, 1);
-  }
-
-  #wip-backdrop.visible #wip-modal {
-    transform: scale(1) translateY(0);
-  }
-
-  #wip-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background: var(--lt);
-    border: none;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 11px;
-    color: var(--mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.15s;
-    line-height: 1;
-    padding: 0;
-  }
-
-  #wip-close:hover {
-    background: var(--border);
-    color: var(--navy);
-  }
-
-  .wip-modal-eyebrow {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--rust);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  .wip-modal-eyebrow::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--rust);
-    animation: wip-pulse 2s ease-in-out infinite;
-    flex-shrink: 0;
-  }
-
-  .wip-modal-title {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--navy);
-    letter-spacing: -0.02em;
-    line-height: 1.4;
-    margin-bottom: 10px;
-  }
-
-  .wip-modal-body {
-    font-size: 14px;
-    color: var(--mid);
-    line-height: 1.65;
-    margin-bottom: 24px;
-  }
-
-  .wip-modal-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .wip-btn-primary {
-    background: var(--navy);
-    color: var(--off-white);
-    border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.15s;
-    display: inline-block;
-  }
-
-  .wip-btn-primary:hover { opacity: 0.8; }
-
-  .wip-btn-ghost {
-    font-size: 13px;
-    color: var(--mid);
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-family: var(--font-sans);
-    transition: color 0.15s;
-  }
-
-  .wip-btn-ghost:hover { color: var(--navy); }
-
-  /* countdown ring */
-  .wip-ring {
-    position: absolute;
-    top: 13px;
-    right: 46px;
-    width: 26px;
-    height: 26px;
-  }
-
-  .wip-ring-track { fill: none; stroke: var(--border); stroke-width: 2.5; }
-  .wip-ring-fill  {
-    fill: none;
-    stroke: var(--rust);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-    opacity: 0.5;
-  }
-
-  .wip-snooze {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    justify-content: center;
-    margin: 0 0 16px;
-    cursor: pointer;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    color: var(--mid);
-    user-select: none;
-  }
-  .wip-snooze input[type="checkbox"] {
-    accent-color: var(--navy);
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+<div class="canvas">
+  <a class="skip-link" href="#work">Skip to work</a>
+  <div class="shell">
 
-<nav>
-  <a href="#" class="nav-logo">Ron Kim</a>
-  <ul class="nav-links">
-    <a href="nav/projects">Projects</a>
-    <a href="nav/about">About Me</a>
-    <a href="https://drive.google.com/file/d/1UZSxA8nOesgF5-FuaYZBjt0GW5nQTI96/view">Resume</a>
-  </ul>
-</nav>
+    <header>
+      <a class="logo" href="index.html">Ron</a>
+      <nav aria-label="Primary">
+        <a href="#work">Project</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About Me</a>
+      </nav>
+    </header>
 
-<section class="hero">
-    <p class="hero-header">
-    UI/UX Designer based in Washington D.C.  
-  </p>
-  <p class="hero-text">
-    I design digital experiences that are intuitive by intent and considered in every detail. From complex Federal platforms to public-facing tools, I translate ambiguity into interfaces people can trust.
-  </p>
+    <main>
+      <section class="intro reveal" id="about">
+        <p class="eyebrow">UI/UX Designer · Washington D.C.</p>
+        <h1>Designing <strong>clear, accessible</strong> digital services for the public sector.</h1>
+        <p>Over five years of experience shaping government digital products for FEMA, GSA, and the Department of Veterans Affairs — from research and prototyping to front-end handoff. I focus on turning complex policy-driven workflows into interfaces people can actually use.</p>
+      </section>
 
-</section>
+      <section class="work" id="work" aria-label="Selected work">
+        <div class="work-label"><span>Selected work</span><span>2021 — 2026</span></div>
 
-<section class="work-section" id="work">
-  <div class="work-grid">
-    <a class="work-card" href="/Interactive_Map/">
-      <div class="work-card-image">
-        <img src="/img/thumbnail/landing-thumbnail-map.png"> 
-      </div>
-      <p class="work-card-tag">FEMA · Hazard Analysis</p>
-      <p class="work-card-title">OpenHazus Interactive Map Viewer</p>
-      <p class="work-card-desc">Designing the analyst workflow for a national hazard loss estimation platform.</p>
-    </a>
-    <a class="work-card" href="/mpp-application">
-      <div class="work-card-image">
-        <img src="/img/thumbnail/landing-thumbnail-mpp.png">
-      </div>
-      <p class="work-card-tag">FEMA · Mitigation Planning</p>
-      <p class="work-card-title">MPP 2.0</p>
-      <p class="work-card-desc">Sole UX designer on a modernization effort for the Mitigation Planning Portal.</p>
-    </a>
+        <article class="card reveal">
+          <div class="card-media">
+            <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flood mitigation planning platform web app mockup">
+              <rect width="900" height="300" fill="#eef1f4"/>
+              <!-- top nav -->
+              <rect width="900" height="44" fill="#16324f"/>
+              <circle cx="30" cy="22" r="9" fill="#5b8db8"/>
+              <rect x="48" y="16" width="120" height="12" rx="3" fill="#ffffff" opacity=".9"/>
+              <rect x="700" y="15" width="54" height="14" rx="3" fill="#ffffff" opacity=".45"/>
+              <rect x="766" y="15" width="54" height="14" rx="3" fill="#ffffff" opacity=".45"/>
+              <rect x="836" y="12" width="40" height="20" rx="10" fill="#2b6cb0"/>
+              <!-- sidebar -->
+              <rect y="44" width="200" height="256" fill="#ffffff"/>
+              <rect x="20" y="70" width="140" height="10" rx="3" fill="#16324f" opacity=".85"/>
+              <rect x="20" y="100" width="110" height="9" rx="3" fill="#8a9bb0"/>
+              <rect x="20" y="126" width="130" height="9" rx="3" fill="#8a9bb0"/>
+              <rect x="20" y="152" width="95" height="9" rx="3" fill="#8a9bb0"/>
+              <rect x="14" y="146" width="4" height="20" rx="2" fill="#2b6cb0"/>
+              <rect x="20" y="178" width="120" height="9" rx="3" fill="#c4cdd8"/>
+              <rect x="20" y="204" width="105" height="9" rx="3" fill="#c4cdd8"/>
+              <!-- search bar -->
+              <rect x="228" y="66" width="440" height="36" rx="18" fill="#ffffff" stroke="#c4cdd8"/>
+              <circle cx="250" cy="84" r="7" fill="none" stroke="#8a9bb0" stroke-width="2.5"/>
+              <line x1="255" y1="89" x2="261" y2="95" stroke="#8a9bb0" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="272" y="79" width="180" height="10" rx="3" fill="#c4cdd8"/>
+              <rect x="688" y="66" width="120" height="36" rx="18" fill="#2b6cb0"/>
+              <rect x="712" y="79" width="72" height="10" rx="3" fill="#ffffff"/>
+              <!-- document rows -->
+              <g>
+                <rect x="228" y="122" width="580" height="48" rx="8" fill="#ffffff"/>
+                <rect x="244" y="136" width="22" height="22" rx="4" fill="#dbe6f1"/>
+                <path d="M250 141h10v12h-10z" fill="#2b6cb0" opacity=".7"/>
+                <rect x="282" y="134" width="240" height="10" rx="3" fill="#16324f" opacity=".8"/>
+                <rect x="282" y="152" width="150" height="8" rx="3" fill="#8a9bb0"/>
+                <rect x="720" y="138" width="70" height="18" rx="9" fill="#e3edf7"/>
+              </g>
+              <g>
+                <rect x="228" y="178" width="580" height="48" rx="8" fill="#ffffff"/>
+                <rect x="244" y="192" width="22" height="22" rx="4" fill="#dbe6f1"/>
+                <path d="M250 197h10v12h-10z" fill="#2b6cb0" opacity=".7"/>
+                <rect x="282" y="190" width="280" height="10" rx="3" fill="#16324f" opacity=".8"/>
+                <rect x="282" y="208" width="130" height="8" rx="3" fill="#8a9bb0"/>
+                <rect x="720" y="194" width="70" height="18" rx="9" fill="#e3edf7"/>
+              </g>
+              <g>
+                <rect x="228" y="234" width="580" height="48" rx="8" fill="#ffffff"/>
+                <rect x="244" y="248" width="22" height="22" rx="4" fill="#dbe6f1"/>
+                <path d="M250 253h10v12h-10z" fill="#2b6cb0" opacity=".7"/>
+                <rect x="282" y="246" width="210" height="10" rx="3" fill="#16324f" opacity=".8"/>
+                <rect x="282" y="264" width="160" height="8" rx="3" fill="#8a9bb0"/>
+                <rect x="720" y="250" width="70" height="18" rx="9" fill="#e3edf7"/>
+              </g>
+            </svg>
+            <span class="media-tag">Case Study · FEMA</span>
+            <span class="media-index" aria-hidden="true">01</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h2>Flood Mitigation Planning Platform</h2>
+              <p>Redesigning a legacy flood-data request workflow into a streamlined planning workspace — cutting request steps and clarifying document discovery for engineers and local officials.</p>
+            </div>
+            <a class="card-link" href="projects/fema-engineering-library.html">View case study<span class="visually-hidden"> — Flood Mitigation Planning Platform</span></a>
+          </div>
+        </article>
 
-        <a href="/gsa" class="work-card"  style="position:relative;">
-      <div class="work-card-image">
-        <img src="/img/Thumbnail/landing-thumbnail-gsa.png" alt="SAM.gov"/>
-      </div>
-        <p class="work-card-tag">GSA · Contract Workspace</p>
-        <p class="work-card-title">SAM.GOV</p>
-        <p class="work-card-desc">Rethinking how the public searches across federal contracting data.</p>
+        <article class="card reveal">
+          <div class="card-media">
+            <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive flood map viewer mockup">
+              <rect width="900" height="300" fill="#e9e5da"/>
+              <!-- streets -->
+              <g stroke="#f7f4ec" stroke-width="10" opacity=".9">
+                <path d="M0 90 H900" fill="none"/>
+                <path d="M0 210 H900" fill="none"/>
+                <path d="M180 0 V300" fill="none"/>
+                <path d="M430 0 V300" fill="none"/>
+                <path d="M700 0 V300" fill="none"/>
+              </g>
+              <g stroke="#f7f4ec" stroke-width="5" opacity=".8">
+                <path d="M0 150 H900" fill="none"/>
+                <path d="M300 0 V300" fill="none"/>
+                <path d="M560 0 V300" fill="none"/>
+                <path d="M820 0 V300" fill="none"/>
+              </g>
+              <!-- river -->
+              <path d="M-20 260 C 150 220, 260 300, 420 250 C 560 208, 640 268, 920 230 L 920 340 L -20 340 Z" fill="#7fb2d6" opacity=".85"/>
+              <!-- flood zones -->
+              <path d="M100 240 C 200 190, 330 250, 470 215 C 590 186, 680 235, 900 205 L 900 300 L 60 300 Z" fill="#4a90c2" opacity=".32"/>
+              <path d="M240 258 C 330 235, 420 268, 540 244 L 540 300 L 220 300 Z" fill="#2b6cb0" opacity=".38"/>
+              <!-- green area -->
+              <rect x="470" y="30" width="180" height="90" rx="14" fill="#b9cfa8" opacity=".8"/>
+              <!-- markers -->
+              <g>
+                <path d="M340 160 c0-12 18-12 18 0 0 9-9 12-9 20 0-8-9-11-9-20z" fill="#c0392b"/>
+                <circle cx="349" cy="159" r="4" fill="#ffffff"/>
+              </g>
+              <g>
+                <path d="M600 190 c0-12 18-12 18 0 0 9-9 12-9 20 0-8-9-11-9-20z" fill="#c0392b"/>
+                <circle cx="609" cy="189" r="4" fill="#ffffff"/>
+              </g>
+              <!-- zoom controls -->
+              <g transform="translate(24 24)">
+                <rect width="34" height="68" rx="8" fill="#ffffff" stroke="#c9c3b4"/>
+                <path d="M17 12v12M11 18h12" stroke="#54504a" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M11 50h12" stroke="#54504a" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="4" y1="34" x2="30" y2="34" stroke="#e2ddd0"/>
+              </g>
+              <!-- legend -->
+              <g transform="translate(660 28)">
+                <rect width="212" height="112" rx="10" fill="#ffffff" opacity=".96" stroke="#c9c3b4"/>
+                <rect x="16" y="14" width="110" height="10" rx="3" fill="#54504a"/>
+                <rect x="16" y="38" width="16" height="12" rx="3" fill="#2b6cb0" opacity=".6"/>
+                <rect x="42" y="39" width="120" height="9" rx="3" fill="#8b867c"/>
+                <rect x="16" y="62" width="16" height="12" rx="3" fill="#4a90c2" opacity=".45"/>
+                <rect x="42" y="63" width="96" height="9" rx="3" fill="#8b867c"/>
+                <rect x="16" y="86" width="16" height="12" rx="3" fill="#7fb2d6"/>
+                <rect x="42" y="87" width="72" height="9" rx="3" fill="#8b867c"/>
+              </g>
+            </svg>
+            <span class="media-tag">Data Viz · Leaflet.js</span>
+            <span class="media-index" aria-hidden="true">02</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h2>Flood Interactive Map Viewer</h2>
+              <p>An interactive hazard-mapping tool built with Leaflet.js, making OpenHazus flood data explorable for non-technical audiences.</p>
+            </div>
+            <a class="card-link" href="projects/flood-map-viewer.html">View case study<span class="visually-hidden"> — Flood Interactive Map Viewer</span></a>
+          </div>
+        </article>
 
-    </a>
-  <!--
-    <a class="work-card" href="/hazard-config" style="position:relative;">
-      <div class="work-card-image">
-        <img src="/img/thumbnail/landing-thumbnail-hazard.png">
-      </div>
-      <p class="work-card-tag">FEMA · Hazard Analysis</p><span class="wip-badge">In Progress</span>
-      <p class="work-card-title">Hazard Configuration</p>
-      <p class="work-card-desc">Designing the analyst workflow for a national hazard loss estmation platform.</p>
-    </a>
--->
+        <article class="card reveal">
+          <div class="card-media">
+            <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VA benefit claim mobile app mockup">
+              <defs>
+                <linearGradient id="gritBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#2e4636"/>
+                  <stop offset="1" stop-color="#1c2d22"/>
+                </linearGradient>
+              </defs>
+              <rect width="900" height="300" fill="url(#gritBg)"/>
+              <!-- phone 1 -->
+              <g transform="translate(330 30) rotate(-2)">
+                <rect width="150" height="310" rx="22" fill="#0f1512"/>
+                <rect x="6" y="6" width="138" height="298" rx="17" fill="#f6f7f5"/>
+                <rect x="20" y="24" width="70" height="10" rx="3" fill="#1c2d22"/>
+                <rect x="20" y="48" width="110" height="64" rx="10" fill="#dfe8e0"/>
+                <rect x="32" y="60" width="60" height="9" rx="3" fill="#2e4636"/>
+                <rect x="32" y="76" width="86" height="7" rx="3" fill="#8fa396"/>
+                <rect x="32" y="90" width="56" height="12" rx="6" fill="#3e7a4e"/>
+                <!-- upload card -->
+                <rect x="20" y="124" width="110" height="90" rx="10" fill="#ffffff" stroke="#cfd9d1"/>
+                <rect x="52" y="140" width="46" height="34" rx="6" fill="none" stroke="#3e7a4e" stroke-width="2" stroke-dasharray="5 4"/>
+                <path d="M75 168v-18M69 156l6-6 6 6" stroke="#3e7a4e" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="38" y="184" width="74" height="7" rx="3" fill="#8fa396"/>
+                <rect x="48" y="197" width="54" height="7" rx="3" fill="#cfd9d1"/>
+                <!-- checklist -->
+                <g transform="translate(20 226)">
+                  <rect width="110" height="26" rx="8" fill="#e9f2ea"/>
+                  <circle cx="15" cy="13" r="7" fill="#3e7a4e"/>
+                  <path d="M11.5 13l2.5 2.5 5-5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                  <rect x="30" y="9" width="62" height="8" rx="3" fill="#2e4636" opacity=".7"/>
+                </g>
+                <g transform="translate(20 258)">
+                  <rect width="110" height="26" rx="8" fill="#ffffff" stroke="#cfd9d1"/>
+                  <circle cx="15" cy="13" r="7" fill="none" stroke="#8fa396" stroke-width="1.8"/>
+                  <rect x="30" y="9" width="50" height="8" rx="3" fill="#8fa396"/>
+                </g>
+              </g>
+              <!-- phone 2 (behind, right) -->
+              <g transform="translate(510 55) rotate(4)" opacity=".92">
+                <rect width="140" height="290" rx="20" fill="#0f1512"/>
+                <rect x="6" y="6" width="128" height="278" rx="15" fill="#f6f7f5"/>
+                <rect x="18" y="22" width="60" height="9" rx="3" fill="#1c2d22"/>
+                <!-- progress -->
+                <circle cx="82" cy="96" r="34" fill="none" stroke="#dfe8e0" stroke-width="8"/>
+                <path d="M82 62 a34 34 0 1 1 -29.4 17" fill="none" stroke="#3e7a4e" stroke-width="8" stroke-linecap="round"/>
+                <rect x="66" y="90" width="32" height="11" rx="3" fill="#2e4636"/>
+                <rect x="18" y="150" width="104" height="8" rx="3" fill="#8fa396"/>
+                <rect x="18" y="166" width="80" height="8" rx="3" fill="#cfd9d1"/>
+                <rect x="18" y="196" width="104" height="34" rx="10" fill="#3e7a4e"/>
+                <rect x="44" y="209" width="52" height="9" rx="3" fill="#ffffff"/>
+                <rect x="18" y="240" width="104" height="34" rx="10" fill="#ffffff" stroke="#cfd9d1"/>
+                <rect x="44" y="253" width="52" height="9" rx="3" fill="#8fa396"/>
+              </g>
+              <!-- dots deco -->
+              <circle cx="120" cy="80" r="3" fill="#8fa396" opacity=".5"/>
+              <circle cx="150" cy="200" r="4" fill="#8fa396" opacity=".35"/>
+              <circle cx="780" cy="70" r="3" fill="#8fa396" opacity=".5"/>
+              <circle cx="820" cy="230" r="4" fill="#8fa396" opacity=".3"/>
+            </svg>
+            <span class="media-tag">Mobile App · VA</span>
+            <span class="media-index" aria-hidden="true">03</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h2>VA Benefit Claim Mobile App</h2>
+              <p>A mobile experience helping veterans upload benefit documents with confidence, grounded in competitive analysis and persona-driven research.</p>
+            </div>
+            <a class="card-link" href="projects/grit-veterans-app.html">View case study<span class="visually-hidden"> — VA Benefit Claim Mobile App</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-media">
+            <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Government search results interface mockup">
+              <rect width="900" height="300" fill="#f4f5f7"/>
+              <!-- header band -->
+              <rect width="900" height="70" fill="#243b53"/>
+              <rect x="60" y="20" width="90" height="12" rx="3" fill="#ffffff" opacity=".9"/>
+              <!-- search bar -->
+              <rect x="180" y="14" width="480" height="42" rx="21" fill="#ffffff"/>
+              <rect x="204" y="29" width="220" height="12" rx="3" fill="#aab4c0"/>
+              <rect x="596" y="20" width="56" height="30" rx="15" fill="#c94f2e"/>
+              <circle cx="624" cy="35" r="7" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+              <line x1="629" y1="40" x2="634" y2="45" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- filter rail -->
+              <rect x="60" y="94" width="170" height="190" rx="10" fill="#ffffff" stroke="#dde2e8"/>
+              <rect x="78" y="112" width="90" height="10" rx="3" fill="#243b53"/>
+              <g transform="translate(78 138)">
+                <rect width="14" height="14" rx="3" fill="#c94f2e"/>
+                <path d="M3.5 7l3 3 5-5.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                <rect x="22" y="3" width="88" height="8" rx="3" fill="#6b7683"/>
+              </g>
+              <g transform="translate(78 164)">
+                <rect width="14" height="14" rx="3" fill="#ffffff" stroke="#aab4c0"/>
+                <rect x="22" y="3" width="72" height="8" rx="3" fill="#6b7683"/>
+              </g>
+              <g transform="translate(78 190)">
+                <rect width="14" height="14" rx="3" fill="#ffffff" stroke="#aab4c0"/>
+                <rect x="22" y="3" width="96" height="8" rx="3" fill="#6b7683"/>
+              </g>
+              <g transform="translate(78 216)">
+                <rect width="14" height="14" rx="3" fill="#c94f2e"/>
+                <path d="M3.5 7l3 3 5-5.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                <rect x="22" y="3" width="64" height="8" rx="3" fill="#6b7683"/>
+              </g>
+              <rect x="78" y="250" width="100" height="9" rx="3" fill="#2b6cb0"/>
+              <!-- result chips -->
+              <rect x="254" y="94" width="92" height="24" rx="12" fill="#e3edf7"/>
+              <rect x="270" y="102" width="60" height="8" rx="3" fill="#2b6cb0"/>
+              <rect x="354" y="94" width="80" height="24" rx="12" fill="#e3edf7"/>
+              <rect x="370" y="102" width="48" height="8" rx="3" fill="#2b6cb0"/>
+              <!-- results -->
+              <g>
+                <rect x="254" y="132" width="586" height="66" rx="8" fill="#ffffff" stroke="#dde2e8"/>
+                <rect x="272" y="146" width="300" height="11" rx="3" fill="#2b6cb0"/>
+                <rect x="272" y="166" width="430" height="8" rx="3" fill="#6b7683"/>
+                <rect x="272" y="180" width="180" height="8" rx="3" fill="#aab4c0"/>
+                <rect x="756" y="146" width="66" height="20" rx="10" fill="#eaf6ec"/>
+              </g>
+              <g>
+                <rect x="254" y="208" width="586" height="66" rx="8" fill="#ffffff" stroke="#dde2e8"/>
+                <rect x="272" y="222" width="260" height="11" rx="3" fill="#2b6cb0"/>
+                <rect x="272" y="242" width="470" height="8" rx="3" fill="#6b7683"/>
+                <rect x="272" y="256" width="150" height="8" rx="3" fill="#aab4c0"/>
+                <rect x="756" y="222" width="66" height="20" rx="10" fill="#fdf1e7"/>
+              </g>
+            </svg>
+            <span class="media-tag">Search UX · GSA</span>
+            <span class="media-index" aria-hidden="true">04</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h2>GSA SAM.gov Search Results</h2>
+              <p>A SAM.gov search experience rethinking filters, result density, and scannability for high-volume federal records.</p>
+            </div>
+            <a class="card-link" href="projects/gov-search-redesign.html">View case study<span class="visually-hidden"> — GSA SAM.gov Search Results</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-media">
+            <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CMS claims review platform dashboard mockup">
+              <rect width="900" height="300" fill="#f2f4f6"/>
+              <!-- top nav -->
+              <rect width="900" height="46" fill="#1a4480"/>
+              <circle cx="32" cy="23" r="9" fill="#5b8db8"/>
+              <rect x="52" y="17" width="110" height="12" rx="3" fill="#ffffff" opacity=".9"/>
+              <rect x="640" y="16" width="60" height="14" rx="3" fill="#ffffff" opacity=".45"/>
+              <rect x="716" y="16" width="60" height="14" rx="3" fill="#ffffff" opacity=".45"/>
+              <circle cx="856" cy="23" r="11" fill="#5b8db8"/>
+              <!-- queue panel -->
+              <rect x="24" y="70" width="330" height="212" rx="10" fill="#ffffff" stroke="#d5dce3"/>
+              <rect x="42" y="88" width="140" height="11" rx="3" fill="#1a4480"/>
+              <rect x="252" y="86" width="84" height="20" rx="10" fill="#e1ebf7"/>
+              <g>
+                <rect x="42" y="116" width="294" height="44" rx="8" fill="#eef4fb"/>
+                <rect x="50" y="124" width="4" height="28" rx="2" fill="#2672de"/>
+                <rect x="66" y="126" width="150" height="9" rx="3" fill="#1a4480" opacity=".85"/>
+                <rect x="66" y="142" width="100" height="7" rx="3" fill="#8296a9"/>
+                <rect x="266" y="128" width="60" height="18" rx="9" fill="#fde9cc"/>
+              </g>
+              <g>
+                <rect x="42" y="168" width="294" height="44" rx="8" fill="#ffffff" stroke="#e3e9ef"/>
+                <rect x="66" y="178" width="170" height="9" rx="3" fill="#42556a"/>
+                <rect x="66" y="194" width="90" height="7" rx="3" fill="#8296a9"/>
+                <rect x="266" y="180" width="60" height="18" rx="9" fill="#e4f2e6"/>
+              </g>
+              <g>
+                <rect x="42" y="220" width="294" height="44" rx="8" fill="#ffffff" stroke="#e3e9ef"/>
+                <rect x="66" y="230" width="130" height="9" rx="3" fill="#42556a"/>
+                <rect x="66" y="246" width="110" height="7" rx="3" fill="#8296a9"/>
+                <rect x="266" y="232" width="60" height="18" rx="9" fill="#fbe4e4"/>
+              </g>
+              <!-- detail panel -->
+              <rect x="378" y="70" width="498" height="212" rx="10" fill="#ffffff" stroke="#d5dce3"/>
+              <rect x="398" y="90" width="220" height="12" rx="3" fill="#1a4480"/>
+              <rect x="398" y="112" width="130" height="8" rx="3" fill="#8296a9"/>
+              <rect x="770" y="88" width="88" height="26" rx="13" fill="#2672de"/>
+              <rect x="790" y="97" width="48" height="8" rx="3" fill="#ffffff"/>
+              <line x1="398" y1="134" x2="856" y2="134" stroke="#e3e9ef"/>
+              <!-- evidence rows -->
+              <g>
+                <rect x="398" y="148" width="286" height="38" rx="8" fill="#f6f9fc"/>
+                <rect x="410" y="158" width="18" height="18" rx="4" fill="#dbe6f1"/>
+                <rect x="438" y="156" width="150" height="8" rx="3" fill="#42556a"/>
+                <rect x="438" y="170" width="100" height="7" rx="3" fill="#8296a9"/>
+              </g>
+              <g>
+                <rect x="398" y="194" width="286" height="38" rx="8" fill="#f6f9fc"/>
+                <rect x="410" y="204" width="18" height="18" rx="4" fill="#dbe6f1"/>
+                <rect x="438" y="202" width="180" height="8" rx="3" fill="#42556a"/>
+                <rect x="438" y="216" width="80" height="7" rx="3" fill="#8296a9"/>
+              </g>
+              <g>
+                <rect x="398" y="240" width="286" height="38" rx="8" fill="#f6f9fc"/>
+                <rect x="410" y="250" width="18" height="18" rx="4" fill="#dbe6f1"/>
+                <rect x="438" y="248" width="140" height="8" rx="3" fill="#42556a"/>
+                <rect x="438" y="262" width="110" height="7" rx="3" fill="#8296a9"/>
+              </g>
+              <!-- decision rail -->
+              <rect x="700" y="148" width="158" height="130" rx="8" fill="#f6f9fc" stroke="#e3e9ef"/>
+              <rect x="716" y="162" width="90" height="9" rx="3" fill="#1a4480"/>
+              <rect x="716" y="184" width="126" height="24" rx="12" fill="#e4f2e6"/>
+              <rect x="736" y="192" width="70" height="8" rx="3" fill="#2e7d43"/>
+              <rect x="716" y="216" width="126" height="24" rx="12" fill="#fbe4e4"/>
+              <rect x="736" y="224" width="60" height="8" rx="3" fill="#b02a30"/>
+              <rect x="716" y="248" width="126" height="24" rx="12" fill="#eef1f4" stroke="#d5dce3"/>
+              <rect x="736" y="256" width="78" height="8" rx="3" fill="#6b7683"/>
+            </svg>
+            <span class="media-tag">Case Study · CMS</span>
+            <span class="media-index" aria-hidden="true">05</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h2>CMS Claims Review Platform</h2>
+              <p>A review workspace for Medicare claims — triaging high-volume queues and surfacing decision-critical evidence so reviewers can decide faster, with confidence.</p>
+            </div>
+            <a class="card-link" href="projects/cms-claims-review.html">View case study<span class="visually-hidden"> — CMS Claims Review Platform</span></a>
+          </div>
+        </article>
+      </section>
+
+      <section class="contact reveal" id="contact" aria-labelledby="contact-title">
+        <div class="work-label"><span>Contact</span></div>
+        <h2 id="contact-title" class="contact-title">Contact <strong>with me!</strong></h2>
+        <form class="contact-form" novalidate>
+          <label class="visually-hidden" for="contact-message">Your message</label>
+          <textarea id="contact-message" name="message" rows="5" required>Hi Ron, I saw your portfolio and would love to talk about </textarea>
+          <button class="card-link contact-send" type="submit">Send message</button>
+        </form>
+        <p class="contact-note">The button opens your email app with the message addressed to me.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Ron — UI/UX Designer</span>
+      <a href="mailto:gwanyung90@gmail.com">gwanyung90@gmail.com</a>
+    </footer>
+
   </div>
-</section>
-<script>
-  (function () {
-    const SECS = 5;
-    const SNOOZE_KEY = 'wip-snooze-until';
-    const backdrop = document.getElementById('wip-backdrop');
-    const ring = document.getElementById('wipRingFill');
-    const snoozeBox = document.getElementById('wipSnooze');
-    const C = 2 * Math.PI * 10;
-    ring.style.strokeDasharray = C;
-    ring.style.strokeDashoffset = 0;
-    let autoClose;
-
-    window.closeWipModal = function () {
-      if (snoozeBox.checked) {
-        localStorage.setItem(SNOOZE_KEY, Date.now() + 24 * 60 * 60 * 1000);
-      }
-      backdrop.classList.remove('visible');
-      clearTimeout(autoClose);
-    };
-
-    function openWipModal() {
-      backdrop.classList.add('visible');
-      ring.style.transition = 'none';
-      ring.style.strokeDashoffset = 0;
-      void ring.offsetWidth;
-      ring.style.transition = `stroke-dashoffset ${SECS}s linear`;
-      ring.style.strokeDashoffset = C;
-      autoClose = setTimeout(closeWipModal, SECS * 1500);
-    }
-
-    window.addEventListener('load', function () {
-      const snoozeUntil = localStorage.getItem(SNOOZE_KEY);
-      if (snoozeUntil && Date.now() < Number(snoozeUntil)) return;
-      setTimeout(openWipModal, 200);
-    });
-  })();
-</script>
-
+</div>
+<script src="script.js"></script>
 </body>
 </html>
-
