@@ -31,7 +31,7 @@ function openModal(src, alt, caption) {
   modal.classList.add('open');
 }
 
-document.querySelectorAll('.image-gallery img').forEach(img => {
+document.querySelectorAll('.image-gallery img, .proto-card img, .solution-group img').forEach(img => {
   img.style.cursor = 'zoom-in';
   img.addEventListener('click', () => openModal(img.src, img.alt, ''));
 });
@@ -58,11 +58,11 @@ const conceptModal = document.getElementById('conceptModal');
 const conceptModalImg = document.getElementById('conceptModalImg');
 const conceptModalText = document.getElementById('conceptModalText');
 
-document.querySelectorAll('.full-bleed-card img').forEach(img => {
+document.querySelectorAll('.concept-row img').forEach(img => {
   img.style.cursor = 'zoom-in';
   img.addEventListener('click', () => {
-    const card = img.closest('.full-bleed-card');
-    const ul = card.querySelector('ul');
+    const row = img.closest('.concept-row');
+    const ul = row.querySelector('ul');
     conceptModalImg.src = img.src;
     conceptModalImg.alt = img.alt;
     conceptModalText.innerHTML = ul ? ul.innerHTML : '';
@@ -72,23 +72,6 @@ document.querySelectorAll('.full-bleed-card img').forEach(img => {
 
 document.getElementById('conceptModalClose').addEventListener('click', () => conceptModal.classList.remove('open'));
 conceptModal.addEventListener('click', e => { if (e.target === conceptModal) conceptModal.classList.remove('open'); });
-
-// ── Swiper init ──
-new Swiper('.prob-swiper', {
-  loop: true,
-  grabCursor: true,
-  pagination: { el: '.swiper-pagination', clickable: true },
-  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-});
-
-new Swiper('.full-bleed-swiper', {
-  slidesPerView: 1,
-  spaceBetween: 24,
-  grabCursor: true,
-  autoHeight: true,
-  pagination: { el: '.full-bleed-swiper .swiper-pagination', clickable: true },
-  navigation: { nextEl: '.full-bleed-swiper-next', prevEl: '.full-bleed-swiper-prev' },
-});
 
 // ── Final Design gallery scroll ──
 function scrollFdGallery(direction) {
